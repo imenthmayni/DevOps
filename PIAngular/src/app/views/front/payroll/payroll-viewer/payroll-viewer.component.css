@@ -1,0 +1,11 @@
+.pdf-viewer {
+  margin: 20px auto; /* Center the PDF viewer horizontally */
+  max-width: 800px; /* Limit the width of the PDF viewer */
+  border: 1px solid #ccc; /* Add a border around the PDF viewer */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+}
+
+.pdf-viewer object {
+  width: 100%; /* Ensure the object (PDF viewer) fills the container */
+  height: 600px; /* Set the height of the PDF viewer */
+}

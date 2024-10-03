@@ -1,0 +1,51 @@
+<!-- Contenu principal -->
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <!-- Bouton de retour -->
+            <div class="mb-3"style="margin-top: 20px; margin-left: 300px;">
+                <a class="btn btn-secondary" routerLink="/admin/task">
+                <i class="bi bi-arrow-left"></i> Retour
+                </a>
+            </div>
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">Add Task</h5>
+                  <!-- Formulaire d'ajout de tâche -->
+                  <form (ngSubmit)="addTask(taskForm)" #taskForm="ngForm">
+                      <div class="mb-3">
+                          <label for="taskName" class="form-label">Task Name</label>
+                          <input type="text" class="form-control" id="taskName" [(ngModel)]="newTask.task_name" name="taskName" required minlength="3">
+                          <div *ngIf="formSubmitted && taskForm.controls['taskName'].errors?.['required']" class="text-danger">Task Name is required.</div>
+                          <div *ngIf="formSubmitted && taskForm.controls['taskName'].errors?.['minlength']" class="text-danger">Task Name must be at least 3 characters long.</div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="startDate" class="form-label">Start Date</label>
+                          <input type="date" class="form-control" id="startDate" [(ngModel)]="newTask.task_startdate" name="startDate" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="endDate" class="form-label">End Date</label>
+                          <input type="date" class="form-control" id="endDate" [(ngModel)]="newTask.task_enddate" name="endDate" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="description" class="form-label">Description</label>
+                          <textarea class="form-control" id="description" [(ngModel)]="newTask.task_description" name="description" required></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="status" class="form-label">Status</label>
+                          <select class="form-select" id="status" [(ngModel)]="newTask.taskStatus" name="status" required>
+                              <option value="NOT_STARTED">Not Started</option>
+                              <option value="IN_PROGRESS">In Progress</option>
+                              <option value="COMPLETED">Completed</option>
+                              <option value="ON_HOLD">On Hold</option>
+                              <option value="CANCELLED">Cancelled</option>
+                          </select>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Add Task</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Fin du contenu principal -->

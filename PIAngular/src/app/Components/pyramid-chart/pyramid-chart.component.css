@@ -1,0 +1,15 @@
+.top-products {
+    margin: 20px;
+  }
+  
+  .product {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .product h3 {
+    margin-top: 0;
+  }
+  

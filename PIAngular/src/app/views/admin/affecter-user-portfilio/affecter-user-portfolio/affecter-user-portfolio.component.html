@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Titre</title>
+    <style>
+        .marge-a-gauche {
+            margin-left: 300px; /* Ajoute une marge à gauche pour l'élément parent */
+        }
+
+        table {
+            width: 100%; /* La table occupe toute la largeur disponible */
+            border-collapse: collapse; /* Fusionne les bordures des cellules */
+            margin-bottom: 20px; /* Ajoute de l'espace en bas de la table */
+        }
+        .selected-button {
+            background-color: green; /* Couleur de fond verte pour le bouton sélectionné */
+            color: white; /* Couleur du texte blanc pour le bouton sélectionné */
+        }
+
+        thead {
+            background-color: #f2f2f2; /* Couleur de fond pour l'en-tête */
+        }
+
+        th, td {
+            padding: 10px; /* Ajoute de l'espace autour du contenu des cellules */
+            border: 1px solid #ddd; /* Bordure de 1px solide avec une couleur grise */
+        }
+
+        .actions {
+            margin-top: 20px; /* Ajoute de l'espace au-dessus du conteneur d'actions */
+        }
+
+        button {
+            padding: 10px 20px; /* Ajoute de l'espace à l'intérieur des boutons */
+            background-color: #007bff; /* Couleur de fond bleue pour les boutons */
+            color: white; /* Couleur du texte blanc pour les boutons */
+            border: none; /* Supprime les bordures des boutons */
+            border-radius: 5px; /* Ajoute un arrondi aux coins des boutons */
+            cursor: pointer; /* Change le curseur en main au survol des boutons */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Couleur de fond bleue plus foncée au survol */
+        }
+    </style>
+</head>
+<body>
+    <!-- Votre contenu HTML existant -->
+    <div class="marge-a-gauche">
+        <h2>Liste des utilisateurs non affectés au portfolio</h2>
+ <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+        user ajouté avec succès!
+    </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>
+                        <button *ngIf="user.id" (click)="selectUser(user.id)" [class.selected-button]="user.id === selectedUserId">Sélectionner</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+ <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+        user ajouté avec succès!
+    </div>
+        <button class="btn btn-primary" routerLink="/admin/portfolio">Retour</button>
+      &nbsp;&nbsp;
+        <div class="actions">
+            <button *ngIf="selectedUserId" (click)="affectUserToPortfolio()">affecter l'utilisateur sélectionné</button>
+        </div>
+            
+    </div>
+</body>
+</html>

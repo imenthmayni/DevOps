@@ -1,0 +1,49 @@
+<div class="container bb">
+    <div class="card">
+        <div class="card-header">
+        <div class="text-center mb-4">
+            <h3 class="card-title mb-4" style="color: #6922cd; font-size: 1.5rem; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #4524c8; padding-bottom: 10px;">List of stock movements</h3>
+        </div> 
+    </div> 
+
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Movement Date</th>
+                <th>Movement Type</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let mouvement of mouvements">
+                <td>{{ mouvement.dateMouvement | date:'dd/MM/yyyy' }}</td>
+                <td>{{ mouvement.typeMouvement }}</td>
+                <td>{{ mouvement.quantite }}</td>
+                <td>
+                  <a [routerLink]="['/admin/edit-mouvement', mouvement.mvtId]" class="btn btn-outline-primary me-2">
+                    <i class="bi bi-pencil-fill"></i>
+                  </a>
+                  <button class="btn btn-outline-danger me-2" (click)="deleteMouvement(mouvement.mvtId)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                  <a [routerLink]="['/admin/mvt-details', mouvement.mvtId]" class="btn btn-outline-secondary">
+                    <i class="bi bi-eye-fill"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <a [routerLink]="['/admin/add-mvt']" class="btn btn-outline-success mr-2">
+            <i class="bi bi-plus-lg"></i>
+          </a>
+          <a [routerLink]="['/admin/chartMvt']" class="btn btn-outline-info ml-2">
+            <i class="bi bi-person-fill"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

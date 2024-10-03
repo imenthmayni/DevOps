@@ -1,0 +1,37 @@
+     /* Styles pour le tableau */
+     .table-container {
+        max-width: 1200px; /* Largeur maximale du conteneur */
+        margin: 0 auto; /* Centrer le conteneur */
+        padding: 20px; /* Ajouter de l'espace autour du tableau */
+        overflow-x: auto; /* Ajouter une barre de défilement horizontale si nécessaire */
+    }
+
+    .table {
+        width: max-content; /* Définir la largeur en fonction du contenu */
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .table th, .table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .table td {
+        font-size: 14px;
+        color: #666;
+    }

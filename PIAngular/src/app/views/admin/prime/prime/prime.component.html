@@ -1,0 +1,72 @@
+<div class="pc-container">
+    <div class="pcoded-content">
+        <div class="col-xl-12 col-md-12">
+            <!-- <div class="card table-card">
+                <div class="card-header"> -->
+                  
+                    <h1 style=" font-size: 20px; color: blue; font-weight: bold; text-align: center; margin-bottom: 30px ">Prime List</h1>   
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <button routerLink = "/admin/prime/add-prime" class="btn bi bi-database-add btn-primary">
+                        Add Prime
+                    </button>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="name">Month</label>
+                    <input type="text" name="seniority_search" [(ngModel)]="filters.keyword" (input) = "loadPrime()">
+                </div>
+            </div>
+            <!-- support-section start -->
+            <!-- support-section end -->
+            <!-- customer-section start -->
+            <div class="col-xl-12 col-md-12">
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h5>Primes</h5>
+                    </div>
+                    <div class="pro-scroll" style="height:255px;position:relative;">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover m-b-0">
+                                    <thead>
+                                        <tr>
+                                            <th>designation</th>
+                                            <th>Ammount</th>
+                                            <th>Month</th>
+                                            <th>Year</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let prime of primes">
+                                            <td>{{prime.prime_designation}}</td>
+                                            <td>{{prime.value_amount}}</td>
+                                            <td>{{prime.prime_month}}</td>
+                                            <td>{{prime.prime_year}}</td>
+                                           <td>                                      
+                                                <button type="button" class="btn bi bi-pencil btn-warning" 
+                                                    routerLink = "/admin/prime/edit-prime/{{prime.prime_id}}" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    Edit
+                                                </button>
+                                                
+                                                <button type="button" class="btn bi bi-trash btn-danger" [hidden]=" user.role == 'ROLE_HRE'" 
+                                                    (click)="deletePrime(prime.prime_id || 0)" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    Delete
+                                                </button>                                        
+                                            </td>
+                                        </tr>                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- customer-section end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+    </div>

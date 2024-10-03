@@ -1,0 +1,146 @@
+<!-- <div class="marge-a-gauche">
+
+    <div class="container">
+        <h2 class="mt-4 mb-4">Ajouter un portfolio</h2>
+        <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+            portfolio ajouté avec succès!
+        </div>
+        
+        
+        <form [formGroup]="portfolioForm" (ngSubmit)="addPortfolio()" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="potfolio_name" class="form-label">potfolio_name</label>
+            <input type="text" id="potfolio_name" formControlName="potfolio_name" class="form-control" required>
+            <br>
+            <div *ngIf="portfolioForm.get('potfolio_name')?.hasError('required') && portfolioForm.get('potfolio_name')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+    
+          <div class="mb-3">
+            <label for="creation_date" class="form-label">creation_date</label>
+            <input type="date" id="creation_date" formControlName="creation_date" class="form-control" required>
+            <br>
+            <div *ngIf="portfolioForm.get('creation_date')?.hasError('required') && portfolioForm.get('creation_date')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+    
+    
+            <div class="mb-3">
+              <span>
+              <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;
+                <label for="potfolio_description" class="form-label">potfolio_description</label></span>
+                <input type="text" id="potfolio_description" formControlName="potfolio_description" class="form-control" required>
+                <br>
+                <div *ngIf="portfolioForm.get('potfolio_description')?.hasError('required') && portfolioForm.get('potfolio_description')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+                </div>
+              </div>
+    
+              <div class="mb-3">
+                <span>
+                <i class="fas fa-envelope"></i>&nbsp;&nbsp;
+                <label for="potfolio_manager" class="form-label">potfolio_manager</label></span>
+                <input type="text" id="potfolio_manager" formControlName="potfolio_manager" class="form-control" required>
+                <br>
+                <div *ngIf="portfolioForm.get('potfolio_manager')?.hasError('required') && portfolioForm.get('potfolio_manager')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+                </div>
+              </div>
+    
+              <div class="mb-3">
+                <span>
+                <i class="fas fa-envelope"></i>&nbsp;&nbsp;
+                <label for="nbr_client" class="form-label">nbr_client</label></span>
+                <input type="number" id="nbr_client" formControlName="nbr_client" class="form-control" required>
+                <br>
+                <div *ngIf="portfolioForm.get('nbr_client')?.hasError('required') && portfolioForm.get('nbr_client')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+                </div>
+              </div>
+
+            
+            
+          </div>
+         
+          <button type="submit" class="btn btn-primary">Ajouter portfolio</button>
+        </form>
+      </div>
+    </div>
+    
+
+     -->
+     <div class="marge-a-gauche">
+      <div class="container">
+          <h2 class="mt-4 mb-4">Ajouter un portfolio</h2>
+          <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+              Portfolio ajouté avec succès!
+          </div>
+  
+          <form [formGroup]="portfolioForm" (ngSubmit)="addPortfolio()" class="needs-validation" novalidate>
+              <div class="mb-3">
+                  <label for="potfolio_name" class="form-label">
+                      <i class="fas fa-address-card"></i>&nbsp; Nom du portfolio</label>
+                  <input type="text" id="potfolio_name" formControlName="potfolio_name" class="form-control" required>
+                  <div *ngIf="portfolioForm.get('potfolio_name')?.hasError('required') && portfolioForm.get('potfolio_name')?.touched"
+                      class="alert alert-danger">Ce champ est requis</div>
+              </div>
+  
+              <div class="mb-3">
+                  <label for="creation_date" class="form-label">
+                      <i class="far fa-calendar-alt"></i>&nbsp; Date de création</label>
+                  <input type="date" id="creation_date" formControlName="creation_date" class="form-control" required>
+                  <div *ngIf="portfolioForm.get('creation_date')?.hasError('required') && portfolioForm.get('creation_date')?.touched"
+                      class="alert alert-danger">Ce champ est requis</div>
+              </div>
+  
+              <div class="mb-3">
+                  <label for="potfolio_description" class="form-label">
+                      <i class="fas fa-info-circle"></i>&nbsp; Description du portfolio</label>
+                  <input type="text" id="potfolio_description" formControlName="potfolio_description" class="form-control"
+                      required>
+                  <div *ngIf="portfolioForm.get('potfolio_description')?.hasError('required') && portfolioForm.get('potfolio_description')?.touched"
+                      class="alert alert-danger">Ce champ est requis</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="nbr_client" class="form-label">
+                    <i class="fas fa-info-circle"></i>&nbsp; nbr_client</label>
+                <input type="number" id="nbr_client" formControlName="nbr_client" class="form-control"
+                    required>
+                <div *ngIf="portfolioForm.get('nbr_client')?.hasError('required') && portfolioForm.get('nbr_client')?.touched"
+                    class="alert alert-danger">Ce champ est requis</div>
+            </div>
+
+               <div class="mb-3">
+                <label for="domain" class="form-label">
+                    <i class="fas fa-info-circle"></i>&nbsp; domaine du portfolio</label>
+                <input type="text" id="domain" formControlName="domain" class="form-control"
+                    required>
+                <div *ngIf="portfolioForm.get('domain')?.hasError('required') && portfolioForm.get('domain')?.touched"
+                    class="alert alert-danger">Ce champ est requis</div>
+            </div> 
+           
+              <div class="mb-3">
+                  <label for="potfolio_manager" class="form-label">
+                      <i class="fas fa-user"></i>&nbsp; Manager du portfolio</label>
+                  <input type="text" id="potfolio_manager" formControlName="potfolio_manager" class="form-control" required>
+                  <div *ngIf="portfolioForm.get('potfolio_manager')?.hasError('required') && portfolioForm.get('potfolio_manager')?.touched"
+                      class="alert alert-danger">Ce champ est requis</div>
+              </div>
+  
+              
+  
+              <button class="btn btn-primary" routerLink="/admin/portfolio">retour</button>
+              &nbsp;&nbsp;
+            <!--  <button type="submit" class="btn btn-primary" [disabled]="!portfolioForm.valid || isSubmitting">
+                <span *ngIf="!isSubmitting">Ajouter portfolio</span>
+                <span *ngIf="isSubmitting">En cours...</span>
+            </button>   -->    
+            <button type="submit" class="btn btn-primary" [disabled]="!portfolioForm.valid || isSubmitting">
+              <span *ngIf="!isSubmitting">Ajouter portfolio</span>
+              <span *ngIf="isSubmitting">En cours...</span>
+          </button>   </form>
+      </div>
+  </div>
+  

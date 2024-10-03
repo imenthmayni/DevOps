@@ -1,0 +1,90 @@
+/* toastr-custom.css */
+
+/* Center the toastr notification */
+.toast-center {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  /* Customize the toastr container */
+  .toast-container {
+    width: 400px; /* Set the width of the toastr container */
+  }
+  
+  /* Customize the toastr notification */
+  .toast {
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    background-color: #333; /* Set the background color */
+    color: #fff; /* Set the text color */
+    font-size: 18px; /* Set the font size */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow for depth */
+  }
+  
+  /* Customize the title */
+  .toast-title {
+    font-weight: bold;
+    margin-bottom: 5px; /* Add margin below the title */
+  }
+  
+  /* Customize the message */
+  .toast-message {
+    margin-bottom: 10px; /* Add margin below the message */
+  }
+  /* Define custom styles for Toastr notifications */
+.toast-top-center {
+  top: 20px; /* Adjust the distance from the top of the page */
+  right: 50%; /* Center the notification horizontally */
+  transform: translateX(50%); /* Center the notification horizontally */
+}
+
+/* Customize the appearance of the notification container */
+.toast-top-center > .toast-container {
+  width: auto; /* Set width to auto for dynamic sizing */
+  max-width: 400px; /* Set maximum width for larger screens */
+  padding: 10px; /* Add padding to the container */
+}
+
+/* Customize the appearance of the notification */
+.toast-top-center .toast {
+  background-color: #007bff; /* Set background color */
+  color: #ffffff; /* Set text color */
+  border-radius: 5px; /* Add border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add box shadow */
+}
+
+/* Customize the appearance of the notification title */
+.toast-top-center .toast-title {
+  font-weight: bold; /* Set font weight to bold */
+}
+
+/* Customize the appearance of the notification message */
+.toast-top-center .toast-message {
+  font-size: 16px; /* Set font size */
+}
+
+/* Customize the appearance of the progress bar */
+.toast-top-center .toast-progress {
+  background-color: rgba(255, 255, 255, 0.2); /* Set background color */
+}
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInOut 5s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1rem;
+}

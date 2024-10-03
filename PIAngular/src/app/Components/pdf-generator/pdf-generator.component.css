@@ -1,0 +1,276 @@
+
+.prod{
+  padding-top: 20% !important;
+}
+
+
+.invoice-container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .invoice-header, .invoice-client, .invoice-details, .invoice-footer {
+    padding: 10px;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+  }
+  
+  .invoice-header h2, .invoice-header h3 {
+    margin: 0;
+  }
+  
+  .invoice-details table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .invoice-meta {
+   margin-left:500px;
+  }
+  .invoice-details table, .invoice-details th, .invoice-details td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .invoice-details th {
+    background-color: #095ffd;
+    color:#eee;
+  }
+  
+  .totals, .payment-info {
+    margin-top: 20px;
+  }
+  
+  .totals p, .payment-info p {
+    margin: 5px 0;
+  }
+  
+  .invoice-footer p {
+    margin: 0;
+  }
+ 
+
+
+  .totals {
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  .total-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .total-label {
+    font-weight: bold;
+  }
+  
+  .total-amount {
+    font-weight: bold;
+    color: #007BFF;
+  }
+  
+  .total-ttc .total-label,
+  .total-ttc .total-amount {
+    color: #ff0000; /* Or any color that signifies importance */
+  }
+  
+  /* Additional styling for responsiveness and aesthetic */
+  @media (max-width: 600px) {
+    .totals {
+      padding: 10px 5px;
+    }
+    .total-line {
+      font-size: 0.9em;
+    }
+  }
+  /* FOOTERRRR */
+
+  .invoice-footer {
+    background-color: #f8f8f8; /* Or any other color that fits your brand */
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-top: 3px solid #007BFF; /* A gold border, or choose a color that matches your branding */
+  }
+  
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto; /* This centers your footer content */
+  }
+  
+  .footer-title {
+    font-weight: bold;
+  }
+  
+  p {
+    margin: 4px 0; /* Gives a little space between each line */
+  }
+  
+  /* Additional responsive design */
+  @media (max-width: 768px) {
+    .invoice-footer {
+      padding: 5px 10px;
+    }
+  
+    .footer-content {
+      max-width: 100%;
+    }
+  
+    .footer-title {
+      display: block; /* Stack the label above the value on small screens */
+    }
+  }
+  .btn-download {
+    position: fixed;
+    bottom: 20px; /* Distance depuis le bas de la fenêtre du navigateur */
+    left: 20px; /* Distance depuis le côté droit de la fenêtre du navigateur */
+    z-index: 1000; /* Assurez-vous que le bouton reste au-dessus des autres éléments de la page */
+  }
+  
+  .btn-suivant {
+    position: fixed;
+    bottom: 80px; /* Distance depuis le bas de la fenêtre du navigateur */
+    left: 20px; /* Distance depuis le côté droit de la fenêtre du navigateur */
+    z-index: 18; /* Assurez-vous que le bouton reste au-dessus des autres éléments de la page */
+  }
+/* 
+  ////////progress bar */
+  .oo {
+    padding-top: 5% !important;
+  }
+
+html {
+	-webkit-font-smoothing: antialiased!important;
+	-moz-osx-font-smoothing: grayscale!important;
+	-ms-font-smoothing: antialiased!important;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size:16px;
+  color:#555555; 
+}
+.md-stepper-horizontal {
+	display:table;
+	width:100%;
+	margin:0 auto;
+	background-color:#FFFFFF;
+	box-shadow: 0 3px 8px -6px rgba(0,0,0,.50);
+}
+.md-stepper-horizontal .md-step {
+	display:table-cell;
+	position:relative;
+	padding:24px;
+}
+.md-stepper-horizontal .md-step:hover,
+.md-stepper-horizontal .md-step:active {
+	background-color:rgba(0,0,0,0.04);
+}
+.md-stepper-horizontal .md-step:active {
+	border-radius: 15% / 75%;
+}
+.md-stepper-horizontal .md-step:first-child:active {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.md-stepper-horizontal .md-step:last-child:active {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.md-stepper-horizontal .md-step:hover .md-step-circle {
+	background-color:#757575;
+}
+.md-stepper-horizontal .md-step:first-child .md-step-bar-left,
+.md-stepper-horizontal .md-step:last-child .md-step-bar-right {
+	display:none;
+}
+.md-stepper-horizontal .md-step .md-step-circle {
+	width:30px;
+	height:30px;
+	margin:0 auto;
+	background-color:#999999;
+	border-radius: 50%;
+	text-align: center;
+	line-height:30px;
+	font-size: 16px;
+	font-weight: 600;
+	color:#FFFFFF;
+}
+.md-stepper-horizontal.green .md-step.active .md-step-circle {
+	background-color:#00AE4D;
+}
+.md-stepper-horizontal.orange .md-step.active .md-step-circle {
+	background-color:#007BFF;
+}
+.md-stepper-horizontal .md-step.active .md-step-circle {
+	background-color: rgb(33,150,243);
+}
+.md-stepper-horizontal .md-step.done .md-step-circle:before {
+	font-family:'FontAwesome';
+	font-weight:100;
+	content: "\f00c";
+}
+.md-stepper-horizontal .md-step.done .md-step-circle *,
+.md-stepper-horizontal .md-step.editable .md-step-circle * {
+	display:none;
+}
+.md-stepper-horizontal .md-step.editable .md-step-circle {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+.md-stepper-horizontal .md-step.editable .md-step-circle:before {
+	font-family:'FontAwesome';
+	font-weight:100;
+	content: "\f040";
+}
+.md-stepper-horizontal .md-step .md-step-title {
+	margin-top:16px;
+	font-size:16px;
+	font-weight:600;
+}
+.md-stepper-horizontal .md-step .md-step-title,
+.md-stepper-horizontal .md-step .md-step-optional {
+	text-align: center;
+	color:rgba(0,0,0,.26);
+}
+.md-stepper-horizontal .md-step.active .md-step-title {
+	font-weight: 600;
+	color:rgba(0,0,0,.87);
+}
+.md-stepper-horizontal .md-step.active.done .md-step-title,
+.md-stepper-horizontal .md-step.active.editable .md-step-title {
+	font-weight:600;
+}
+.md-stepper-horizontal .md-step .md-step-optional {
+	font-size:12px;
+}
+.md-stepper-horizontal .md-step.active .md-step-optional {
+	color:rgba(0,0,0,.54);
+}
+.md-stepper-horizontal .md-step .md-step-bar-left,
+.md-stepper-horizontal .md-step .md-step-bar-right {
+	position:absolute;
+	top:36px;
+	height:1px;
+	border-top:1px solid #DDDDDD;
+}
+.md-stepper-horizontal .md-step .md-step-bar-right {
+	right:0;
+	left:50%;
+	margin-left:20px;
+}
+.md-stepper-horizontal .md-step .md-step-bar-left {
+	left:0;
+	right:50%;
+	margin-right:20px;
+}
+
+
+
+
+

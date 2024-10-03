@@ -1,0 +1,64 @@
+<!-- ... autres éléments de votre template -->
+<p>resource works!</p>
+
+<!-- Lien "Ajouter une ressource" stylisé -->
+<div class="text-center">
+    <a routerLink="/admin/addresource" class="btn btn-primary mr-3">
+        <i class="bi bi-plus"></i> Ajouter une ressource
+    </a>
+</div>
+
+<!-- Menu déroulant pour le tri -->
+<div class="form-group" style="margin-top: 20px; margin-left: 300px;">
+    <label for="sortBy">Sort By:</label>
+    <select class="form-control" id="sortBy" (change)="onSortChange($event)">
+        <option value="resourceId">Resource ID</option>
+        <option value="resourceName">Resource Name</option>
+        <option value="resourcesDescription">Description</option>
+        <option value="resourceType">Type</option>
+        <option value="resourcesCost">Cost</option>
+    </select>
+</div>
+<div class="row" style="margin-top: 20px; margin-left: 300px;">
+    <ng-container *ngFor="let resource of visibleResources">
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-center">Resource ID: {{ resource.resourceId }}</h5>
+            <p class="card-text"><strong>Resource Name:</strong> {{ resource.resourceName }}</p>
+            <p class="card-text"><strong>Description:</strong> {{ resource.resourcesDescription }}</p>
+            <p class="card-text"><strong>Type:</strong> {{ resource.resourceType }}</p>
+            <p class="card-text"><strong>Cost:</strong> {{ resource.resourcesCost }}</p>
+            <div class="text-center">
+              <button class="btn btn-danger btn-sm" (click)="deleteResource(resource.resourceId)">Supprimer</button>
+              <a [routerLink]="['/updateresource', resource.resourceId]" class="btn btn-warning btn-sm">Modifier</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  
+  <div *ngIf="errorMessage" class="alert alert-danger mt-4">
+    {{ errorMessage }}
+  </div>
+  
+<!-- ... autres éléments de votre template -->
+
+
+
+<!-- Card for Cost by Project Chart -->
+<div class="card support-bar overflow-hidden mb-4" style="margin-top: 50px; margin-left:300px;">
+  <div class="card-body">
+    <h5 class="card-title mb-4">Cost by Project</h5>
+    <canvas #costByProjectChart width="400" height="200"></canvas>
+  </div>
+</div>
+
+<!-- Card for Resources by Type Chart -->
+<div class="card support-bar overflow-hidden mb-4" style="margin-top: 50px; margin-left:300px;">
+  <div class="card-body">
+    <h5 class="card-title mb-4">Resources by Type</h5>
+    <canvas #resourcesByTypeChart width="400" height="200"></canvas>
+  </div>
+</div>

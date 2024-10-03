@@ -1,0 +1,37 @@
+<!-- Contenu principal -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Budget</h5>
+                    <!-- Formulaire d'ajout de budget -->
+                    <form (ngSubmit)="addBudget(budgetForm)" #budgetForm="ngForm">
+                        
+                        <div class="mb-3">
+                            <label for="budget_amount" class="form-label">Budget Amount</label>
+                            <textarea class="form-control" id="budget_amount" [(ngModel)]="newBudget.budget_amount" name="budget_amount" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dependencies" class="form-label">Dependencies</label>
+                            <textarea class="form-control" id="dependencies" [(ngModel)]="newBudget.dependencies" name="dependencies" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectId" class="form-label">Project ID</label>
+                            <input class="form-control" id="projectId" [(ngModel)]="newBudget.project.projectId" name="projectId" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Add Budget</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div *ngIf="budgetAssigned" class="alert alert-success" role="alert">
+      Le budget a été affecté au projet avec succès !
+    </div>
+  </div>
+  
+<!-- Fin du contenu principal -->

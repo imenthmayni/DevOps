@@ -1,0 +1,245 @@
+
+
+<div class="container oo">
+
+
+  <div class="md-stepper-horizontal orange">
+      <div class="md-step active ">
+        <a routerLink="/cart">
+        <div class="md-step-circle"><span>1</span></div>
+        <div class="md-step-title">Cart</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a>
+      </div>
+      <div class="md-step active ">
+        <a routerLink="/checkout">
+        <div class="md-step-circle"><span>2</span></div>
+        <div class="md-step-title">Checkout</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a> </div>
+  
+      <div class="md-step active">
+        <a routerLink="/facture">
+        <div class="md-step-circle"><span>3</span></div>
+        <div class="md-step-title">Invoice</div>
+        <div class="md-step-optional">Optional</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a>
+      </div>
+  
+  
+      <div class="md-step">
+        <a routerLink="/confirmation">
+        <div class="md-step-circle"><span>4</span></div>
+        <div class="md-step-title">Confirmation</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a>
+      </div>
+  
+  
+    </div>
+  
+    <hr>
+  
+  
+    <p>Already a customer? <a href="#" (click)="openSignInModal()">Click here to log in</a></p>
+  
+  
+    <p>Do you have a promo code? <a href="#">CLICK HERE TO ENTER YOUR CODE</a></p>
+    
+  
+    <!-- Formulaire de connexion -->
+  
+  <!-- FORMULAIIIIIIIIIIIIIIIIIIIIIIIIIRE -->
+  
+  
+  
+    <div id="cartContents">
+      <div class="row">
+        <!-- Cartes des produits -->
+        <div class="col-md-8">
+        <div class="card mb-5">
+          <div class="card-body">
+          </div>
+          <div class="card-body">
+            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="firstname" class="form-label"><i class="fa fa-user me-2"></i><B>First Name	</B> </label>
+                <input formControlName="firstname" placeholder="First Name" class="form-control" id="firstname">
+                <!-- Feedback utilisateur -->
+                <div *ngIf="checkoutForm.get('firstname')?.invalid && (checkoutForm.get('firstname')?.touched || checkoutForm.get('firstname')?.dirty)">
+                  <small class="text-danger" *ngIf="checkoutForm.get('firstname')?.errors?.['required']">
+                    First Name is required.
+                  </small>
+                  <small class="text-danger" *ngIf="checkoutForm.get('firstname')?.errors?.['pattern']">
+                    First Name must be alphabetic.
+                  </small>
+                </div>
+              </div>
+                
+                
+             <!-- Last Name Field -->
+  <div class="mb-3">
+    <label for="lastname" class="form-label "><i class="fa fa-user me-2"></i><b>Last Name</b> </label>
+    <input formControlName="lastname" placeholder="Last Name" class="form-control" id="lastname">
+    <div *ngIf="checkoutForm.get('lastname')?.invalid && (checkoutForm.get('lastname')?.touched || checkoutForm.get('lastname')?.dirty)">
+      <small class="text-danger">
+        *Last Name is required.
+      </small>
+    </div>
+  </div>
+  
+  
+  
+  
+              <!-- Phone Field -->
+              <div class="mb-3">
+                <label for="phone" class="form-label"><i class="fa fa-phone me-2"></i> <b>Phone</b></label>
+                <input formControlName="phone" placeholder="Phone" class="form-control" id="phone">
+                <div *ngIf="checkoutForm.get('phone')?.invalid && (checkoutForm.get('phone')?.touched || checkoutForm.get('phone')?.dirty)">
+                  <small class="text-danger" *ngIf="checkoutForm.get('phone')?.errors?.['required']">
+                    *Phone is required.
+                  </small>
+                  <small class="text-danger" *ngIf="checkoutForm.get('phone')?.errors?.['pattern']">
+                    *Phone must be numeric.
+                  </small>
+                </div>
+            </div>
+    <!-- Email Field -->
+    <div class="mb-3">
+      <label for="email" class="form-label"><i class="fa fa-envelope me-2"></i><b>Email</b></label>
+      <input formControlName="email" type="email" placeholder="Email" class="form-control" id="email">
+      <div *ngIf="checkoutForm.get('email')?.invalid && (checkoutForm.get('email')?.touched || checkoutForm.get('email')?.dirty)">
+        <small class="text-danger" *ngIf="checkoutForm.get('email')?.errors?.['required']">
+          *Email is required.
+        </small>
+        <small class="text-danger" *ngIf="checkoutForm.get('email')?.errors?.['email']">
+          *Please enter a valid email address.
+        </small>
+      </div>
+  </div>
+    <!-- Address Field -->
+    <div class="mb-3">
+      <label for="address" class="form-label"><i class="fa fa-home me-2"></i><b>Address</b> </label>
+      <input formControlName="address" placeholder="Address" class="form-control" id="address">
+      <div *ngIf="checkoutForm.get('address')?.invalid && (checkoutForm.get('address')?.touched || checkoutForm.get('address')?.dirty)">
+        <small class="text-danger" *ngIf="checkoutForm.get('address')?.errors?.['required']">
+          *Address is required.
+        </small>
+        <small class="text-danger" *ngIf="checkoutForm.get('address')?.errors?.['maxlength']">
+          *Address can be max 50 characters long.
+        </small>
+      </div>
+  </div>
+  
+    <!-- Country Field -->
+    <div class="mb-3">
+      <label for="country" class="form-label"><i class="fa fa-flag me-2"></i> <b>Country</b></label>
+      <select formControlName="country" class="form-control" id="country">
+        <option value="">Select Country</option>
+        <option value="Tunisia">Tunisia</option>
+        <option value="France">France</option>
+        <option value="Italy">Italy</option>
+        <option value="Algeria">Algeria</option>
+      </select>
+      <div *ngIf="checkoutForm.get('country')?.invalid && (checkoutForm.get('country')?.touched || checkoutForm.get('country')?.dirty)">
+        <small class="text-danger" *ngIf="checkoutForm.get('country')?.errors?.['required']">
+          *Country is required.
+        </small>
+      </div>
+  </div>
+    
+    <!-- Town Field -->
+    <div class="mb-3">
+      <label for="government" class="form-label"><i class="fa fa-city me-2"></i> <b>Government</b></label>
+      <input formControlName="government" placeholder="Government" class="form-control" id="government">
+      <div *ngIf="checkoutForm.get('government')?.invalid && (checkoutForm.get('government')?.touched || checkoutForm.get('government')?.dirty)">
+        <small class="text-danger" *ngIf="checkoutForm.get('government')?.errors?.['required']">
+          *Government is required.
+        </small>
+      </div>
+  </div>
+    
+  
+  <!-- Postal Code Field -->
+  <div class="mb-3">
+    <label for="postalcode" class="form-label"><i class="fa fa-envelope-open-text me-2"></i> <b>Postal Code</b></label>
+    <input formControlName="postalcode" placeholder="Postal Code" class="form-control" id="postalcode">
+    <div *ngIf="checkoutForm.get('postalcode')?.invalid && (checkoutForm.get('postalcode')?.touched || checkoutForm.get('postalcode')?.dirty)">
+      <small class="text-danger" *ngIf="checkoutForm.get('postalcode')?.errors?.['required']">
+        *Postal Code is required.
+      </small>
+      <small class="text-danger" *ngIf="checkoutForm.get('postalcode')?.errors?.['pattern']">
+        *Postal Code format is invalid.
+      </small>
+      <small class="text-danger" *ngIf="checkoutForm.get('postalcode')?.errors?.['maxlength']">
+        *Postal Code must not exceed 4 characters.
+      </small>
+    </div>
+  </div>
+  
+  
+  
+  <!-- Payment Method Field -->
+  <div class="mb-3">
+    <label for="commandPayment" class="form-label"><i class="fa fa-credit-card me-2"></i> <b>Payment Method</b></label>
+    <select formControlName="commandPayment" class="form-control" id="commandPayment">
+      <option value="">Select Payment Method</option>
+      <option value="ONLINE_PAYMENT">Online Payment</option>
+      <option value="CASH_ON_DELIVERY">Cash on Delivery</option>
+    </select>
+  </div>
+  
+    
+              <div class="alert alert-success" role="alert" id="success_message"><i class="glyphicon glyphicon-thumbs-up"></i> Thanks for providing correct informantions about you, we will get back to you shortly.</div>
+  
+              <button type="submit" [disabled]="!checkoutForm.valid" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+     
+      <!-- CARD ELI AAL YMIN -->
+      <div class="col-md-4">
+        <div class="card mb-4 shadow">
+          <div class="card-body">
+            <h2 class="text-2xl font-semibold">TOTAL PANIER</h2>
+            <hr class="2" />
+            <div class="pt-4">
+              <span><strong>Sub-total</strong> </span>
+              <div class="flex justify-between text-right">
+                <strong>{{ getTotalSum() }} TDN</strong>            </div>
+              <hr />
+              <span><strong>Expedition</strong>  </span>
+              <div class="text-right">
+                <!-- <span>Home delivery across Tunisia (48h working days):</span>
+                <p><span><strong>4.500 TND</strong></span></p> -->
+                <div class="text-right">
+                  Delivery options will be updated at checkout.
+                </div>
+              </div>
+              <hr />
+            </div>
+            <div class="pt-4">
+              <span><strong>Total</strong></span>
+              <div class="flex justify-between text-right">
+                <span><strong>{{ (getTotalSum() + 4.500)  }}</strong> TND (dont TVA <strong>19%</strong>)</span>
+              </div>
+                   <div class="flex flex-col p-4 space-y-4">
+              <!-- Validate Order Button -->
+                <a routerLink="/checkout" class="btn btn-primary text-white bg-[#3776fe] font-bold py-8 px-16 rounded w-auto">
+                  VALIDATE
+               </a>
+          </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+   
+  

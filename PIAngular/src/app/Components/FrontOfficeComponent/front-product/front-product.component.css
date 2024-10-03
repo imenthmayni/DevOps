@@ -1,0 +1,345 @@
+.row{
+    padding-top: 8% !important;
+    padding-left: 5% !important;
+    padding-right: 10% !important;
+ 
+}
+
+.fab-button {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    
+    border-radius: 50%;
+    background-color:  #3776fe;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .fab-button img {
+    width: 50px;
+    height: 40px;
+  }
+  
+  .fab-button-top {
+    position: fixed;
+    top: 20px; /* Ou toute autre valeur de positionnement verticale */
+    right: 20px; /* Ou toute autre valeur de positionnement horizontale */
+    z-index: 999; /* Assurez-vous que le bouton est au-dessus des autres éléments */
+  }
+  .custom-button {
+    background-color: #3776fe; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    padding: 10px 20px; /* Espacement intérieur */
+    border: none; /* Supprimer la bordure */
+    border-radius: 5px; /* Bordure arrondie */
+    cursor: pointer; /* Curseur de type main */
+  }
+  
+  .custom-button:hover {
+    background-color: #285ac8; /* Couleur de fond au survol */
+  }
+ /* Ajoutez ces styles dans votre fichier CSS */
+
+ .out-of-stock {
+  background-image: url('src/assets/images/out.png'); /* Chemin de l'image de rupture de stock */
+  background-size: cover; /* Pour couvrir toute la surface de la carte */
+  background-size:200px 100px; /* Dimensions de l'image */
+  background-repeat: no-repeat; /* Empêcher la répétition de l'image */
+  background-position: top right; /* Centrer l'image */
+}
+
+
+
+
+.wheel-container {
+  display: flex;
+  align-items: center; /* Centre les éléments verticalement */
+  justify-content: space-around; /* Espacement autour des éléments */
+}
+
+
+.promo-code {
+  color: red;
+}
+.spin-button {
+  background-color: #4CAF50; /* Couleur de fond verte */
+  color: white; /* Texte blanc */
+  padding: 15px 32px; /* Espacement autour du texte */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px; /* Bords arrondis */
+  border: none; /* Pas de bordure */
+  transition: background-color 0.3s ease; /* Animation de couleur de fond */
+}
+
+.spin-button:hover {
+  background-color: #45a049; /* Changement de couleur au survol */
+}
+.selected-segment-info {
+  max-width: 40%; /* Ajustez en fonction de votre design */
+  margin: 0 20px; /* Ajoute des marges autour du texte pour la lisibilité */
+  padding: 20px; /* Plus d'espace à l'intérieur de la zone d'informations */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionnel : ajoute une ombre pour la profondeur */
+  border-radius: 5px; /* Optionnel : adoucit les coins */
+  color: rgb(255, 255, 255);
+}
+
+h2 {
+  text-align: center;
+}
+
+.p {
+  text-align: center;
+  padding-top: 130px;
+}
+
+text {
+  font-family: 'Arial', sans-serif;
+  font-size: 15px; /* Ajustez en fonction de l'espace disponible */
+}
+
+/* 
+.fab-button-bottom {
+  position: fixed;
+  bottom: 520px;
+  right: 20px; 
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #3776fe;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.fab-button-bottom img {
+  width: 50px;
+  height: 40px;
+} */
+/* .fab-button i {
+  color: white !important;
+  font-size: 30px !important;
+}
+
+.fab-button-wishlist {
+  position: fixed;
+  bottom: 450px; 
+  right: 20px; 
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #3776fe; 
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+} */
+
+/* .fab-button-wishlist i {
+  color: white; 
+  font-size: 24px; 
+} */
+   /* wishlist button */
+   
+
+
+
+
+
+
+
+
+
+   li {
+	padding: 20px;
+}
+
+header li {
+	list-style: none;
+	display: inline-block;
+	padding: 30px 20px 20px 20px;
+}
+
+#logo {
+	text-align: center;
+	display: inline-table;
+	width: 70%;
+}
+
+header {
+	background-color: aliceblue;
+	box-shadow: 0px 10px 10px 0px aliceblue;
+}
+
+#sub-categories {
+	background-color: white;
+	clear: both;
+}
+
+.selected {
+	background-color: white;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	margin: 10px;
+}
+
+#main-categories {
+	float: left;
+}
+
+main {
+	display: flex;
+	height: 80vh;
+}
+
+aside {
+	flex: 1;
+	background-color: white;
+	box-shadow: 0px 10px 10px 10px aliceblue;
+  overflow: auto;
+}
+
+
+
+#sort-order {
+	float: right;
+	padding: 10px;
+}
+
+article {
+	height: 300px;
+	width: 200px;
+	background-color: aliceblue;
+	margin: 10px;
+	display: inline-block;
+}
+
+#item-catalog {
+	padding: 20px;
+	flex: 4;
+}
+
+#items {
+	clear: both;
+	overflow: auto;
+	height: 100%;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+
+
+li {
+	padding: 20px;
+}
+
+header li {
+	list-style: none;
+	display: inline-block;
+	padding: 30px 20px 20px 20px;
+}
+
+#logo {
+	text-align: center;
+	display: inline-table;
+	width: 70%;
+}
+
+header {
+	background-color: aliceblue;
+	box-shadow: 0px 10px 10px 0px aliceblue;
+}
+
+#sub-categories {
+	background-color: white;
+	clear: both;
+}
+
+.selected {
+	background-color: white;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	margin: 10px;
+}
+
+#main-categories {
+	float: left;
+}
+
+main {
+	display: flex;
+	height: 80vh;
+}
+
+aside {
+	flex: 1;
+	background-color: white;
+	box-shadow: 0px 10px 10px 10px aliceblue;
+  overflow: auto;
+}
+
+
+
+#sort-order {
+	float: right;
+	padding: 10px;
+}
+
+article {
+	height: 300px;
+	width: 200px;
+	background-color: aliceblue;
+	margin: 10px;
+	display: inline-block;
+}
+
+#item-catalog {
+	padding: 20px;
+	flex: 4;
+}
+
+#items {
+	clear: both;
+	overflow: auto;
+	height: 100%;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+.sub-category-link {
+  text-decoration: none;
+  color: #333; /* Couleur du texte */
+  font-size: 16px; /* Taille de la police */
+  font-weight: bold; /* Poids de la police */
+  transition: color 0.3s ease; /* Transition fluide de la couleur du texte */
+}
+
+.sub-category-link:hover {
+  color: #007bff; /* Couleur du texte au survol */
+}

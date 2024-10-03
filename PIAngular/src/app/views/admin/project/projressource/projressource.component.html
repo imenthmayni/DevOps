@@ -1,0 +1,62 @@
+<p>projressource works!</p>
+
+
+<!-- Boucle sur les ressources -->
+<div style="margin-left: 300px;">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Lien de retour stylisé -->
+      <div class="mb-3" style="margin-top: 20px; margin-left: 300px;">
+        <a class="btn btn-secondary" routerLink="/admin/projects">
+          <i class="bi bi-arrow-left"></i> Retour à la liste des projets
+        </a>
+      </div>
+    </div>
+  </div>
+<!-- Champ de recherche -->
+<div class="mb-3 input-group" style="margin-top: 20px; margin-left: 100px; width: 80%;">
+    <span class="input-group-text"><i class="bi bi-search"></i></span>
+    <input type="text" class="form-control" placeholder="Search resources..." [(ngModel)]="searchQuery"
+      (input)="searchResources()">
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4" *ngFor="let resource of filteredResources">
+      <!-- Affichage des cartes pour chaque ressource -->
+      <div class="col-lg-3 col-md-4 col-xs-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="client-logo">
+          <div class="card bg-light mb-3 rounded" style="box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 350px;">
+            <!-- Modifier la largeur ici -->
+            <div class="card-body" style="height:200px;">
+              <!-- Modifier la hauteur ici -->
+              <h5 class="card-title">{{ resource.resourceName }}</h5>
+              <p class="card-text"><strong>Description:</strong> {{ resource.resourcesDescription }}</p>
+              <p class="card-text"><strong>Type:</strong> {{ resource.resourceType }}</p>
+              <p class="card-text"><strong>Coût:</strong> {{ resource.resourcesCost }}</p>
+              <!-- Ajouter d'autres informations sur la ressource si nécessaire -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <div class="text-center">
+        <h4>Total Cost: {{ calculateTotalCost(filteredResources) }}</h4>
+      </div>
+    </div>
+  </div>
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Afficher les boutons de pagination -->
+        <div class="text-center my-3">
+          <button class="btn btn-primary mr-2" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+          <span>Page {{ currentPage }} of {{ totalPages }}</span>
+          <button class="btn btn-primary ml-2" [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">Next</button>
+        </div>
+      </div>
+    </div>
+  

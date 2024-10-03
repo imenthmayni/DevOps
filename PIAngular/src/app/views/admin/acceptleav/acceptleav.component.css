@@ -1,0 +1,62 @@
+.acceptleav-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 0; /* Supprime la marge intérieure */
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-content {
+  padding: 30px; /* Ajoute un remplissage à l'intérieur du contenu */
+}
+
+.dialog-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.dialog-message {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accept-btn,
+.refuse-btn,
+.close-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.accept-btn {
+  background-color: #ff4081;
+  color: #fff;
+}
+
+.refuse-btn {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.close-btn {
+  background-color: #607d8b;
+  color: #fff;
+}
+
+.accept-btn:hover,
+.refuse-btn:hover,
+.close-btn:hover {
+  opacity: 0.8;
+}

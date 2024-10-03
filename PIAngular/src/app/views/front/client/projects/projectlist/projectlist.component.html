@@ -1,0 +1,40 @@
+<p>Project List</p>
+
+<div class="row">
+  <div class="col-md-6">
+    <label for="sortBy">Sort By:</label>
+    <select class="form-control" id="sortBy" [(ngModel)]="sortBy" (change)="onSortChange()">
+      <option value="projectId">Project ID</option>
+      <option value="project_name">Project Name</option>
+      <option value="project_startdate">Start Date</option>
+      <option value="project_enddate">End Date</option>
+      <!-- Ajoutez d'autres options de tri selon vos besoins -->
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let project of visibleProjects">
+    <!-- Affichage des cartes des projets triés -->
+    <div class="card bg-light mb-3 rounded" style="box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <div class="card-body">
+        <h5 class="card-title">{{ project.project_name }}</h5>
+        <p class="card-text"><strong>Start Date:</strong> {{ project.project_startdate }}</p>
+        <p class="card-text"><strong>End Date:</strong> {{ project.projectEnddate }}</p>
+        <p class="card-text"><strong>Description:</strong> {{ project.project_description }}</p>
+        <p class="card-text"><strong>Manager:</strong> {{ project.project_manager }}</p>
+        <p class="card-text"><strong>Status:</strong> {{ project.projectStatus }}</p>
+        <!-- Bouton de téléchargement PDF pour ce projet -->
+        <button class="btn btn-primary" (click)="downloadProjectPDF(project)">Download PDF</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- Afficher les boutons de pagination -->
+    <button class="btn btn-primary mr-2" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+    <button class="btn btn-primary" [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">Next</button>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.cards {
+    display: flex;
+    justify-content: flex-end; /* Alignement horizontal à droite */
+    align-items: flex-start; /* Alignement vertical en haut */
+}
+
+.card-single {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 2px 5px 10px 2px rgb(0 0 0 / 10%);
+}
+.card-single span:first-child{
+	color: #5f85d7;
+}
+.card-single span:last-child{
+	font-size: 2rem;
+}
+.card-single small{
+	color: grey;
+}
+.card-single:hover{
+	background-color: #ffe0f7;
+	color: #fff;
+}

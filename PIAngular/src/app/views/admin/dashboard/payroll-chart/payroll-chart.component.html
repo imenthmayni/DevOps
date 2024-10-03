@@ -1,0 +1,116 @@
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="form-group row">                               
+                <!-- <label for="prime_month" class="col-md-2">Month</label> -->
+                <div class="col-md-6">
+                    <h3 style=" font-size: 24px; color: blue; font-weight: bold; ">Payroll Expences</h3>               
+                    <label for="year">Select Year:</label>
+                    <select id="year" [(ngModel)]="selectedYear" (change)="onYearChange(selectedYear)">
+                        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                    </select>
+                </div>
+            </div>
+        <div>        
+            <button type="button" class="btn bi bi-file-excel btn-primary" 
+            (click)="downloadExcel()" data-toggle="tooltip" data-placement="top" title="Generate report">Generate excel
+        </button>  
+    </div>
+            <!-- support-section start -->
+            <div class="col-xl-6 col-md-12">
+                <div class="card">                
+                    <div class="card-header">                            
+                        <h5>Totale expence per month</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row pb-2">
+                        </div>
+                        <!--<div id="account-chart"></div>-->
+                        <div>
+                            <ngx-charts-bar-vertical
+                                [view]="[400,350]"
+                                [results]="chartData"
+                                [xAxis]="true"
+                                [yAxis]="true"
+                                [legend]="false"
+                                [showXAxisLabel]="true"
+                                [showYAxisLabel]="true"
+                                xAxisLabel="Month"
+                                yAxisLabel="Expenses">
+                            </ngx-charts-bar-vertical>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="card">   
+                    <div class="card-header">
+                        <h5>Totale expence per user</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row pb-2">
+                        </div>
+                        <!--<div id="account-chart"></div>-->
+                        <div>
+                            <ngx-charts-bar-vertical
+                                [view]="[400,350]"
+                                [results]="chartDataUser"
+                                [xAxis]="true"
+                                [yAxis]="true"
+                                [legend]="false"
+                                [showXAxisLabel]="true"
+                                [showYAxisLabel]="true"
+                                xAxisLabel="User"
+                                yAxisLabel="Expenses">
+                            </ngx-charts-bar-vertical>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group row">                               
+                <!-- <label for="prime_month" class="col-md-2">Month</label> -->
+                <div class="col-md-6">              
+                    <select id="year1" [(ngModel)]="startYear" (change)="onYearsChange(startYear)">
+                        <option *ngFor="let startYear of years" [value]="startYear">{{ startYear }}</option>
+                    </select>
+                </div>
+                <div class="col-md-6">              
+                    <select id="secondYear" [(ngModel)]="secondYear" (change)="onYearsChange(secondYear)">
+                        <option *ngFor="let secondYear of years" [value]="secondYear">{{ secondYear }}</option>
+                    </select>
+                </div>
+            </div>
+        <div>
+        <div class="row">
+            <div class="col-xl-6 col-md-12">
+                <div class="card">                
+                    <div class="card-header">                            
+                        <h5>Totale expence per year</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row pb-2">
+                        </div>
+                        <!--<div id="account-chart"></div>-->
+                        <div>
+                            <ngx-charts-bar-vertical
+                                [view]="[400,350]"
+                                [results]="chartDataYear"
+                                [xAxis]="true"
+                                [yAxis]="true"
+                                [legend]="false"
+                                [showXAxisLabel]="true"
+                                [showYAxisLabel]="true"
+                                xAxisLabel="Year"
+                                yAxisLabel="Expenses">
+                            </ngx-charts-bar-vertical>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <!-- [ Main Content ] end -->
+    </div>
+    </div>

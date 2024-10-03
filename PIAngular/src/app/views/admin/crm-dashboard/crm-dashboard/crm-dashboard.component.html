@@ -1,0 +1,115 @@
+<div class="content">
+    <header>
+        <p><label for="menu"><span class="fas fa-bars"></span></label><span class="accueil">Accueil</span></p>
+    
+        <div class="search-wrapp">
+            <span class="fas fa-search"></span>
+            <input type="search" name="" placeholder="recherche">
+        </div>
+    
+        <div id="dropdown" class="user-wrapp">
+            <div>
+                <h4>Alassane</h4>
+                <small>Admin</small>
+            </div>
+            <img decoding="async" src="images/pp.jpg" width="30" height="30" class="logo-admin">
+            <div class="dropdown-content">
+                <p>Profil</p>
+                <p>Deconnexion</p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cards">
+            <div class="card-single">
+                <div>
+                   <h2>{{ totalConsultants }}</h2>
+                    <small>consultants</small>
+                </div>
+                <div>
+                    <span class="fas fa-user"></span>
+                </div>
+            </div>
+        
+            <div class="card-single">
+                <div>
+                    <h2>{{ hiredConsultantsCount }}</h2>
+                    <small>consultants embauchés ce mois-ci</small>
+                </div>
+                <div>
+                    <span class="fas fa-user"></span>
+                </div>
+            </div>
+            
+            <div class="card-single">
+                <div>
+                    <h2>{{ meetingsCount }}</h2>
+                    <small>meetings this month</small>
+                </div>
+                <div>
+                    <span class="fas fa-calendar-alt"></span>
+                </div>
+            </div>
+        
+             <div class="card-single">
+                 <div>
+                 <h2>{{totalUsers}}</h2>
+                 <small> total client </small>
+                 </div>
+                 <div>
+                    <span class="fas fa-user"></span>
+             </div>
+        
+         </div>
+        </div>
+        <div class="cards-one">
+            <div class="card-single">
+              <div>
+                <select [(ngModel)]="selectedOption" (ngModelChange)="onOptionChange(selectedOption)" class="custom-select">
+                  <option value="gender" [selected]="selectedOption === 'gender'">Gender</option>
+                  <option value="skill" [selected]="selectedOption === 'skill'">Skill</option>
+                </select>
+              </div>
+              <div *ngIf="selectedOption === 'gender'">
+                <canvas id="consultantCanvas" width="400" height="400"></canvas>
+              </div>
+              <div *ngIf="selectedOption === 'skill'">
+                <canvas id="consultantCanvas" width="400" height="400"></canvas>
+              </div>
+            </div>
+            <div class="container">
+        <app-portfolio-par-domain></app-portfolio-par-domain>
+        <br>
+
+  <div class="header-case">
+    <h2>skilled consultants</h2>
+</div>
+  <div class="consultants-container">
+    <div class="consultant-item" *ngFor="let consultant of displayedConsultants">
+      <img [src]="consultant.image" alt="Consultant Image">
+      <div>
+        <h4>{{ consultant.consultant_firstname }} {{ consultant.consultant_lastname }}</h4>
+        <span *ngIf="consultant.skill === 'ONE_STAR'">
+            <i class="fas fa-star star-yellow"></i>
+        </span>
+        <span *ngIf="consultant.skill === 'TWO_STAR'">
+            <i class="fas fa-star star-yellow"></i>
+            <i class="fas fa-star star-yellow"></i>
+        </span>
+        <span *ngIf="consultant.skill === 'THREE_STAR'">
+            <i class="fas fa-star star-yellow"></i>
+            <i class="fas fa-star star-yellow"></i>
+            <i class="fas fa-star star-yellow"></i>
+        </span>
+        <div class="user-contact">
+            <a href=""><i class="bi bi-phone"></i></a>&nbsp;&nbsp;
+            <a href=""><i class="bi bi-facebook"></i></a>&nbsp;&nbsp;
+            <a href=""><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;
+            <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>      </div>
+    </div>
+  </div>
+  <div class="show-more-less-controls">
+    <button *ngIf="!showAll && consultants.length > 4" (click)="showMore()" class="show-more">Show More</button>
+    <button *ngIf="showAll" (click)="showLess()" class="show-less">Show Less</button>
+  </div>

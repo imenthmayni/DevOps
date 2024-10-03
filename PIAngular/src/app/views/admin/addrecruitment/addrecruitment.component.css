@@ -1,0 +1,46 @@
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.col-xl-6 {
+    display: flex;
+    justify-content: center;
+}
+
+.card.table-card {
+    margin-top: 20px;
+    width: 100%; 
+
+.table-responsive {
+    overflow-x: auto;
+    width: 100%; 
+}
+
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+.alert-success {
+    background-color: #d4edda; 
+    color: #155724;
+    border-color: #c3e6cb;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    position: relative; 
+  }
+  
+  .alert-success .btn-close {
+    position: absolute; 
+    top: 0.5rem;
+    right: 0.5rem; 
+    color: #155724; 
+    text-decoration: none;
+  }
+  
+}

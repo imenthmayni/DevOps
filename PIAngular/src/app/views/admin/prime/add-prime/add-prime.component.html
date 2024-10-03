@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xr7V8hPbAe6gV5FgbvVG66PTKKwIRLFqnvkgzHVLNNc7eu8YeFvzvXNPxdh7ey6MNMn4rEQDKHaBvWzY/SGZ3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="container prod py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow mb-4">
+        <div class="card-body">
+          <h1 style=" font-size: 20px; color: blue; font-weight: bold; text-align: center; margin-bottom: 30px ">Add a New Prime</h1>
+          <!-- <h2 class="card-title text-center mb-4">Add a New Prime</h2> -->
+          <form [formGroup]="primeForm" (ngSubmit)="affectUser(selectedUserId!)" role="form">
+            <div class="mb-3">
+              <label for="title" class="form-label required">
+                <i class="fas fa-text-width fa-fw"></i> Designation:
+              </label>
+			  <select formControlName="designation" name="prime_designation" [(ngModel)]="prime.prime_designation" class="form-control" id="prime_designation">
+                 <option *ngFor="let option of designationOptions" [value]="option">{{ option }}</option>
+              </select>
+              <div *ngIf="primeForm.get('designation')?.hasError('required') && primeForm.get('designation')?.touched" class="alert alert-danger">
+                Ce champ est requis
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="price" class="form-label">
+                  <i class="fas fa-calendar fa-fw"></i> Year:
+                </label>
+                  <select formControlName="year" name="prime_year" [(ngModel)]="prime.prime_year" class="form-control" id="prime_year">
+                    <option *ngFor="let option of years" [value]="option">{{ option }}</option>
+                </select>
+                <div *ngIf="primeForm.get('year')?.hasError('required') && primeForm.get('year')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+              </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="stock" class="form-label">
+                  <i class="fas fa-calendar fa-fw"></i> Month:
+                </label>
+                <select formControlName="month" name="prime_month" [(ngModel)]="prime.prime_month" class="form-control" id="prime_month">
+                    <option *ngFor="let option of monthsList" [value]="option">{{ option }}</option>
+                </select>
+                <div *ngIf="primeForm.get('month')?.hasError('required') && primeForm.get('month')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+              </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="tva" class="form-label">
+                <i class="fas fa-usd fa-fw"></i> Amount:
+              </label>
+              <input formControlName="prime_amount" type="number" name="value_amount" [(ngModel)]="prime.value_amount" class="form-control" id="value_amount">
+              <div *ngIf="primeForm.get('prime_amount')?.hasError('required') && primeForm.get('prime_amount')?.touched" class="alert alert-danger">
+                Ce champ est requis
+            </div>
+            </div>
+            <div class="mb-3">
+              <label for="productType" class="form-label">
+                <i class="fas fa-users fa-fw"></i> Employee Name:
+              </label>
+			  <select formControlName="user_name" (change)="ChangeValue($event)" class="form-control">
+                <option *ngFor="let option of dropdownOptions" [value]="option.id">{{ option.name }}</option>
+              </select>
+              <div *ngIf="primeForm.get('user_name')?.hasError('required') && primeForm.get('user_name')?.touched" class="alert alert-danger">
+                Ce champ est requis
+            </div>
+            </div>
+            <div class="text-center">
+              <a href="/admin/prime" class="btn btn-secondary me-2"><i class="fas fa-long-arrow-left"></i> Back</a>
+              <button type="submit" class="btn btn-primary bi bi-save" [disabled]="!primeForm.valid"> Add Prime</button>
+			  <p class="mb-0 text-muted">{{selectedUserId}}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

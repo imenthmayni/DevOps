@@ -1,0 +1,168 @@
+<br><br><br><br><br>
+<br><br><br><br><br>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card bg-light shadow-lg rounded-lg">
+        <div class="card-body">
+          <form [formGroup]="recruitmentrequestForm" (ngSubmit)="submitForm()" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name ✅</label>
+              <input type="text" id="firstName" formControlName="firstName" class="form-control">
+              <div *ngIf="recruitmentrequestForm.controls['firstName'].invalid && (recruitmentrequestForm.controls['firstName'].dirty || recruitmentrequestForm.controls['firstName'].touched)" class="text-danger">
+                <div *ngIf="recruitmentrequestForm.controls['firstName']['errors']?.['required']">First Name is required</div>
+              </div>
+            </div>
+        
+
+              
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name ✅</label>
+                <input type="text" id="lastName" formControlName="lastName" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['lastName'].invalid && (recruitmentrequestForm.controls['lastName'].dirty || recruitmentrequestForm.controls['lastName'].touched) }">
+                <div *ngIf="recruitmentrequestForm.controls['lastName'].invalid && (recruitmentrequestForm.controls['lastName'].dirty || recruitmentrequestForm.controls['lastName'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['lastName'].errors?.['required']">Last Name is required</div>
+                </div>
+              </div>
+
+             
+              <div class="mb-3">
+                <label for="emailCand" class="form-label">E-mail ✅</label>
+                <input type="email" id="emailCand" formControlName="emailCand" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['emailCand'].invalid && (recruitmentrequestForm.controls['emailCand'].dirty || recruitmentrequestForm.controls['emailCand'].touched) }">
+                <div *ngIf="recruitmentrequestForm.controls['emailCand'].invalid && (recruitmentrequestForm.controls['emailCand'].dirty || recruitmentrequestForm.controls['emailCand'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['emailCand'].errors?.['required']">Candidate e-mail is required!</div>
+                  <div *ngIf="recruitmentrequestForm.controls['emailCand'].errors?.['email']">Invalid email format!</div>
+                </div>
+              </div>
+
+             
+              <div class="mb-3">
+                <label for="education" class="form-label">Education ✅</label>
+                <input type="text" id="education" formControlName="education" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['education'].invalid && (recruitmentrequestForm.controls['education'].dirty || recruitmentrequestForm.controls['education'].touched) }">
+                <div *ngIf="recruitmentrequestForm.controls['education'].invalid && (recruitmentrequestForm.controls['education'].dirty || recruitmentrequestForm.controls['education'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['education'].errors?.['required']">Education is required</div>
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="experienceCand" class="form-label">Experience (in years) ✅</label>
+                <input type="number" id="experienceCand" formControlName="experienceCand" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['experienceCand'].invalid && (recruitmentrequestForm.controls['experienceCand'].dirty || recruitmentrequestForm.controls['experienceCand'].touched) }">
+                <div *ngIf="recruitmentrequestForm.controls['experienceCand'].invalid && (recruitmentrequestForm.controls['experienceCand'].dirty || recruitmentrequestForm.controls['experienceCand'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['experienceCand'].errors?.['required']">Experience is required</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="postTitle" class="form-label">Post Title 📰</label>
+                <select id="postTitle" formControlName="postTitle" class="form-select" (change)="onPostTitleSelect($event)">
+                  <option *ngFor="let title of postTitles" [value]="title">{{ title }}</option>
+                </select>
+                <div *ngIf="recruitmentrequestForm.controls['postTitle'].invalid && (recruitmentrequestForm.controls['postTitle'].dirty || recruitmentrequestForm.controls['postTitle'].touched)" class="text-danger">
+                  <div *ngIf="recruitmentrequestForm.controls['postTitle']['errors']?.['required']">Post Title is required</div>
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="jobLocation" class="form-label">Job Location</label>
+                <input type="text" id="jobLocation" formControlName="jobLocation" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['jobLocation'].invalid && (recruitmentrequestForm.controls['jobLocation'].dirty || recruitmentrequestForm.controls['jobLocation'].touched) }">
+                <div *ngIf="recruitmentrequestForm.controls['jobLocation'].invalid && (recruitmentrequestForm.controls['jobLocation'].dirty || recruitmentrequestForm.controls['jobLocation'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['jobLocation'].errors?.['required']">Job Location is required</div>
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="numberOfOpenings" class="form-label">Number Of Openings</label>
+                <input type="number" id="numberOfOpenings" formControlName="numberOfOpenings" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['numberOfOpenings'].invalid && (recruitmentrequestForm.controls['numberOfOpenings'].dirty || recruitmentrequestForm.controls['numberOfOpenings'].touched) }">
+                <div *ngIf="recruitmentrequestForm.controls['numberOfOpenings'].invalid && (recruitmentrequestForm.controls['numberOfOpenings'].dirty || recruitmentrequestForm.controls['numberOfOpenings'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['numberOfOpenings'].errors?.['required']">Number Of Openings is required</div>
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" formControlName="description" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['description'].invalid && (recruitmentrequestForm.controls['description'].dirty || recruitmentrequestForm.controls['description'].touched) }"></textarea>
+                <div *ngIf="recruitmentrequestForm.controls['description'].invalid && (recruitmentrequestForm.controls['description'].dirty || recruitmentrequestForm.controls['description'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['description'].errors?.['required']">Description is required</div>
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="requirements" class="form-label">Requirements</label>
+                <textarea id="requirements" formControlName="requirements" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['requirements'].invalid && (recruitmentrequestForm.controls['requirements'].dirty || recruitmentrequestForm.controls['requirements'].touched) }"></textarea>
+                <div *ngIf="recruitmentrequestForm.controls['requirements'].invalid && (recruitmentrequestForm.controls['requirements'].dirty || recruitmentrequestForm.controls['requirements'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['requirements'].errors?.['required']">Requirements is required</div>
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="hiringManager" class="form-label">Hiring Manager</label>
+                <input type="text" id="hiringManager" formControlName="hiringManager" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['hiringManager'].invalid && (recruitmentrequestForm.controls['hiringManager'].dirty || recruitmentrequestForm.controls['hiringManager'].touched) }">
+                <div *ngIf="recruitmentrequestForm.controls['hiringManager'].invalid && (recruitmentrequestForm.controls['hiringManager'].dirty || recruitmentrequestForm.controls['hiringManager'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['hiringManager'].errors?.['required']">Hiring Manager is required</div>
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="recruiter" class="form-label">Recruiter</label>
+                <input type="text" id="recruiter" formControlName="recruiter" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': recruitmentrequestForm.controls['recruiter'].invalid && (recruitmentrequestForm.controls['recruiter'].dirty || recruitmentrequestForm.controls['recruiter'].touched) }">
+                <div *ngIf="recruitmentrequestForm.controls['recruiter'].invalid && (recruitmentrequestForm.controls['recruiter'].dirty || recruitmentrequestForm.controls['recruiter'].touched)" class="invalid-feedback">
+                  <div *ngIf="recruitmentrequestForm.controls['recruiter'].errors?.['required']">Recruiter is required</div>
+                </div>
+              </div>
+
+              <!-- <div class="mb-3">
+                <label for="cv" class="form-label">CV</label>
+                <input type="file" id="cv" formControlName="cv" class="form-control form-control-lg" (change)="handleFileInput($event)">
+                
+                <section [ngSwitch]="status">
+                  <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
+                  <p *ngSwitchCase="'success'">✅ Done!</p>
+                  <p *ngSwitchCase="'fail'">❌ Error!</p>
+                  <p *ngSwitchDefault>😶 Waiting to upload...</p>
+                </section>
+              </div> -->
+              
+
+<button type="submit" class="btn btn-primary btn-lg mt-3" [disabled]="recruitmentrequestForm.invalid">
+  <span *ngIf="!loading">Submit</span>
+  <span *ngIf="loading">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    <span class="visually-hidden">Loading...</span>
+  </span>
+</button>
+<br> <br>
+<button class="btn btn-primary" (click)="goBack()">Check Open Positions By Location Statistics ! </button>
+<br> <br>
+<button class="btn btn-primary" (click)="goBackAvg()">Check the Average Salary ! </button>
+
+
+
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<div *ngIf="loading" class="spinner-container text-center mt-3">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="text-primary ms-2">Loading...</div>
+</div>
+
+    
+    <div *ngIf="!loading && postTitles.length === 0" class="row justify-content-center mt-3">
+    <div class="text-muted">No post titles available.</div>
+    </div>
+  
+  <div *ngIf="!loading && postTitles.length === 0" class="row justify-content-center mt-3">
+    <div class="text-muted fs-5">No post titles available.</div>
+  </div>
+</div>

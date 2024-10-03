@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+          <div class="card">
+              <div class="card-body">
+                  <a routerLink="../update" class="btn btn-link" style="margin-bottom: 20px;">Retour à la liste des
+                      congés</a>
+                  <h5 class="card-title">Mettre à jour le congé</h5>
+                  <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                      {{ successMessage }}
+                  </div>
+                  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                      {{ errorMessage }}
+                  </div>
+                  <div *ngIf="formSubmitted && leavForm.invalid" class="alert alert-danger" role="alert">
+                      Le formulaire est invalide. Veuillez remplir tous les champs correctement.
+                  </div>
+                  <form (ngSubmit)="updateLeav(leavForm)" #leavForm="ngForm">
+                      <div class="mb-3">
+                          <label for="leaveType" class="form-label">Type de congé</label>
+                          <select class="form-select" id="leaveType" [(ngModel)]="updatedLeav.leaveType" name="leaveType" required>
+                              <option value="VACATION_LEAVE">Congé</option>
+                              <option value="SICK_LEAVE">Congé maladie</option>
+                              <option value="FMLA">Congé familial (FMLA)</option>
+                              <option value="UNPAID_LEAVE">Congé sans solde</option>
+                          </select>
+                      </div>
+                      <div class="mb-3">
+                          <label for="startDate" class="form-label">Date de début</label>
+                          <input type="date" class="form-control" id="startDate" [(ngModel)]="updatedLeav.leaveStartdate" name="startDate" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="endDate" class="form-label">Date de fin</label>
+                          <input type="date" class="form-control" id="endDate" [(ngModel)]="updatedLeav.leaveEnddate" name="endDate" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="reason" class="form-label">Raison</label>
+                          <textarea class="form-control" id="reason" [(ngModel)]="updatedLeav.reason" name="reason" required></textarea>
+                      </div>
+
+                      
+                      <button type="button" class="btn btn-primary" (click)="confirmUpdateLeav(leavForm)">Mettre à jour le congé</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

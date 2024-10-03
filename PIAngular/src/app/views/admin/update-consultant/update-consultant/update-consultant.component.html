@@ -1,0 +1,78 @@
+<div class="marge-a-gauche">
+    <div class="container">
+        <h2 class="mt-4 mb-4">Mettre à jour un consultant</h2>
+        <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+            Consultant mis à jour avec succès!
+        </div>
+        
+        <form [formGroup]="consultantForm" (ngSubmit)="updateConsultant()" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="consultant_firstname" class="form-label">Prénom du consultant</label>
+                <input type="text" id="consultant_firstname" formControlName="consultant_firstname" class="form-control" required>
+                <br>
+                <div *ngIf="consultantForm.get('consultant_firstname')?.hasError('required') && consultantForm.get('consultant_firstname')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="consultant_lastname" class="form-label">Nom du consultant</label>
+                <input type="text" id="consultant_lastname" formControlName="consultant_lastname" class="form-control" required>
+                <br>
+                <div *ngIf="consultantForm.get('consultant_lastname')?.hasError('required') && consultantForm.get('consultant_lastname')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <span>
+                    <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;
+                    <label for="consultant_address" class="form-label">Adresse du consultant</label>
+                </span>
+                <input type="text" id="consultant_address" formControlName="consultant_address" class="form-control" required>
+                <br>
+                <div *ngIf="consultantForm.get('consultant_address')?.hasError('required') && consultantForm.get('consultant_address')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <span>
+                    <i class="fas fa-envelope"></i>&nbsp;&nbsp;
+                    <label for="consultant_email" class="form-label">Email du consultant</label>
+                </span>
+                <input type="text" id="consultant_email" formControlName="consultant_email" class="form-control" required>
+                <br>
+                <div *ngIf="consultantForm.get('consultant_email')?.hasError('required') && consultantForm.get('consultant_email')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <span>
+                    <i class="fas fa-calendar"></i>&nbsp;&nbsp;
+                    <label for="date_last_meet" class="form-label">Dernière date de rencontre</label>
+                </span>
+                <input type="date" id="date_last_meet" formControlName="date_last_meet" class="form-control" required>
+                <br>
+                <div *ngIf="consultantForm.get('date_last_meet')?.hasError('required') && consultantForm.get('date_last_meet')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <span>
+                    <i class="fas fa-phone-alt"></i>&nbsp;&nbsp;
+                    <label for="consultant_phonenumber" class="form-label">Numéro de téléphone du consultant</label>
+                </span>
+                <input type="number" id="consultant_phonenumber" formControlName="consultant_phonenumber" class="form-control" required>
+                <br>
+                <div *ngIf="consultantForm.get('consultant_phonenumber')?.hasError('required') && consultantForm.get('consultant_phonenumber')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Mettre à jour le consultant</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+ .marge-a-gauche {
+    margin-left: 70px;
+} 
+.consultant-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .consultant-item {
+    position: relative;
+  }
+  
+  .consultant-image {
+    width: 275px;
+    height: 275px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .consultant-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+  }
+  
+  .consultant-details p {
+    margin: 5px 0;
+  }
+  
+  .consultant-item:hover .consultant-details {
+    visibility: visible;
+    opacity: 1;
+  }
+  .star-yellow {
+    color: yellow;
+}

@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pidevangular</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="images/favicon.svg" type="image/x-icon">
+
+    <!-- font css -->
+    <link rel="stylesheet" href="/assets/admin/css/feather.css">
+    <link rel="stylesheet" href="/assets/admin/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/admin/css/material.css">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="/assets/admin/css/style.css" id="main-style-link">
+
+    <!--siwaaaaaaaaaaaaaaaaaaar-->
+
+    <!-- =======================================================
+  * Template Name: Scaffold
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="mat-typography">
+    <script src="/assets/admin/js/vendor-all.min.js"></script>
+    <script src="/assets/admin/js/bootstrap.min.js"></script>
+    <script src="assets/admin/js/feather.min.js"></script>
+    <script src="assets/admin/js/pcoded.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+    <!-- <script src="assets/js/plugins/clipboard.min.js"></script> -->
+    <!-- <script src="assets/js/uikit.min.js"></script> -->
+
+    <!-- Apex Chart -->
+   <!--  <script src="/assets/admin/js/apexcharts.min.js"></script>
+    <script>
+        $("body").append('<div class="fixed-button active"><a href="https://therichpost.com" target="_blank" class="btn btn-md btn-success"><i class="material-icons-two-tone text-white">home</i> Free More Demos</a> </div>');
+    </script>
+ -->
+    <!-- custom-chart js -->
+    <script src="/assets/admin/js/dashboard-sale.js"></script>
+    <!--siwaaaaaaaaaaaar-->
+
+
+
+    <nav class="pc-sidebar">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a routerLink="dashboard" class="b-brand" title="Home">
+                    <!-- Set the width and height of the logo image -->
+                    <img src="assets/admin/images/coconsult.png" alt="Logo" class="logo logo-lg"
+                        style="width: 100px; height: auto;">
+                    <!-- You may also need to adjust the width and height as needed -->
+                    <img src="images/logo-sm.svg" alt="" class="logo logo-sm">
+                </a>
+            </div>
+
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption">
+                        <label>Navigation</label>
+                    </li>
+                    
+
+
+                   
+
+                    <li class="pc-item pc-hasmenu" *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_HR_ADMIN'  ">
+                        <a routerLink="auth" class="pc-link"><span class="pc-micon"><i
+                                    class="material-icons-two-tone">https</i></span><span
+                                class="pc-mtext">employees</span><span class="pc-arrow"><i
+                                    data-feather="chevron-right"></i></span></a>
+                    </li>
+
+                    
+                   
+                    <li class="pc-item pc-hasmenu" *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_PROJECT' || user.role == 'ROLE_PROJECT_ADMIN'">
+
+                        <a class="pc-link" (click)="toggleSubMenu('projects')">
+                            <span class="pc-micon"><i class="material-icons-two-tone">home</i></span>
+                            <span class="pc-mtext">Projects</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <ul class="pc-submenu" *ngIf="subMenuStatus['projects']">
+
+                            <li class="pc-item">
+                                <a routerLink="projects" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span
+                                        class="pc-mtext">Projects</span></a>
+                            </li>
+
+                            <li class="pc-item">
+                                <a routerLink="task" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span
+                                        class="pc-mtext">Task</span></a>
+                            </li>
+                            <li class="pc-item"><a routerLink="projectdashboard" class="pc-link"><span
+                                        class="pc-micon"><i class="material-icons-two-tone">home</i></span><span
+                                        class="pc-mtext">Dashboardcalender</span></a></li>
+                            <li class="pc-item"><a routerLink="Perfermance" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span class="pc-mtext"> Users
+                                        Perfermance</span></a></li>
+                            <li class="pc-item"><a routerLink="resources" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span
+                                        class="pc-mtext">resources</span></a>
+
+                            </li>
+
+                            <li class="pc-item">
+                                <a routerLink="budgett" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span
+                                        class="pc-mtext">Budget</span></a>
+
+                            </li>
+                            
+     <!-- Ajoutez d'autres liens ici -->
+                        </ul>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+                              <!-- Leave11111 -->
+
+
+                    <li class="pc-item pc-hasmenu"
+                        *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_HRE' || user.role == 'ROLE_HR_ADMIN'">
+                        <a class="pc-link" (click)="toggleSubMenu('Leave_Management')">
+                            <span class="pc-micon"><i class="material-icons-two-tone">home</i></span>
+                            <span class="pc-mtext">Leave Management</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <ul class="pc-submenu" *ngIf="subMenuStatus['Leave_Management']">
+                            <li class="pc-item">
+                                <a routerLink="ajout" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span class="pc-mtext"> Leave
+                                        Request</span></a>
+                            </li>
+                            <li class="pc-item">
+                                <a routerLink="leavdisplay" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span class="pc-mtext">View
+                                        Leave</span></a>
+                            </li>
+
+
+
+                            <li class="pc-item">
+                                <a routerLink="view" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span class="pc-mtext">My
+                                        Leave</span></a>
+                            </li>
+                            <li class="pc-item">
+                                <a routerLink="calendar" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span class="pc-mtext">Leave
+                                        CALENDAR</span></a>
+                            </li>
+                            <!-- Ajoutez d'autres liens ici -->
+                        </ul>
+                    </li>
+
+                                               <!-- Leave11111 -->
+
+
+    <!--PAYROLL11111 -->
+
+
+    <li class="pc-item pc-hasmenu" *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_HRE' || user.role == 'ROLE_HR_ADMIN'">
+        <a class="pc-link" (click)="toggleSubMenu('Payroll')">
+            <span class="pc-micon"><i class="material-icons-two-tone">home</i></span>
+            <span class="pc-mtext">Payroll</span>
+            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+        </a>
+        <ul class="pc-submenu" *ngIf="subMenuStatus['Payroll']">
+           
+            <li class="pc-item">
+                <a routerLink="prime" class="pc-link"><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">  prime</span></a>
+            </li>
+            <li class="pc-item">
+                <a routerLink="contribution" class="pc-link"><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Contribution </span></a>
+            </li>
+            <li class="pc-item">
+                <a routerLink="/admin/prime/edit-config/1" class="pc-link"><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Payroll Config</span></a>
+            </li>
+            <li class="pc-item">
+                <a routerLink="payroll-expences" class="pc-link"><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Payroll Dashboard</span></a>
+            </li>
+            <li class="pc-item">
+                <a routerLink="/payroll" class="pc-link"><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Payroll List</span></a>
+            </li>
+
+    <!-- Ajoutez d'autres liens ici -->
+        </ul>
+</li>
+                          <!--PAYROLL11111 -->
+
+
+
+
+
+
+
+
+
+
+
+                                                <!--CRM11111 -->
+                                                <li class="pc-item"  *ngIf=" user.role == 'ROLE_CRM_ADMIN' || user.role == 'ROLE_CRME'" >
+                                                    <a routerLink="crmDashboard" class="pc-link"><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">contacts product</i></span><span class="pc-mtext">CRM
+                                                            Dashboard</span></a>
+                                                </li>
+
+                    <li class="pc-item pc-hasmenu"
+                        *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_CRM_ADMIN' || user.role == 'ROLE_CRME'">
+                        <a class="pc-link" (click)="toggleSubMenu('CRM')">
+                            <span class="pc-micon"><i class="material-icons-two-tone">home</i></span>
+                            <span class="pc-mtext">CRM</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <ul class="pc-submenu" *ngIf="subMenuStatus['CRM']">
+                            <li class="pc-item"  >
+                                <a routerLink="crmDashboard" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span class="pc-mtext">CRM
+                                        Dashboard</span></a>
+                            </li>
+                            <li class="pc-item">
+                                <a routerLink="retrievAllConsultant" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span
+                                        class="pc-mtext">Consultants</span></a>
+                            </li>
+                            <li class="pc-item">
+                                <a routerLink="retrieveAllCustomerTracking" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span class="pc-mtext">
+                                        Customer Tracking</span></a>
+                            </li>
+
+
+
+                            <li class="pc-item">
+                                <a routerLink="portfolio" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span
+                                        class="pc-mtext">portfolio</span></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                                                <!--CRM11111 -->
+
+
+
+
+
+
+
+
+
+
+
+   <!-- PRODUIIerrIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT -->
+
+                    <li class="pc-item pc-hasmenu"
+                        *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_PRODUCT' || user.role == 'ROLE_PRODUCT_ADMIN'">
+                        <a class="pc-link" (click)="toggleSubMenu('Product')">
+                            <span class="pc-micon"><i class="fa-solid fa-store"></i></span>
+                            <span class="pc-mtext">Product</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <ul class="pc-submenu" *ngIf="subMenuStatus['Product']">
+
+                            <li class="pc-item">
+                                <a routerLink="add-product" class="pc-link"><span class="pc-micon">
+                                    <i class="fas fa-plus"></i>
+                                </span><span class="pc-mtext">Add
+                                        New Product </span></a>
+                            </li>
+
+                            <li class="pc-item">
+                                <a routerLink="product-list" class="pc-link"><span class="pc-micon"><i class="fas fa-list-ul"></i></span><span class="pc-mtext">
+                                        Manage Products</span></a>
+                            </li>
+                            <li class="pc-item">
+                                <a routerLink="chart" class="pc-link"><span class="pc-micon"><i class="fa fa-bar-chart" aria-hidden="true"></i></span><span class="pc-mtext">
+                                        Product Dashboard </span></a> </li>
+                        </ul>
+                    </li>
+
+                  <!-- STOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOCK -->
+                  <li class="pc-item pc-hasmenu"
+                  *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_PRODUCT' || user.role == 'ROLE_PRODUCT_ADMIN'">
+                  <a class="pc-link" (click)="toggleSubMenu('Stock')">
+                      <span class="pc-micon"><i class="fas fa-box"></i></span>
+                      <span class="pc-mtext">Stock</span>
+                      <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                  </a>
+                  <ul class="pc-submenu" *ngIf="subMenuStatus['Stock']">
+
+                      <li class="pc-item">
+                          <a routerLink="add-mvt" class="pc-link"><span class="pc-micon">
+                              <i class="fas fa-plus"></i>
+                          </span><span class="pc-mtext">Add Stock mouvement </span></a>
+                      </li>
+
+                      <li class="pc-item">
+                          <a routerLink="list-mvt" class="pc-link"><span class="pc-micon"><i class="fas fa-list-ul"></i>
+                        </span><span class="pc-mtext">Manage Stock</span></a>
+                      </li>
+                      <li class="pc-item">
+                          <a routerLink="stats" class="pc-link"><span class="pc-micon"><i class="fa fa-bar-chart" aria-hidden="true"></i></span><span class="pc-mtext">
+                                  Stock Dashboard </span></a> </li>
+                  </ul>
+              </li>
+   <!-- Productionnnn -->
+                  <li class="pc-item pc-hasmenu"
+                  *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_PRODUCT' || user.role == 'ROLE_PRODUCT_ADMIN'">
+                  <a class="pc-link" (click)="toggleSubMenu('Production')">
+                      <span class="pc-micon"><i class="fas fa-industry"></i>
+                      </span>
+                      <span class="pc-mtext">Production</span>
+                      <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                  </a>
+                  <ul class="pc-submenu" *ngIf="subMenuStatus['Production']">
+
+                      <li class="pc-item">
+                          <a routerLink="ajout-production" class="pc-link"><span class="pc-micon">
+                              <i class="fas fa-plus"></i>
+                          </span><span class="pc-mtext">Add Production </span></a>
+                      </li>
+
+                      <li class="pc-item">
+                          <a routerLink="prod" class="pc-link">
+                            <span class="pc-micon"><i class="fas fa-list-ul"></i>
+                          </span><span class="pc-mtext">Manage Production</span></a>
+                      </li>
+                      <li class="pc-item">
+                          <a routerLink="stats" class="pc-link"><span class="pc-micon"><i class="fa fa-bar-chart" aria-hidden="true"></i></span><span class="pc-mtext">
+                            Production Dashboard </span></a> </li>
+                  </ul>
+              </li>
+
+
+
+
+
+
+
+
+
+
+
+                   
+                    <!--//////recrutement-->
+
+                    <li class="pc-item pc-hasmenu" *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_HRE' || user.role == 'ROLE_HR_ADMIN'">
+                        <a class="pc-link" (click)="toggleSubMenu('Recruitment_Management')">
+                            <span class="pc-micon"><i class="material-icons-two-tone">home</i></span>
+                            <span class="pc-mtext">Recruitment Management</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <ul class="pc-submenu" *ngIf="subMenuStatus['Recruitment_Management']">
+                            <!-- <li class="pc-item">
+
+                                <a routerLink="/admin/prime/edit-config/1" class="pc-link"><span class="pc-micon"><i
+                                            class="material-icons-two-tone">home</i></span><span
+                                        class="pc-mtext">Payroll Config</span></a>
+
+                            </li> -->
+
+
+                            <!-- Ajoutez d'autres liens ici -->
+                        </ul>
+                    </li>
+                    
+
+
+
+
+
+
+
+
+                        
+
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+.prod{
+    padding-left: 20% !important;
+}
+
+/* Custom label styling */
+.form-label {
+    color: #495057; /* Darker shade for better contrast */
+    font-weight: 500; /* Slightly bolder for emphasis */
+    margin-bottom: 0.5rem; /* Ensure consistent spacing below labels */
+  }
+  
+  /* Highlight labels for required fields */
+  .form-label.required::after {
+    content: " *"; /* Add asterisk to denote required fields */
+    color: #ff0000; /* Red color for visibility */
+  }
+  
+  /* Style labels for focus on input */
+  input:focus + .form-label, 
+  textarea:focus + .form-label {
+    color: #007bff; /* Highlight color when the input is focused */
+  }
+  

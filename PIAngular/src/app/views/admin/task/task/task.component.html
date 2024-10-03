@@ -1,0 +1,81 @@
+<p>Tasks works!</p>
+<div class="row">
+  <div class="col-md-6">
+    <!-- Bouton "Add Task" -->
+    <div class="mb-3" style="margin-top: 20px; margin-left: 300px;">
+      <a class="btn btn-primary" routerLink="/admin/taskAdd">
+        <i class="bi bi-plus"></i> Add Task
+      </a>
+    </div>
+
+    <!-- Champ de recherche -->
+    <div class="mb-3 input-group" style="margin-top: 20px; margin-left: 300px; width: 80%;">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="form-control" placeholder="Search tasks..." [(ngModel)]="searchQuery"
+        (input)="filterTasks()">
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-top: 20px; margin-left: 300px; width: 80%; height: fit-content;">
+    <div class="card-header">
+      <h5 class="card-title">Liste des tâches</h5>
+      <div class="card-body" style="width: 100%;">
+      <div class="table-responsive">
+        <table > <!-- Ajout de la classe table-striped pour des lignes alternées -->
+          <thead>
+            <tr>
+              <th>Task ID</th>
+              <th>Task Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Assign to Project</th>
+              <th>Assign to User(s)</th>
+              <th>Assign Resource</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of filteredTasks">
+              <td>{{ task.task_id }}</td>
+              <td>{{ task.task_name }}</td>
+              <td>{{ task.task_startdate }}</td>
+              <td>{{ task.task_enddate }}</td>
+              <td>{{ task.task_description }}</td>
+              <td>{{ task.taskStatus }}</td>
+              <td>
+                <div class="d-flex align-items-center"> <!-- Utilisation de classes Flexbox -->
+                  <select [(ngModel)]="selectedProjectIds[task.task_id]" class="form-select me-2">
+                    <option *ngFor="let project of projects" [value]="project.projectId">{{ project.project_name }}</option>
+                  </select>
+                  <button class="btn btn-primary" (click)="assignTaskToProject(task.task_id)">Assign</button>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <select [(ngModel)]="selectedUserIds[task.task_id]" class="form-select me-2">
+                    <option *ngFor="let user of users" [value]="user.id">{{ user.firstName }} {{ user.lastName }}</option>
+                  </select>
+                  <button class="btn btn-primary" (click)="assignTaskToUsers(task.task_id)">Assign</button>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <select [(ngModel)]="selectedResourceIds[task.task_id]" class="form-select me-2">
+                    <option *ngFor="let resource of resources" [value]="resource.resourceId">{{ resource.resourceName }}</option>
+                  </select>
+                  <button class="btn btn-success" (click)="assignResourceToTask(task.task_id)">Assign</button>
+                </div>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteTask(task.task_id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

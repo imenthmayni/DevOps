@@ -1,0 +1,40 @@
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- support-section start -->
+            <!-- support-section end -->
+            <!-- customer-section start -->
+            <div class="col-xl-12 col-md-12">
+                <div class="card-body">
+                    <h1 style=" font-size: 20px; color: blue; font-weight: bold; text-align: left; margin-bottom: 30px ">Update Payroll Config</h1>
+                    <form (ngSubmit)="updateConfig(payrollConfig.id!)" role="form">
+                        <div class="form-group row">                               
+                            <label for="fees_rate" class="col-md-2">Fees Rate</label>
+                            <div class="col-md-6">
+                            <input type="text" name="fees_rate" [(ngModel)]="payrollConfig.fees_rate" class="form-control" id="fees_rate" [disabled]=" user.role == 'ROLE_HRE'" >
+                            </div>
+                        </div>
+                        <div class="form-group row">                               
+                            <label for="month_days" class="col-md-2">Month Days</label>
+                            <div class="col-md-6">
+                            <input type="text" name="value_amount" [(ngModel)]="payrollConfig.month_days" class="form-control" id="month_days" [disabled]=" user.role == 'ROLE_HRE'" >
+                            </div>
+                        </div>
+                        <div class="form-group text-left mt-2">
+                       
+                        </div>
+                        <button class="btn btn-block btn-primary mb-4" [disabled]=" user.role == 'ROLE_HRE'"  >
+                            Update Config</button>
+                        
+                    </form>
+                </div>
+            </div>
+            
+            <!-- customer-section end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+    </div>
+    

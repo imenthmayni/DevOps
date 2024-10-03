@@ -1,0 +1,8 @@
+.dropdown-item:hover {
+    background-color: #f8f9fa;  /* Light grey background on hover */
+    color: #0056b3;             /* Change text color on hover */
+}
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #6350cb; /* Bootstrap primary color */
+    color: white;
+}

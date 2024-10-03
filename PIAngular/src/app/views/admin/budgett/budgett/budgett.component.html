@@ -1,0 +1,132 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center" style="height: 100vh;">
+    <div class="col-md-8" style="margin-left: 100px;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-4">Les budgets</h5>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Budget ID</th>
+                  <th scope="col">Budget Amount</th>
+                  <th scope="col">Budget Reel</th>
+                  <th scope="col">Budget Variance</th>
+                  <th scope="col">Dependencies</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let budget of budgets">
+                  <td>{{ budget.budget_id }}</td>
+                  <td>{{ budget.budget_amount }}</td>
+                  <td>{{ budget.budgetReel }}</td>
+                  <td>{{ budget.budget_variance }}</td>
+                  <td>{{ budget.dependencies }}</td>
+                  <td>
+                    <a [routerLink]="['/admin/Budget', budget.budget_id]" class="btn btn-primary btn-sm">Modifier</a>
+                    <button *ngIf="user.role !== 'ROLE_PROJECT'" class="btn btn-danger btn-sm" (click)="onDeleteBudget(budget.budget_id)">
+                      <i class="bi bi-trash"></i> Supprimer
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 mt-4" style="margin-left: 50px;">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Les bons projets financièrement</h5>
+            <!-- Première section -->
+            <div class="row">
+              <div class="col-md-12">
+                <h6>Projet</h6>
+                <hr>
+              </div>
+              <!-- Boucle pour afficher les projets sans budget -->
+              <div class="col-md-6" *ngFor="let project of associatedProjects">
+                <div class="project-box card mb-4 h-100">
+                  <div class="card-body">
+                    <h6 class="card-title">{{ project.project_name }}</h6>
+                    <p class="card-text">Description du projet</p>
+                    <p>Équipe :</p>
+                    <div *ngFor="let user of projectTeam" class="col-md-4 mb-4">
+                      <div class="card" [style.width.px]="170" [style.height.px]="70">
+                        <div class="card-body"class="col-md-4 mb-4">
+                          <h5 class="card-title"><span class="user-name">{{ user.firstName }} {{ user.lastName }}</span></h5>
+                          <p class="card-text"><span class="user-email">{{ user.email }}</span></p>
+                        </div>
+                      </div>
+                    </div>
+                    <a [routerLink]="['/admin/projects/detail', project.projectId]" class="btn btn-primary">Voir plus</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fin de la première section -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8 mt-4" style="margin-left: 300px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Projets sans budget</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center align-items-center" style="height: 100vh;">
+  <div class="col-md-8" style="margin-left: 150px;">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let project of projectsWithoutBudgets">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ project.project_name }}</h5>
+            <p class="card-text">Date de début : {{ project.project_startdate }}</p>
+            <p class="card-text">Date de fin : {{ project.projectEnddate }}</p>
+            <a [routerLink]="['/admin/budgett/add', project.projectId]" class="btn btn-primary btn-sm">Ajouter un budget</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <!-- Contenu du pied de page -->
+</div>
+
+  
+  <!-- iv class="row justify-content-center align-items-center" style="height: 100vh;">
+    <div class="col-md-8" style="margin-top: 70px; margin-left: 300px;">
+      <div class="row">
+        <div class="col-md-4">
+          <input type="number" class="form-control" [(ngModel)]="thresholdAmount" placeholder="Entrez le seuil de montant">
+        </div>
+      </div>
+      <div class="list-group">
+        <a *ngFor="let budget of budgetsGreaterThanAmount" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Budget ID: {{ budget.budget_id }}</h5>
+            <small>Budget Amount: {{ budget.budget_amount }}</small>
+          </div>
+          <p class="mb-1">Budget Reel: {{ budget.budgetReel }}</p>
+          <small>Budget Variance: {{ budget.budget_variance }}</small>
+          <small>Dependencies: {{ budget.dependencies }}</small>
+        </a>
+        <div *ngIf="budgetsGreaterThanAmount.length === 0" class="text-center mt-3">
+          Aucun budget trouvé avec un montant supérieur à {{ thresholdAmount }}
+        </div>
+      </div>
+    </div>
+  </div> -->
+  

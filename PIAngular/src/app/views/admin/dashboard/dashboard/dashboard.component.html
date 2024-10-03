@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<!-- [ Header ] start -->
+<header class="pc-header ">
+    <div class="header-wrapper">
+        <div class="mr-auto pc-mob-drp">
+            <ul class="list-unstyled">
+                <li class="dropdown pc-h-item">
+                    <a class="pc-head-link active dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        Level
+                    </a>
+                    <div class="dropdown-menu pc-h-dropdown">
+                        <a routerLink="/profile" class="dropdown-item">
+                            <i class="material-icons-two-tone">account_circle</i>
+                            <span>My Account</span>
+                        </a>
+                        <div class="pc-level-menu">
+                            <a href="profile" class="dropdown-item">
+                                <i class="material-icons-two-tone">account_circle</i>
+                                <span class="float-right"><i data-feather="chevron-right" class="mr-0"></i></span>
+                                <span>My Account</span>
+                            </a>
+                            
+                        </div>
+                        <a href="changepwd" class="dropdown-item">
+                            <i class="material-icons-two-tone">settings</i>
+                            <span>Settings</span>
+                        </a>
+                        <a href="chat" class="dropdown-item">
+                            <i class="material-icons-two-tone">send</i>
+                            <span>Message</span>
+                        </a>
+                        <a (click)="ntfp()"  class="dropdown-item">
+                            <i class="material-icons-two-tone">https</i>
+                            <span>Navigate To Front Page</span>
+                        </a>
+                        <a (click)="logout()" class="dropdown-item">
+                            <i class="material-icons-two-tone">chrome_reader_mode</i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="ml-auto">
+            <ul class="list-unstyled">
+                <li class="dropdown pc-h-item">
+                    <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <i class="material-icons-two-tone">search</i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right pc-h-dropdown drp-search">
+                        <form  #searcheForm="ngForm" class="px-3">
+                            <div class="form-group mb-0 d-flex align-items-center">
+                                <i data-feather="search"></i>
+                                <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . .">
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="dropdown pc-h-item">
+                    <!-- <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <img src="images/avatar-2.jpg" alt="user-image" class="user-avtar">
+                        <span>
+                            <span class="user-name">Siwar Djebbi</span>
+                            <span class="user-desc">Administrator</span>
+                        </span>
+                    </a> -->
+                    <li>
+                    <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
+                        <div class=" dropdown-header">
+                            <h5 class="text-overflow m-0"><span class="badge bg-light-primary"><a href="#https://therichpost.com" target="_blank">Upgrade to Pro</a></span></h5>
+                        </div>
+            
+                        <a href="auth-signin.html" class="dropdown-item">
+                            <i class="material-icons-two-tone">chrome_reader_mode</i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">Dashboard sale</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Dashboard sale</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
+</header>
+<!-- [ Header ] end -->
+
+
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+<div class="pcoded-content"><br><br>
+    <div class="row">
+        <!-- User stat Section -->
+        <div class="col-md-12">
+            <div class="statistics-cards d-flex justify-content-between">
+                <div class="card-body" *ngFor="let d of data">
+                    <div class="row align-items-center m-b-0">
+                        <div class="col">
+                            <h6 class="m-b-5">{{d.title}}</h6>
+                            <h3 class="m-b-0">%{{d.percentage}}</h3>
+                        </div>
+                        <div class="col-auto">
+                           
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <!-- End User stat Section -->
+    </div>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h5>Employees task count</h5>
+                </div>
+                <div class="card-body">
+                    
+                    <div id="account-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- [ Main Content ] start -->
+
+    <!-- [ Main Content ] end -->
+<!-- [ Header ] end -->
+
+<head>
+    
+    <title>Centered Moving Cards</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<!--<style>
+    /* Centered Moving Cards CSS */
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+    
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    
+    .card {
+        width: 200px;
+        height: 300px;
+        margin: 0 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+    }
+    
+    
+    
+    .card .front,
+    .card .back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: #333;
+        border-radius: 10px;
+    }
+    
+    .card .front {
+        background-color: #9192dcbb;
+    }
+    
+    .card .back {
+        background-color: #884788c4;
+        transform: rotateY(180deg);
+    }
+</style>-->
+</head>
+<body>
+
+<!-- Centered Moving Cards Section -->
+<!-- <div class="container">
+    <div class="card">
+        <div class="front">Leave</div>
+        <div class="back">Management</div>
+    </div>
+    <div class="card">
+        <div class="front">Recuitment</div>
+        <div class="back">Balances</div>
+    </div>
+    <div class="card">
+        <div class="front">Absence</div>
+        <div class="back">Tracking</div>
+    </div>
+</div> -->
+
+<!-- Bootstrap JS and Feather Icons -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace();
+</script>
+
+</body>

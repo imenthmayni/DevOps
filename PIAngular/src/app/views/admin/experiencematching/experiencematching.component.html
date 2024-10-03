@@ -1,0 +1,17 @@
+<h2>Sélectionnez le candidat et le poste de recrutement</h2>
+<div>
+  <label for="candidate">Nom du candidat:</label>
+  <select id="candidate" [(ngModel)]="selectedCandidate">
+    <option *ngFor="let candidate of candidates" [value]="candidate.idCandidate">{{ candidate.firstNameCand }}</option>
+  </select>
+</div>
+<div>
+  <label for="postTitle">Titre du poste:</label>
+  <select id="postTitle" [(ngModel)]="selectedPostTitle">
+    <option *ngFor="let postTitle of postTitles" [value]="postTitle">{{ postTitle }}</option>
+  </select>
+</div>
+<!-- <button (click)="calculateCompatibility(offerId)">Calculer compatibilité</button> -->
+<div *ngIf="experienceMatching !== undefined">
+  <p>Compatibilité : {{ experienceMatching }}%</p>
+</div>

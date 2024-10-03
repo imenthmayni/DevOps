@@ -1,0 +1,14 @@
+.container22 {
+    padding-left: 23% !important;
+    padding-right: 5%;
+    margin-top: 20px; /* Adds some space above the card */
+    max-width: 2000px; /* Sets a maximum width for the form container */
+    margin-left: auto; /* These two lines center the container */
+    margin-right: auto;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.842); /* Adds a subtle shadow around the card */
+    transition: 0.3s; /* Smooth transition for hover effects */
+}
+

@@ -1,0 +1,10 @@
+<div class="marge-a-gauche">
+<div>
+  <p>Voulez-vous vraiment supprimer le consultant {{ consultant?.consultant_firstname }} {{ consultant?.consultant_lastname }} ?</p>
+  <button (click)="deleteConsultant()">Confirmer la suppression</button>
+  <!-- Affichage du message de suppression réussie --> 
+</div>
+<div *ngIf="isDeleted" class="success-message">
+  La suppression a été effectuée avec succès.
+</div>
+</div>

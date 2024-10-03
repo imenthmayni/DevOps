@@ -1,0 +1,45 @@
+<p>addresource works!</p>
+<!-- Contenu principal -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                      <a routerLink="/admin/resources" class="btn btn-primary mr-3">
+                        <i class="bi bi-plus"></i> Retour
+                      </a>
+                     
+                      
+                      </div>
+                    <h5 class="card-title">Add Resource</h5>
+                    <!-- Formulaire d'ajout de ressource -->
+                    <form (ngSubmit)="addResource()" #resourceForm="ngForm">
+                        <div class="mb-3">
+                            <label for="resourceName" class="form-label">Resource Name</label>
+                            <input type="text" class="form-control" id="resourceName" [(ngModel)]="newResource.resourceName" name="resourceName" required minlength="3">
+                        </div>
+                        <div class="mb-3">
+                            <label for="resourcesDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="resourcesDescription" [(ngModel)]="newResource.resourcesDescription" name="resourcesDescription" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="resourceType" class="form-label">Resource Type</label>
+                            <select class="form-select" id="resourceType" [(ngModel)]="newResource.resourceType" name="resourceType" required>
+                                <option value="MATERIAL">MATERIAL</option>
+                                <option value="SOFTWARE">SOFTWARE</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="resourcesCost" class="form-label">Cost</label>
+                            <input type="number" class="form-control" id="resourcesCost" [(ngModel)]="newResource.resourcesCost" name="resourcesCost" required>
+                        </div>
+  
+                        <button type="submit" class="btn btn-primary">Add Resource</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin du contenu principal -->

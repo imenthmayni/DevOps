@@ -1,0 +1,25 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Input Rating</h1>
+<ngb-rating [max]="5" (hover)="hoveredStar = $event" (leave)="hoveredStar = 0" [formControl]="ratingcontrol" (click)="GetRating(hoveredStar)"></ngb-rating>
+
+<h1>Output Rating</h1>
+<h2>{{Finalrating}}</h2>
+<ngb-rating [max]="5" [rate]="Finalrating" [readonly]="true"></ngb-rating>
+
+<h2>Rating from {{ratingcount}} users</h2>
+
+<div>
+  <label for="contributorName">Contributor Name:</label>
+  <input type="text" id="contributorName" [(ngModel)]="contributorName" name="contributorName" placeholder="Enter your name and last name">
+</div>

@@ -1,0 +1,72 @@
+
+ <div class="marge-a-gauche">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Consultant Table</h6>
+      <button class="btn btn-primary" 
+      routerLink="/admin/addConsultant">Ajouter un consultant</button>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <div class="d-flex justify-content-end mb-3">
+          <label class="me-2">Trier par:</label>
+          <select [(ngModel)]="selectedSortParameter" (change)="onSortParameterChange()" class="form-select">
+            <option value="consultant_id">ID</option>
+            <option value="consultant_lastname">Nom du Consultant</option>
+            <option value="skill">Compétence</option>
+            <option value="hireDate">Date d'embauche</option>
+          </select>
+        </div>
+        <table class="table  table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Prénom</th>
+              <th>Nom de famille</th>
+              <th>Adresse</th>
+              <th>Email</th>
+              <th>Téléphone</th>
+              <th>hire date</th>
+              <th>Dernière réunion</th>
+              <th>Image</th>
+              <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let consultant of consultants">
+              <td>{{ consultant.consultant_id }}</td>
+              <td>{{ consultant.consultant_firstname }}</td>
+              <td>{{ consultant.consultant_lastname }}</td>
+              <td>{{ consultant.consultant_address }}</td>
+              <td>{{ consultant.consultant_email }}</td>
+              <td>{{ consultant.consultant_phonenumber }}</td>
+              <td>{{ consultant.hireDate ? (consultant.hireDate | timestampToDate) : 'N/A' }}</td>
+              <td>{{ consultant.date_last_meet ? (consultant.date_last_meet | timestampToDate) : 'N/A' }}</td>
+              <td><img [src]="consultant.image" alt="Description de l'image" style="width: 100px; height: auto;"></td>
+           
+              <td>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-info" [routerLink]="['/admin/updateConsultant', consultant.consultant_id]">
+                    <i class="fas fa-edit"></i> Modifier
+                  </button>
+                  <button type="button" class="btn btn-info" [routerLink]="['/admin/deleteConsultant/', consultant.consultant_id]">
+                    <i class="fas fa-trash-alt"></i> Supprimer
+                  </button>
+                  <button type="button" class="btn btn-success" [routerLink]="['/admin/affecterConsultantAPortfolio/', consultant.consultant_id]">
+                    <i class="fas fa-plus"></i> Affecter
+                  </button>
+                <button type="button" class="btn btn-success" [routerLink]="['/admin/planifierReunion/', consultant.consultant_id]">
+                  <i class="fas fa-plus"></i> journal
+                </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 

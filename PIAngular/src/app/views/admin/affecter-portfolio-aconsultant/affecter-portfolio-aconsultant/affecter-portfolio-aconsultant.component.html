@@ -1,0 +1,117 @@
+<!-- <div class="marge-a-gauche">
+
+    <div class="container">
+    <h2 class="mt-4 mb-4">Ajouter un consultant</h2>
+    <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+        consultant ajouté avec succès!
+    </div>
+    <form [formGroup]="portfolioForm" (ngSubmit)="affectconsultantToPortfolio()" class="needs-validation" novalidate>
+
+        <div class="mb-3">
+            <span>
+            <i class="fas fa-envelope"></i>&nbsp;&nbsp;
+            <label for="portfolio_id" class="form-label">portfolio_id</label></span>
+            <input type="number" id="portfolio_id" formControlName="portfolio_id" class="form-control" required>
+            <br>
+            <div *ngIf="portfolioForm.get('portfolio_id')?.hasError('required') && portfolioForm.get('portfolio_id')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+          <div class="mb-3">
+            <span>
+            <i class="fas fa-envelope"></i>&nbsp;&nbsp;
+            <label for="consultant_id" class="form-label">consultant_id</label></span>
+            <input type="number" id="consultant_id" formControlName="consultant_id" class="form-control" required>
+            <br>
+            <div *ngIf="portfolioForm.get('consultant_id')?.hasError('required') && portfolioForm.get('consultant_id')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+    <button class="btn btn-primary" (click)="affectconsultantToPortfolio()">Affecter consultant au portefeuille</button>
+</form>
+</div>
+ -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Titre</title>
+    <style>
+        .marge-a-gauche {
+            margin-left: 300px; /* Ajoute une marge à gauche pour l'élément parent */
+        }
+
+        table {
+            width: 100%; /* La table occupe toute la largeur disponible */
+            border-collapse: collapse; /* Fusionne les bordures des cellules */
+            margin-bottom: 20px; /* Ajoute de l'espace en bas de la table */
+        }
+        .selected-button {
+            background-color: green; /* Couleur de fond verte pour le bouton sélectionné */
+            color: white; /* Couleur du texte blanc pour le bouton sélectionné */
+        }
+
+        thead {
+            background-color: #f2f2f2; /* Couleur de fond pour l'en-tête */
+        }
+
+        th, td {
+            padding: 10px; /* Ajoute de l'espace autour du contenu des cellules */
+            border: 1px solid #ddd; /* Bordure de 1px solide avec une couleur grise */
+        }
+
+        .actions {
+            margin-top: 20px; /* Ajoute de l'espace au-dessus du conteneur d'actions */
+        }
+
+        button {
+            padding: 10px 20px; /* Ajoute de l'espace à l'intérieur des boutons */
+            background-color: #007bff; /* Couleur de fond bleue pour les boutons */
+            color: white; /* Couleur du texte blanc pour les boutons */
+            border: none; /* Supprime les bordures des boutons */
+            border-radius: 5px; /* Ajoute un arrondi aux coins des boutons */
+            cursor: pointer; /* Change le curseur en main au survol des boutons */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Couleur de fond bleue plus foncée au survol */
+        }
+    </style>
+</head>
+<body>
+    <!-- Votre contenu HTML existant -->
+    <div class="marge-a-gauche">
+        <h2>Liste des consultantt non affecté a un portfolio</h2>
+ <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+        consultant ajouté avec succès!
+    </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom de portfolio </th>
+                    <th>domaine </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of portfolios">
+                    <td>{{ user.potfolio_name }}</td>
+                    <td>{{ user.potfolio_id }}</td>
+                    <td>
+                        <button *ngIf="user.potfolio_id" (click)="selectUser(user.potfolio_id)" [class.selected-button]="user.potfolio_id === selectedportfolioId">Sélectionner</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+ 
+        <button class="btn btn-primary" routerLink="/admin/portfolio">Retour</button>
+      &nbsp;&nbsp;
+        <div class="actions">
+            <button *ngIf="selectedportfolioId" (click)="affectconsultantToPortfolio()">affecter l'utilisateur sélectionné</button>
+        </div>
+            
+    </div>
+</body>
+</html>

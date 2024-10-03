@@ -1,0 +1,69 @@
+<div class="container bb">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-uppercase">
+            <i class="fas fa-suitcase me-2" style="color: #6922cd;"></i> Move stock </h2>
+    </div>     
+
+    <!-- Choix du produit -->
+    <div class="card">
+        <div class="card-body">      
+            <form [formGroup]="mouvementStockForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+
+                    <h3 class="card-title mb-4" style="color: #6922cd; font-size: 1.5rem; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #4524c8; padding-bottom: 10px;">Product:</h3>
+                    <i class="fas fa-box-open fa-fw purple-icon"></i><label for="productId">Choose product:</label>
+
+                    <select formControlName="productId" id="productId" class="form-control">
+                        <option *ngFor="let product of products" [value]="product.productId">{{ product.title }}</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+  
+    <!-- Informations sur le mouvement -->
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="card">
+                
+
+                <div class="card-body">
+                    <h3 class="card-title mb-4" style="color: #6922cd; font-size: 1.5rem; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #4524c8; padding-bottom: 10px;">Infos:</h3>
+
+                    <form [formGroup]="mouvementStockForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <i class="far fa-calendar-alt fa-fw purple-icon"></i><label for="dateMouvement">Date :</label>
+                            <input type="date" formControlName="dateMouvement" id="dateMouvement" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-exchange-alt fa-fw purple-icon"></i><label for="typeMouvement">Type :</label>
+                            <select formControlName="typeMouvement" id="typeMouvement" class="form-control">
+                                <option value="ENTREE">Entrée</option>
+                                <option value="SORTIE">Sortie</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-cubes fa-fw purple-icon"></i><label for="quantite">Quantity :</label>
+                            <input type="number" formControlName="quantite" id="quantite" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bouton Ajouter Mouvement de Stock -->
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-block" (click)="onSubmit()">
+                <i class="fas fa-plus-circle me-1"></i> Apply
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .purple-icon {
+        color: #6922cd; /* Violet color */
+    }
+</style>

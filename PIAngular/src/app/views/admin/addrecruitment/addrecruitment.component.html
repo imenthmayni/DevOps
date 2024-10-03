@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DashboardKit Bootstrap 5 Admin Template</title>
+    <style>
+        .header-space {
+            height: 100px;
+        }
+
+        .form-container {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px; 
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            max-width: 500px; 
+            margin: 0 auto; 
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px; 
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px; 
+        }
+
+        .btn-primary {
+            background-color: #007bff; 
+            border-color: #007bff; 
+            color: #fff; 
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; 
+            border-color: #0056b3; 
+        }
+
+        .alert-success {
+            background-color: #d4edda; 
+            color: #155724; 
+            border-color: #c3e6cb; 
+            padding: 1rem; 
+            border-radius: 0.25rem; 
+            position: relative;
+        }
+
+        .alert-success .btn-close {
+            position: absolute; 
+            top: 0.5rem; 
+            right: 0.5rem;
+            color: #155724;
+            text-decoration: none; 
+        }
+    </style>
+</head>
+<body class="">
+    <!-- [ Header ] start -->
+    <header class="pc-header ">
+    </header>
+    <!-- [ Header ] end -->
+    <div class="header-space"></div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <div class="form-container">
+                    <h2 class="form-title">Add New Recruitment</h2>
+                    <form [formGroup]="recForm" (ngSubmit)="adddRec()">
+                        <div class="form-group">
+                            <label for="postTitle">Post Title</label>
+                            <input type="text" class="form-control" id="postTitle" formControlName="postTitle" required>
+                            <div *ngIf="recForm.get('postTitle')?.invalid && recForm.get('postTitle')?.touched" class="text-danger">Post Title is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" formControlName="description" required></textarea>
+                            <div *ngIf="recForm.get('description')?.invalid && recForm.get('description')?.touched" class="text-danger">Description is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="requirements">Requirements</label>
+                            <textarea class="form-control" id="requirements" formControlName="requirements" required></textarea>
+                            <div *ngIf="recForm.get('requirements')?.invalid && recForm.get('requirements')?.touched" class="text-danger">Requirements are required</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recruitmentStatus" class="form-label">recruitmentStatus</label>
+                            <select id="recruitmentStatus" formControlName="recruitmentStatus" class="form-select" required>
+                                <option value="">Sélectionner un status</option>
+                                <option value="OPEN">Ouvert</option>
+                                <option value="CLOSED">Fermé (pour le moment)</option>
+                            </select>
+                            <div *ngIf="recForm.get('recruitmentStatus')?.hasError('required') && recForm.get('recruitmentStatus')?.touched"
+                                class="invalid-feedback">
+                                Ce champ est requis
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ajouter Recrutement</button>
+                        <div class="form-group">
+                          <button type="button" class="btn btn-secondary" (click)="redirectToRecDisplay()">Cancel</button>                        </div>
+                    </form>
+                    <div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                        Recruitment added successfully!
+                        <button type="button" class="btn-close" (click)="dismissAlert()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

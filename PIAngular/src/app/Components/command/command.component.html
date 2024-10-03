@@ -1,0 +1,214 @@
+<!-- <div>
+  <h2>Search Commands</h2>
+  <div>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" [(ngModel)]="startDate">
+  </div>
+  <div>
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" [(ngModel)]="endDate">
+  </div>
+<select [(ngModel)]="selectedStatus">
+  <option *ngFor="let statusOption of commandStatusOptions" [value]="statusOption">{{ statusOption }}</option>
+</select>
+
+<select [(ngModel)]="selectedPaymentMethod">
+  <option *ngFor="let paymentOption of commandPaymentOptions" [value]="paymentOption">{{ paymentOption }}</option>
+</select>
+
+  <button (click)="searchCommands()">Search</button>
+</div>
+
+<div *ngIf="searchResults.length > 0">
+  <h2>Search Results</h2>
+  <ul>
+    <li *ngFor="let command of searchResults">
+      {{ command | json }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="commands.length > 0">
+  <h2>All Commands</h2>
+  <ul>
+    <li *ngFor="let command of commands">
+      {{ command | json }}
+      <button (click)="deleteCommand(command.commandId)">Delete</button>
+    </li>
+  </ul>
+</div> -->
+
+
+<div class="container com">
+  <div class="row">
+    <!-- Première card vide -->
+    <div class="col-xl-7 mt-5">
+      <div class="card rounded">
+        
+          <div class="card-header">
+            <h5>New Orders</h5>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <!-- Liste déroulante pour sélectionner le statut -->
+              <div class="form-group">
+                <label for="status">Select Status:</label>
+                <select id="status" class="form-control" [(ngModel)]="selectedStatus">
+                  <option value="PAID">Paid</option>
+                  <option value="UNPAID">Unpaid</option>
+                  <option value="PENDING">Pending</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <!-- Liste déroulante pour sélectionner la méthode de paiement -->
+              <div class="form-group">
+                <label for="payment">Select Payment Method:</label>
+                <select id="payment" class="form-control" [(ngModel)]="selectedPaymentMethod">
+                  <option value="ONLINE_PAYMENT">Online Payment</option>
+                  <option value="CASH_ON_DELIVERY">Cash on Delivery</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="row">
+            <div class="col-md-6">
+ <button type="button" class="btn btn-block text-uppercase font-weight-bold text-light bg-button py-2 mb-5 " 
+  (click)="getCommandsByStatus(selectedStatus)">Find</button>              
+                </div>
+            <div class="col-md-6">
+              <button type="button" class="btn btn-block text-uppercase font-weight-bold text-light bg-button py-2 mb-5 " 
+              (click)="getCommandsByPaymentMethod(selectedPaymentMethod)">Find</button>               
+            </div>
+          </div>
+<br>          
+          
+        <div class="pro-scroll" style="height:255px;position:relative;">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover m-b-0">
+                        <thead>
+                            <tr>
+                              <th>Date </th>
+                              <th>Status </th>
+                              <th>Type </th>
+                              <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let command of commands">
+                              <td>{{ command.dateCommand | date:'dd/MM/yyyy' }}</td>
+                              <td>
+                                  <span class="badge bg-success" *ngIf="command.commandStatus === 'PAID'">Paid</span>
+                                  <span class="badge bg-info" *ngIf="command.commandStatus === 'UNPAID'">Unpaid</span>
+                                  <span class="badge bg-warning text-dark" *ngIf="command.commandStatus === 'PENDING'">Pending</span>
+                                </td>
+                                     
+                              <td>
+                                  <span class="badge bg-light-primary" *ngIf="command.commandPayment === 'ONLINE_PAYMENT'">OnlinePayment</span>
+                                  <span class="badge bg-primary" *ngIf="command.commandPayment === 'CASH_ON_DELIVERY'">CashOnDelivery</span>
+                              <td>
+                                  
+                                  <a href="#!">
+                                      <i class="icon feather icon-edit f-16  text-success"></i>
+                                    </a>
+                                    <a href="/admin/chart" (click)="deleteCommand(command.commandId)">
+                                      <i class="feather icon-trash-2 ml-3 f-16 text-danger"></i>
+                                    </a>
+                                    <a href="#!">
+                                      <i class="feather icon-eye ml-3 f-16 text-primary"></i>
+                                    </a>
+                              </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>        </div>
+      </div>
+    </div>
+
+
+    
+    <!-- Deuxième card vide -->
+    <div class="col-xl-5 mt-5">
+      <div class="card rounded">
+        <div class="card-header">
+          <h5>Find commands between date</h5>
+      </div>
+     
+          <div class="card-body">
+            
+           <ul class="list-inline text-center py-3">
+            <li class="list-inline-item">
+                <a href="#"> <i class="fas fa-pencil-alt text-success"></i>
+               <span class="h6 text-dark">Status</span>
+               </a>
+               </li>
+               <li class="list-inline-item mr-4">
+                       <a href="#"> <i class="fas fa-camera text-info"></i>
+                      <span class="h6 text-dark">Photo</span>
+                      </a>
+                      </li>
+                      <li class="list-inline-item mr-4">
+                           <a href="#"> <i class="fas fa-map-marker text-danger"></i>
+                          <span class="h6 text-dark">Check In</span>
+                          </a>
+                          </li>
+
+                 </ul>
+                 <form>
+                  <div class="form-group">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" class="form-control" id="startDate" [(ngModel)]="startDate" name="startDate">
+                    <span *ngIf="startDate" class="selected-date">Selected Start Date: {{ startDate | date }}</span>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" class="form-control" id="endDate" [(ngModel)]="endDate" name="endDate">
+                    <span *ngIf="endDate" class="selected-date">Selected End Date: {{ endDate | date }}</span>
+                  </div>
+              <div>
+                
+                         <button type="button" class="btn btn-block text-uppercase 
+                         font-weight-bold text-light bg-button py-2 mb-5 "  (click)="findCommandsBetweenDates()">Find</button>
+                     </div>
+                 </form>
+                 <div class="row align-items-center mb-5">
+                     <div class="col-6">
+                         <div class="card bg-light">
+                             <i class="far fa-calendar-alt fa-8x
+                             text-info d-block m-auto py-3"></i>
+                             <div class="card-body">
+                      <p class="card-text text-center font-weight-bold 
+                      text-uppercase">Thu,Oct 10</p>
+                             </div>
+                         </div>
+
+                     </div>
+                     <div class="col-6">
+                           <div class="card bg-light">
+                                   <i class="far fa-clock fa-8x
+                                   text-danger d-block m-auto py-3"></i>
+                                   <div class="card-body">
+                            <p class="card-text text-center font-weight-bold 
+                            text-uppercase">2:15PM</p>
+                                   </div>
+                               </div>
+                       </div>
+                 </div>
+
+           </div>
+         </div>
+
+
+  </div>
+      </div>
+  </div>
+
+ 

@@ -1,0 +1,39 @@
+.main-panel {
+  margin-top: 50px; 
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px; 
+  background-color: #f8f9fa; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center; 
+}
+
+
+
+.calendar-container {
+  display: inline-block; 
+}
+
+.fc-daygrid-event {
+  background-color: #007bff; 
+  color: #fff; 
+}
+
+.fc-daygrid-event-dot {
+  background-color: #007bff; 
+}
+
+.fc-daygrid-event:hover {
+  background-color: #0056b3; 
+}
+
+.fc-daygrid-day-top, .fc-daygrid-day-number {
+  font-size: 14px;
+  padding: 8px;
+}
+
+.fc-daygrid-event-title {
+  font-size: 12px;
+}

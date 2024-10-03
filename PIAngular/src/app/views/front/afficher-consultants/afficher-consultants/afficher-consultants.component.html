@@ -1,0 +1,133 @@
+<br><br><br><br>
+<!-- ======= Hero Section ======= -->
+<section hero>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+        <div>
+          <h1>TechOps CRM</h1>
+          <h2>CRM revolutionizes the way you engage with customers, simplifying complex sales processes and boosting productivity. </h2>
+          <a href="/" class="btn-get-started scrollto">Home</a>
+        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+        <img src="../../../../../../../../../../../../assets/frontoffice/img/clients/crm.avif" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- End Hero -->
+<div class="section-title" data-aos="fade-up">
+
+
+<div class="marge-a-gauche">
+  <div class="section-title" data-aos="fade-up">
+      <h2>Consultants</h2>
+      <p>Consultants are skilled professionals who offer specialized expertise and services in various fields.</p>
+  </div> 
+
+  <div class="consultant-list">
+      <div *ngFor="let consultant of consultants" class="consultant-item">
+          <img [src]="consultant.image" alt="Consultant Image" class="consultant-image" (mouseover)="showDetails = true" (mouseleave)="showDetails = false">
+          <div class="consultant-details" *ngIf="showDetails">
+              <p>{{ consultant.consultant_firstname }} {{ consultant.consultant_lastname }}</p>
+              <p>{{ consultant.consultant_address }}</p>
+              <p>{{ consultant.consultant_email }}</p>
+              <p>
+                  <!-- Affichage des étoiles en fonction de la compétence -->
+                  <span *ngIf="consultant.skill === 'ONE_STAR'">
+                      <i class="fas fa-star star-yellow"></i>
+                  </span>
+                  <span *ngIf="consultant.skill === 'TWO_STAR'">
+                      <i class="fas fa-star star-yellow"></i>
+                      <i class="fas fa-star star-yellow"></i>
+                  </span>
+                  <span *ngIf="consultant.skill === 'THREE_STAR'">
+                      <i class="fas fa-star star-yellow"></i>
+                      <i class="fas fa-star star-yellow"></i>
+                      <i class="fas fa-star star-yellow"></i>
+                  </span>
+                  
+              </p>
+              
+          </div>
+
+          <button type="button" class="btn btn-info" [routerLink]="['/planificationMeet/', consultant.consultant_id]">
+            <i class="fas fa-trash-alt"></i> meet
+          </button>
+          <div class="member-info">
+            <span>Chief Executive Officer</span>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- ======= Team portfolio ======= -->
+<section id="team" class="team">
+  <div class="container">
+
+    <div class="section-title" data-aos="fade-up">
+      <h2>Team</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6">
+        <div class="member" data-aos="zoom-in">
+          <div class="pic"><img src="../../../../../../../../assets/frontoffice/img/team/industrie.jpg" (mouseover)="hoverImage($event)" (mouseleave)="unhoverImage($event)"
+            [ngClass]="{'img-hover': hoverImage}" class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>Industrie</h4>
+            <span>Chief Executive Officer</span>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="member" data-aos="zoom-in" data-aos-delay="100">
+          <div class="pic"><img src="../../../../../../../../assets/frontoffice/img/team/commerce.png"
+            (mouseover)="hoverImage($event)" (mouseleave)="unhoverImage($event)"
+            [ngClass]="{'img-hover': hoverImage}" class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>Commerce</h4>
+            <span>Product Manager</span>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="member" data-aos="zoom-in" data-aos-delay="200">
+          <div class="pic"><img src="../../../../../../../../assets/frontoffice/img/team/environnement.jpg" 
+            (mouseover)="hoverImage($event)" (mouseleave)="unhoverImage($event)"
+       [ngClass]="{'img-hover': hoverImage}"class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>William Anderson</h4>
+            <span>CTO</span>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div> 
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Team Section -->
