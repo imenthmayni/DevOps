@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Leave Statistics
+          </div>
+          <div class="card-body">
+            <div *ngIf="leaveStatistics">
+              <p>Total Leaves: {{ leaveStatistics.totalLeaves }}</p>
+              <p>Sick Leaves: {{ leaveStatistics.sickLeaves }}</p>
+              <p>Vacation Leaves: {{ leaveStatistics.vacationLeaves }}</p>
+            </div>
+            <div *ngIf="!leaveStatistics">
+              <p>Loading leave statistics...</p>
+            </div>
+            <div *ngIf="leaveStatistics === null">
+              <p>Failed to load leave statistics. Please try again later.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Update Profile</h1>
+  <form>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" required>
+    </div>
+    <div class="profile-info">
+      <!-- Display other user information here -->
+      <div class="profile-field">
+        <label>Profile Photo:</label>
+        <td><img [src]="user.profilePhoto" class="card-img-top" alt="Image" style="max-width: 300px; max-height: 200px;"></td>
+      </div>
+      <form (ngSubmit)="updateProfile()" enctype="multipart/form-data">
+        <label for="profile-photo" class="file-label">Upload Profile Photo</label>
+        <input id="profile-photo" type="file" (change)="onFileSelected($event)" accept="image/*" />
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+      <!-- Other profile fields and actions -->
+    </div>
+    <!-- <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" class="form-control" (change)="onFileSelected($event)">
+    </div>
+    <div class="profile-field">
+      <label>Profile Photo:</label>
+      <img *ngIf="user.image" [src]="user.image" alt="Profile Photo">
+    </div> -->
+    <button type="submit" class="btn btn-primary" (click)="updateProfile()">Update</button>
+  </form>
+</div>

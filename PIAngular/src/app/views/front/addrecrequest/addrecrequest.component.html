@@ -1,0 +1,298 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Solution & Recruitment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+        }
+        ngb-rating{
+    color: #FFC107;
+    font-size: 90px;
+}
+
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: slideInUp 1s ease forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Header Styles */
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #666;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #ff6f61;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .btn:hover {
+            background-color: #ff403d;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Image Styles */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            margin-top: 50px;
+            animation: zoomIn 1s ease forwards;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            color: #fff;
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Video Styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; 
+            margin-bottom: 30px; 
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* Card Styles */
+.card {
+    width: 300px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-content {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #666;
+}
+
+    </style>
+</head>
+
+<body>
+
+    
+    <div class="container">
+        <h1>Welcome to our ERP Solution : CoConsult </h1>
+        <p>Revolutionize your business with our comprehensive ERP solution. Manage your resources, streamline operations, and boost productivity.</p>
+        <a href="reccalend"  class="btn">HR Management</a>
+        <a href="payroll" class="btn">Payroll Management</a>
+
+        <div class="image-container">
+            <img src="assets/frontoffice/img/C.jpg" alt="ERP Solution">
+            <div class="overlay">
+                <div class="text">Transform Your Business</div>
+            </div>
+        </div>
+    </div>
+   
+<div class="card-container">
+    
+    <div class="card">
+        <img src="assets/frontoffice/img/9.png" alt="Card 1">
+        <div class="card-content">
+            <h2 class="card-title">Leave Management System</h2>
+            <p class="card-text">Efficiently manage employee leaves, including tracking, approval, and reporting</p>
+        </div>
+    </div>
+
+    
+    <div class="card">
+        <img src="assets/frontoffice/img/77.png" alt="Card 2">
+        <div class="card-content">
+            <h2 class="card-title">Recruitment Process</h2>
+            <p class="card-text">Manage the entire recruitment process, from job posting to candidate selection.</p>
+        </div>
+    </div>
+
+    
+    <div class="card">
+        <img src="assets/frontoffice/img/8.png" alt="Card 3">
+        <div class="card-content">
+            <h2 class="card-title">Absence Balances</h2>
+            <p class="card-text">Track and manage employee absence balances, including accrued and utilized absence days.</p>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Video Section -->
+    <div class="container">
+        <div class="video-container">
+            <video autoplay loop muted>
+                <source src="assets/frontoffice/videos/hrm.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    
+ 
+ <div class="container">
+  <h1>Output Rating</h1>
+  <ngb-rating [max]="5" (click)="GetRating($event)" [formControl]="ratingcontrol"></ngb-rating>
+
+  <h2>{{ Finalrating }}</h2>
+  <ngb-rating [max]="5" [rate]="Finalrating" [readonly]="true"></ngb-rating>
+  <h2>Rating from {{ ratingcount }} users</h2>
+  <div class="input-container">
+    <label for="contributorName">Contributor Name:</label>
+    <input type="text" id="contributorName" [(ngModel)]="contributorName" name="contributorName" placeholder="Enter your name and last name">
+  </div>
+</div>
+
+</body>

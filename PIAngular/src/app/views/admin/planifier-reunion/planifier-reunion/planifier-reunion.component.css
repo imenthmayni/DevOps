@@ -1,0 +1,211 @@
+.marge-a-gauche {
+    margin-left: 300px;
+}
+.meeting-info-bar {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid #692323;
+    border-radius: 5px;
+    background-color: #bdcde8;
+    margin-top: 10px;
+   }
+   
+   .meeting-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+   }
+   
+   .status-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+   }
+   
+   .status-text {
+    font-weight: bold;
+    color: rgb(2, 3, 2);
+
+   }
+   .status-text-response {
+    font-weight: bold;
+    color: rgb(184, 30, 30);
+
+   }
+   
+   .first-meeting-text {
+    font-style: italic;
+    color: rgb(2, 3, 2);
+   }
+   .meeting-table {
+    margin-top: 20px;
+   }
+   
+   .meeting-table table {
+    width: 100%;
+    border-collapse: collapse;
+   }
+   
+   .meeting-table th, .meeting-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+   }
+   
+   .meeting-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+   }
+   .meeting-table-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Fond semi-transparent */
+   }
+   
+   .meeting-table {
+    background-color: #bdcde8;
+    margin: 15% 20% 15% 30%; /* Ajuster la marge gauche et à droite */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+   }
+  /* Style de base pour les boutons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #8dafc0; /* Couleur de fond */
+    border: none;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 9px #999;
+   }
+   
+   .button:hover {
+    background-color: #8dafc0; /* Couleur de fond au survol */
+   }
+   
+   .button:active {
+    background-color: #133a4d; /* Couleur de fond lorsqu'il est enfoncé */
+    box-shadow: 0 5px #666;
+    transform: translateY(4px); /* Déplacement vers le bas lorsqu'il est enfoncé */
+   }
+   
+   /* Style pour un bouton avec une couleur différente */
+   .button-secondary {
+    background-color: #8dafc0; /* Couleur de fond différente */
+   }
+   
+   .button-secondary:hover {
+    background-color: #243b47; /* Couleur de fond au survol */
+   }
+   
+   .button-secondary:active {
+    background-color: #2e525b; /* Couleur de fond lorsqu'il est enfoncé */
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+   }
+    
+   .main-panel {
+    background-color: #f5f5f5; /* Couleur de fond du panneau */
+    margin: 20px auto; /* Marge autour du panneau */
+    padding: 20px; /* Espace à l'intérieur du panneau */
+    border: 1px solid #ddd; /* Bordure du panneau */
+    border-radius: 5px; /* Coins arrondis */
+    width: 90%; /* Largeur du panneau */
+    max-width: 1200px; /* Largeur maximale pour les écrans plus larges */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Ombre pour donner de la profondeur */
+   }
+   .main-panel h1 {
+    font-size: 24px; /* Taille de la police du titre */
+    color: #381231; /* Couleur du titre */
+    margin-left: 300px;
+
+    margin-bottom: 20px; /* Espace en dessous du titre */
+   }
+   .success-message {
+    color: #008000; /* Couleur du texte en vert */
+    background-color: #d4edda; /* Couleur de fond claire */
+    border: 1px solid #c3e6cb; /* Bordure verte */
+    padding: 10px; /* Espacement interne */
+    margin-top: 10px; /* Espacement externe en haut */
+    border-radius: 5px; /* Coins arrondis */
+    font-weight: bold; /* Texte en gras */
+    text-align: center; /* Texte centré */
+   }
+   /* planifier-reunion.component.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribue l'espace entre les panneaux */
+    align-items: center;
+   }
+   
+   .chart-container {
+    width: 50%;
+    max-width: 500px; /* Ajustez selon vos besoins */
+    margin-bottom: 10px;
+   }
+   
+   canvas {
+    width: 100% !important;
+    height: auto !important;
+   }
+   #chart2 {
+    width: 400px;
+    height: 400px;}
+    #chart3 {
+        width: 300px;
+        height: 300px;
+  }
+  .demii-panel {
+    margin-left: 300px;
+    background-color: #f5f5f5; /* Couleur de fond du panneau */
+    margin: 20px auto; /* Marge autour du panneau */
+    padding: 20px; /* Espace à l'intérieur du panneau */
+    border: 1px solid #ddd; /* Bordure du panneau */
+    border-radius: 5px; /* Coins arrondis */
+    width: 50%; /* Largeur du panneau */
+    max-width: 500; /* Largeur maximale pour les écrans plus larges */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Ombre pour donner de la profondeur */
+   }
+   .demi-panel {
+    margin-left: 600; /* Déplace le panneau vers la droite */
+    background-color: #f5f5f5; /* Couleur de fond du panneau */
+    border: 1px solid #ddd; /* Bordure du panneau */
+    border-radius: 5px; /* Coins arrondis */
+    max-width: 500px; /* Largeur maximale pour les écrans plus larges, correction de la syntaxe */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Ombre pour donner de la profondeur */
+}
+.demi-panel2 {
+    margin-left: 500px; /* Déplace le panneau vers la droite */
+    background-color: #f5f5f5; /* Couleur de fond du panneau */
+    border: 1px solid #ddd; /* Bordure du panneau */
+    border-radius: 5px; /* Coins arrondis */
+    max-width: 500px; /* Largeur maximale pour les écrans plus larges */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Ombre pour donner de la profondeur */
+}
+.panel {
+    flex: 1;
+    margin: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 45%; /* Définit la largeur des panneaux à 45% de la largeur du conteneur */
+    height: 300px; /* Définit la hauteur des panneaux à 300px */
+  }

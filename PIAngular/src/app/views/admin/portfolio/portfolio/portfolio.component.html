@@ -1,0 +1,61 @@
+
+
+ <div class="marge-a-gauche">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Portfolio Table</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <button class="btn btn-primary" routerLink="/admin/addPortfolio">
+            Ajouter un portfolio
+          </button>
+          <br>
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>potfolio_id</th>
+                <th>potfolio_name</th>
+                <th>client_name</th>
+                <th>creation_date</th>
+                <th>potfolio_description</th>
+                <th>potfolio_manager</th>
+                <th>nbr_client</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let portfolio of portfolios">
+                <td>{{ portfolio.potfolio_id }}</td>
+                <td>{{ portfolio.potfolio_name }}</td>
+                <td>{{ portfolio.client_name }}</td>
+                <td>{{ portfolio.creation_date ? (portfolio.creation_date | timestampToDate) : 'N/A' }}</td>
+                <td>{{ portfolio.potfolio_description }}</td>
+                <td>{{ portfolio.potfolio_manager }}</td>
+                <td>{{ portfolio.nbr_client }}</td>
+                <td class="actionButtons">
+                  <button type="button" class="btn btn-info" [routerLink]="['/admin/deletePortfolio/', portfolio.potfolio_id]">
+                    <i class="fas fa-trash-alt"></i> delete
+                  </button>
+              
+               
+                  <button type="button" class="btn btn-info" [routerLink]="['/admin/affecterUserPortfolio/', portfolio.potfolio_id]">
+                    <i class="fas fa-user-plus"></i> ajouter user
+                  </button>
+                
+                  <button type="button" class="btn btn-info" [routerLink]="['/admin/desaffecterUser/', portfolio.potfolio_id]">
+                    <i class="fas fa-user-plus"></i> remove user
+                  </button>
+                
+                  <button type="button" class="btn btn-info" [routerLink]="['/admin/statistiquePortfolio/', portfolio.potfolio_id]">
+                    <i class="fas fa-chart-bar"></i> stat
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

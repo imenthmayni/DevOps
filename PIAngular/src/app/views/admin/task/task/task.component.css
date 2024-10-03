@@ -1,0 +1,8 @@
+.table-container {
+    height: 400px; /* Ajustez la hauteur en fonction de vos besoins */
+    overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
+}
+
+.card {
+    height: 100%;
+}

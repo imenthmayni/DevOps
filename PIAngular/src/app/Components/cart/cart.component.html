@@ -1,0 +1,155 @@
+<div class="container oo">
+  <!-- Simple div with some links -->
+
+
+<div class="md-stepper-horizontal orange">
+    <div class="md-step active ">
+      <a routerLink="/cart">
+      <div class="md-step-circle"><span>1</span></div>
+      <div class="md-step-title">Cart</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </a>
+    </div>
+    <div class="md-step active ">
+      <a routerLink="/checkout">
+      <div class="md-step-circle"><span>2</span></div>
+      <div class="md-step-title">Checkout</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </a> </div>
+
+    <div class="md-step active">
+      <a routerLink="/facture">
+      <div class="md-step-circle"><span>3</span></div>
+      <div class="md-step-title">Invoice</div>
+      <div class="md-step-optional">Optional</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </a>
+    </div>
+
+
+    <div class="md-step">
+      <a routerLink="/confirmation">
+      <div class="md-step-circle"><span>4</span></div>
+      <div class="md-step-title">Confirmation</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </a>
+    </div>
+
+
+  </div>
+
+  <hr>
+
+
+  <div id="cartContents">
+    <div class="row">
+      <!-- Cartes des produits -->
+      <div class="col-md-8">
+      <div class="card mb-5">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price(TND)</th>
+                <th>TOTAL(TND)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cartItems" class="cart-item">
+                <td><img [src]="item.product.image"  class="img-fluid" style="width: 100px; height: auto;"></td>
+                <td> <div>{{ item.product.title }}</div></td> 
+              <td>
+                <button (click)="decreaseQuantity(item.id, item.quantity)" class="btn btn-light btn-sm">
+                  <i class="bi bi-dash-lg"></i>
+                </button>
+                {{ item.quantity }}
+                <button (click)="increaseQuantity(item.id, item.quantity)" class="btn btn-light btn-sm">
+                  <i class="bi bi-plus-lg"></i>
+                </button>
+              </td>
+              
+                <td>  <div>{{ item.product.price }}</div></td>
+              
+                <td>{{ formatPrix((item.product.price ?? 0) * item.quantity) }}</td>
+                <td>
+                  <button (click)="removeItem(item.id)" class="btn btn-danger">Supprimer</button>
+                </td>
+                <tr>
+                  <tr>
+                  <td colspan="4"></td> 
+                  <td><strong>{{ getTotalSum() }}</strong></td>
+                </tr>
+
+ 
+            </tbody>
+          </table>
+          <a [routerLink]="['/front-product']" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        
+        </div>
+      </div>
+    </div>
+    
+   
+    <!-- Carte du total inspirée par la capture d'écran -->
+    <div class="col-md-4">
+      <div class="card mb-4 shadow">
+        <div class="card-body">
+          <h2 class="text-2xl font-semibold">TOTAL PANIER</h2>
+          <hr class="2" />
+          <div class="pt-4">
+            <span><strong>Sub-total</strong> </span>
+            <div class="flex justify-between text-right">
+              <strong>{{ getTotalSum() }} TDN</strong>            </div>
+            <hr />
+            <span><strong>Expedition</strong>  </span>
+            <div class="text-right">
+              <!-- <span>Home delivery across Tunisia (48h working days):</span>
+              <p><span><strong>4.500 TND</strong></span></p> -->
+              <div class="text-right">
+                Delivery options will be updated at checkout.
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="pt-4">
+            <span><strong>Total</strong></span>
+            <div class="flex justify-between text-right">
+              <span><strong>{{ (getTotalSum() + 4.500)  }}</strong> TND (dont TVA <strong>19%</strong>)</span>
+            </div>
+            <hr />
+            <div class="flex flex-col p-4 space-y-4">
+              <!-- Validate Order Button -->
+              <a routerLink="/checkout" class="btn btn-primary text-white bg-[#3776fe] font-bold py-8 px-16 rounded w-auto">
+                VALIDATE
+              </a>
+              
+              <hr /> 
+              <!-- Promo Code Section -->
+              <div class="bg-gray-200 p-4 rounded">
+                <div class="text-green-800 mb-2">Code promo</div>
+                <input type="text" placeholder="Code promo" class="mb-2 p-3 border border-gray-300 rounded w-full">
+                <button class="btn btn-primary text-white bg-[#3776fe] font-bold py-8 px-8 rounded w-full">
+                  Appliquer le code promo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+

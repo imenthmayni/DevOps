@@ -1,0 +1,54 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .link-budget {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .project-box {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .project-box h5 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .project-box p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .project-box .btn {
+    font-size: 1rem;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+  }
+  .user-name, .user-email {
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  }
+  

@@ -1,0 +1,153 @@
+
+
+<div class="container oo">
+
+
+  <div class="md-stepper-horizontal orange">
+      <div class="md-step active ">
+        <a routerLink="/cart">
+        <div class="md-step-circle"><span>1</span></div>
+        <div class="md-step-title">Cart</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a>
+      </div>
+      <div class="md-step active ">
+        <a routerLink="/checkout">
+        <div class="md-step-circle"><span>2</span></div>
+        <div class="md-step-title">Checkout</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a> </div>
+  
+      <div class="md-step active">
+        <a routerLink="/facture">
+        <div class="md-step-circle"><span>3</span></div>
+        <div class="md-step-title">Invoice</div>
+        <div class="md-step-optional">Optional</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a>
+      </div>
+  
+  
+      <div class="md-step">
+        <a routerLink="/checkout">
+        <div class="md-step-circle"><span>4</span></div>
+        <div class="md-step-title">Confirmation</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a>
+      </div>
+  
+  
+    </div>
+  
+    <hr>
+  
+
+    
+
+
+<div class="container pdf">
+
+
+<div id="cartContents" class="invoice-container">
+    <!-- Entête de la facture -->
+    <div class="invoice-header">
+   
+      <div class="invoice-company-info">
+        <h2>Co<span style="color: #007BFF;">Consult</span></h2>
+        <p><strong>Adress :</strong> Ariana Soghra<br> 
+          <strong>Postal code :</strong> 5285<br>
+          <strong>Phone number :</strong>  75896123<br>
+          <strong>Email :</strong> Coconsult.tn</p>
+      </div>
+     
+      <div class="invoice-meta">
+        <h3><strong>INVOICE</strong></h3>
+        <p><strong>Date :</strong> 31/03/2024<br><strong>Invoice #:</strong> 12579</p>
+      </div>
+    </div>
+  
+
+
+
+    
+    <!-- Information du client -->
+    <div class="invoice-client">
+      <h3><strong>TO :</strong></h3>      <p>
+        <strong>Client Name : </strong> dhouha zouaghi<br>
+        <strong>Adress :</strong> Tunis<br>
+       <strong> Government :</strong>  Tunis<br>
+       <strong>Numéro de téléphone :</strong>  +216 21236444 <br>
+       <strong>Email :</strong>  dhouha.zouaghi
+      </p>
+    </div>
+  
+    <!-- Détails de la facture -->
+    <div class="invoice-details">
+      <table class="invoice-table">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Prix Unitaire HT</th>
+            <th>Sub-Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartItems" class="cart-item">
+            <td> <div>{{ item.product.title }}</div>
+            <div>{{ item.product.description }}</div>
+            
+            </td> 
+            <td>  <div>{{ item.quantity }}</div></td>
+            <td>  <div>{{ item.product.price }}</div></td>
+            <td>  <div>{{ formatPrix((item.product.price ?? 0) * item.quantity) }}</div></td>
+          </tbody>
+
+            <!-- <td>{{ formatPrix((item.product.price ?? 0) * item.quantity) }}</td>
+           
+            <tr>
+              <tr>
+              <td colspan="4"></td> 
+              <td><strong>{{ getTotalSum() }}</strong></td>
+            </tr> -->
+
+
+      </table>
+      <div class="totals">
+        <div class="total-line"><span class="total-label">Total Excl. VAT:</span><span class="total-amount">{{ getTotalSum() }} TND</span></div>
+        <div class="total-line"><span class="total-label">Net Total Excl. VAT:</span><span class="total-amount">[Total Net HT]</span></div>
+        <div class="total-line"><span class="total-label">Total VAT:</span><span class="total-amount">[Total TVA]</span></div>
+        <div class="total-line total-ttc"><span class="total-label">Total Incl. VAT:</span><span class="total-amount">[Montant Total TTC]</span></div>
+      </div>
+      
+      <div class="payment-info">
+        <p><em>A flat-rate indemnity of 120 TND will be due for collection costs in case of late payment.</em></p>
+      </div>
+      <footer class="invoice-footer">
+        <div class="footer-content">
+          <p><span class="footer-title">Payment Method:</span> Cash on delivery</p>
+          <p><span class="footer-title">Payment Terms:</span> payment is made in cash at the time of delivery
+          <p>Part of the payment is held back for a set time after delivery to ensure the goods or services meet agreed standards.</p>
+          <p><span class="footer-title">Due Date:</span> 03/04/2024 </p>
+        </div>
+      </footer>
+      
+  </div>
+</div>
+
+</div>
+
+
+<button (click)="exportAsPDF()" class="btn btn-primary btn-download">
+  <i class="bi bi-file-earmark-pdf"></i> Download
+</button>
+
+<hr>
+
+<button class="btn btn-primary btn-suivant" routerLink="/confirmation">
+  <i class="bi bi-arrow-right-circle"></i> Confirm
+</button>

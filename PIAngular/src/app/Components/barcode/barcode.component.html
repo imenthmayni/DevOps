@@ -1,0 +1,7 @@
+<div>
+  <input type="text" [(ngModel)]="barcodeValue" placeholder="Enter Barcode Value">
+  <button (click)="generateBarcode()">Generate Barcode</button>
+</div>
+<div *ngIf="barcodeImageUrl">
+  <img [src]="barcodeImageUrl" alt="Generated Barcode">
+</div>

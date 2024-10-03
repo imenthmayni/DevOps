@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add Candidate Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center">Add New Candidate</h2>
+        <form [formGroup]="candForm" (ngSubmit)="createCandidate()">
+            <div class="form-group">
+                <label for="firstNameCand">First Name</label>
+                <input type="text" id="firstNameCand" formControlName="firstNameCand" required>
+                <div *ngIf="candForm.get('firstNameCand')?.invalid && candForm.get('firstNameCand')?.touched" class="error-message">First Name is required</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastNameCand">Last Name</label>
+                <input type="text" id="lastNameCand" formControlName="lastNameCand" required>
+                <div *ngIf="candForm.get('lastNameCand')?.invalid && candForm.get('lastNameCand')?.touched" class="error-message">Last Name is required</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="emailCand">Email</label>
+                <input type="email" id="emailCand" formControlName="emailCand" required>
+                <div *ngIf="candForm.get('emailCand')?.invalid && candForm.get('emailCand')?.touched" class="error-message">Valid Email is required</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="skillsCand">Skills</label>
+                <input type="text" id="skillsCand" formControlName="skillsCand" required>
+                <div *ngIf="candForm.get('skillsCand')?.invalid && candForm.get('skillsCand')?.touched" class="error-message">Skills are required</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="experienceCand">Experience</label>
+                <input type="text" id="experienceCand" formControlName="experienceCand" required>
+                <div *ngIf="candForm.get('experienceCand')?.invalid && candForm.get('experienceCand')?.touched" class="error-message">Experience is required</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="education">Education</label>
+                <input type="text" id="education" formControlName="education" required>
+                <div *ngIf="candForm.get('education')?.invalid && candForm.get('education')?.touched" class="error-message">Education is required</div>
+            </div>
+            
+            <button type="submit" class="submit-button" [disabled]="!candForm.valid">
+                <span *ngIf="!loading">Ajouter Candidat</span>
+                <span *ngIf="loading">Loading...</span>
+            </button><br><br>
+            <button class="submit-button" (click)="goBack()">Annuler</button>
+            
+            <div *ngIf="showSuccessAlert" class="success-alert">
+                Candidate added successfully!
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

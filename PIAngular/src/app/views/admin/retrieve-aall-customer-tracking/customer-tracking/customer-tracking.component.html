@@ -1,0 +1,115 @@
+<!-- <div class="marge-a-gauche">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Customer Tracking Table </h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <button class="btn btn-primary" routerLink="/admin/addCustomerTracking">Ajouter un consultant</button>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>history_id</th>
+                            <th>client_firstname</th>
+                            <th>client_lastname</th>
+                            <th>history_description</th>
+                            <th>date_last_meet</th>
+                            <th>date_last_meeet</th>
+                            <th>meet_duration</th>
+                            <th>meet_subject</th>
+                            <th>meet_participant</th>
+                            <th>meet_objective</th>
+                            <th>next_step</th>
+                            <th>nb_meeting</th>
+
+    
+    
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        <tr *ngFor="let customerTracking of customerTrackings">
+                            <td>{{ customerTracking.history_id }}</td>
+                            <td>{{ customerTracking.client_firstname }}</td>
+                            <td>{{ customerTracking.client_lastname }}</td>
+                            <td>{{ customerTracking.history_description }}</td>
+                            <td>{{ customerTracking.date_last_meet }}</td>
+                            <td>{{ customerTracking.date_last_meeet }}</td>
+                            <td>{{ customerTracking.meet_duration }}</td>
+                            <td>{{ customerTracking.meet_subject }}</td>
+                            <td>{{ customerTracking.meet_participant }}</td>
+                            <td>{{ customerTracking.meet_objective }}</td>
+                            <td>{{ customerTracking.next_step }}</td>
+                            <td>{{ customerTracking.nb_meeting }}</td>
+-->
+    
+                          <!-- <td class="actionButtons">
+                                <button type="button" class="btn btn-info" [routerLink]="['/admin/updateConsultant', consultant.consultant_id]">Modifier</button> 
+                            </td> -->
+                         <!--    <td class="actionButtons">
+                                <button type="button" class="btn btn-info" [routerLink]="['/admin/deleteCustomerTracking/', customerTracking.history_id]">delete</button> 
+                            </td> 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+     -->
+     <div class="marge-a-gauche">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Customer Tracking Table </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <button class="btn btn-primary" routerLink="/admin/addCustomerTracking">
+                        <i class="fas fa-user-plus"></i> Ajouter un consultant
+                    </button>
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>history_id</th>
+                                <th>client_firstname</th>
+                                <th>client_lastname</th>
+                                <th>history_description</th>
+                                <th>date_last_meet</th>
+                                <th>date_last_meeet</th>
+                                <th>meet_duration</th>
+                                <th>meet_subject</th>
+                                <th>meet_participant</th>
+                                <th>meet_objective</th>
+                                <th>next_step</th>
+                                <th>nb_meeting</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let customerTracking of customerTrackings">
+                                <td>{{ customerTracking.history_id }}</td>
+                                <td>{{ customerTracking.client_firstname }}</td>
+                                <td>{{ customerTracking.client_lastname }}</td>
+                                <td>{{ customerTracking.history_description }}</td>
+                                <td>{{ customerTracking.date_last_meet }}</td>
+                                <td>{{ customerTracking.date_last_meeet }}</td>
+                                <td>{{ customerTracking.meet_duration }}</td>
+                                <td>{{ customerTracking.meet_subject }}</td>
+                                <td>{{ customerTracking.meet_participant }}</td>
+                                <td>{{ customerTracking.meet_objective }}</td>
+                                <td>{{ customerTracking.next_step }}</td>
+                                <td>{{ customerTracking.nb_meeting }}</td>
+                                <td class="actionButtons">
+                                    <button type="button" class="btn btn-info" [routerLink]="['/admin/deleteCustomerTracking', customerTracking.history_id]">
+                                        <i class="fas fa-trash-alt"></i> delete
+                                    </button>
+                                </td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    

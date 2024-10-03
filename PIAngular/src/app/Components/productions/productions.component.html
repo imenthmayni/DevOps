@@ -1,0 +1,177 @@
+<div class="scrum-board-container">
+  <div class="pcoded-content">
+     
+    
+    <div class="admin-header d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="assets/images/pro.png" alt="Admin Logo" class="admin-logo me-2">
+            <h1>Progress Tracking for Production Stages</h1>
+
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button class="btn btn-outline-dark" routerLink="/admin/stats">
+              <i class="bi bi-list"></i> Stats
+          </button>
+          <button class="btn btn-outline-dark" routerLink="/admin/ajout-production">
+              <i class="bi bi-plus-lg"></i> Add
+          </button>
+      </div>
+      
+    </div>
+  
+  
+    
+  <div class="flex">
+    <div class="scrum-board backlog" cdkDropList (cdkDropListDropped)="drop($event)" >
+      <h2> <span class="badge bg-success">Completed</span></h2>
+      <div *ngFor="let production of productions">
+        <ng-container *ngIf="production.productionStatus === 'TERMINE'">
+          <div class="scrum-board-column" cdkDropList (cdkDropListDropped)="drop($event)">
+            <div class="scrum-task overflow green-background" cdkDrag>
+   
+              <strong>Production N°: {{ production.productionId}} </strong>
+              <p>Start: {{ production.startDate | date }}</p>
+              <p>End: {{ production.endDate | date }}</p>
+              <p>Status: {{ production.productionStatus }}</p>
+         
+              <a href="#!">
+                <i class="icon feather icon-edit f-16" style="color: black;"></i>
+            </a>
+            <a href="/admin/prod" (click)="deleteProduction(production.productionId)">
+              <i class="feather icon-trash-2 ml-3 f-16" style="color: black;"></i>
+          </a>
+          
+            <a [routerLink]="['/admin/prodDash', production.productionId]">
+              <i class="feather icon-eye ml-3 f-16" style="color: black;"></i>
+          </a>
+          
+    </div>   
+    </div>
+  </ng-container>
+</div>
+ </div>
+<!-- /////////////////////////////////////////////////////////////////////////////////// -->
+
+    <div class="scrum-board in-progress" >
+
+      <h2> <span class="badge bg-warning">In progress</span></h2>
+      <div *ngFor="let production of productions">
+        <ng-container *ngIf="production.productionStatus === 'EN_COURS'">
+      <div class="scrum-board-column" ondrop="drop(event)" >          
+        <div class="scrum-task overflow orange-background" >
+              <strong>Production N°: {{ production.productionId}} </strong>
+              <p>Start: {{ production.startDate | date }}</p>
+              <p>End: {{ production.endDate | date }}</p>
+              <p>Status: {{ production.productionStatus }}</p>
+        
+              <a href="#!">
+                <i class="icon feather icon-edit f-16" style="color: black;"></i>
+            </a>
+            <a href="/admin/prod" (click)="deleteProduction(production.productionId)">
+              <i class="feather icon-trash-2 ml-3 f-16" style="color: black;"></i>
+          </a>
+            <a [routerLink]="['/admin/prodDash', production.productionId]">
+              <i class="feather icon-eye ml-3 f-16" style="color: black;"></i>
+          </a>
+          
+            
+    </div>   
+    </div>
+  </ng-container>
+</div>
+
+    </div>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+  <div class="scrum-board breakdown" >
+    <h2> <span class="badge bg-danger">Breakdown</span></h2>
+    <div *ngFor="let production of productions">
+      <ng-container *ngIf="production.productionStatus === 'EN_PANNE'" cdkDrag>
+    <div class="scrum-board-column" ondrop="drop(event)" ondragover="dragover(event)" id="in-progress">          
+      <div class="scrum-task overflow pink-background" draggable="true" ondragstart="dragstart(event)" id="423">
+  
+            <strong>Production N°: {{ production.productionId}} </strong>
+            <p>Start: {{ production.startDate | date }}</p>
+            <p>End: {{ production.endDate | date }}</p>
+            <p>Status: {{ production.productionStatus }}</p>
+      
+            <a href="#!">
+              <i class="icon feather icon-edit f-16" style="color: black;"></i>
+          </a>
+          <a href="/admin/prod" (click)="deleteProduction(production.productionId)">
+            <i class="feather icon-trash-2 ml-3 f-16" style="color: black;"></i>
+        </a>
+          <a [routerLink]="['/admin/prodDash', production.productionId]">
+            <i class="feather icon-eye ml-3 f-16" style="color: black;"></i>
+        </a>
+        
+          
+  </div>   
+  </div>
+</ng-container>
+</div>
+
+  </div>
+<!-- /////////////////////////////////////////////////////////////////////////////////// -->
+
+<div class="scrum-board in-progress">
+  <h2> <span class="badge bg-info">Delayed</span></h2>
+  <div *ngFor="let production of productions">
+    <ng-container *ngIf="production.productionStatus === 'EN_RETARD'">
+  <div class="scrum-board-column" ondrop="drop(event)" ondragover="dragover(event)" id="in-progress">          
+    <div class="scrum-task overflow blue-background" draggable="true" ondragstart="dragstart(event)" id="423">
+
+          <strong>Production N°: {{ production.productionId}} </strong>
+          <p>Start: {{ production.startDate | date }}</p>
+          <p>End: {{ production.endDate | date }}</p>
+          <p>Status: {{ production.productionStatus }}</p>
+          <a href="#!">
+            <i class="icon feather icon-edit f-16" style="color: black;"></i>
+        </a>
+        <a href="/admin/prod" (click)="deleteProduction(production.productionId)">
+          <i class="feather icon-trash-2 ml-3 f-16" style="color: black;"></i>
+      </a>
+        <a [routerLink]="['/admin/prodDash', production.productionId]">
+          <i class="feather icon-eye ml-3 f-16" style="color: black;"></i>
+      </a>
+      
+        
+</div>   
+</div>
+</ng-container>
+</div>
+
+</div>
+<!-- /////////////////////////////////////////////////////////////////////////////////// -->
+
+  <div class="scrum-board cancel">
+    <h2> <span class="badge bg-secondary">Cancelled</span></h2>
+    <div *ngFor="let production of productions">
+      <ng-container *ngIf="production.productionStatus === 'ANNULE'">
+    <div class="scrum-board-column" ondrop="drop(event)" ondragover="dragover(event)" id="in-progress">          
+      <div class="scrum-task overflow " draggable="true" ondragstart="dragstart(event)" id="423">
+  
+            <strong>Production N°: {{ production.productionId}} </strong>
+            <p>Start: {{ production.startDate | date }}</p>
+            <p>End: {{ production.endDate | date }}</p>
+            <p>Status: {{ production.productionStatus }}</p>
+      
+      <div class="scrum-task-assignee">
+          <span class="assignee">DZ</span>
+      </div>
+  </div>   
+  </div>
+</ng-container>
+</div>
+
+  </div>
+
+</div>
+
+
+
+
+

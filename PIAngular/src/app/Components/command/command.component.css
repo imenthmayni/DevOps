@@ -1,0 +1,62 @@
+.com{
+    padding-left: 20% !important;
+}
+
+
+/*Cards*/
+.card-common{
+    box-shadow: 1px 2px 5px gray;
+   transition: all .4s; 
+}
+.card-common:hover {
+    box-shadow: 2px 3px 15px gray;
+    transform: translateY(-1px);
+}
+/*End of cards*/
+.table-color{
+    background:#DCEDC8;
+}
+.bg-progress{
+    background: #C5E1A5;
+}
+
+.page-item{
+    color: #7CB342;
+}
+.page-link{
+    color: #7CB342;
+    
+}
+.page-item.active .page-link{
+    background-color:#7CB342;
+    border-color: #7CB342;
+    box-shadow: none;
+}
+/*task list*/
+.task-border{
+    border-left: 3px solid #689F38;
+}
+
+.bg-1{
+    background-color: #DCEDC8;
+}
+.bg-2{
+background-color: #C5E1A5;
+}
+.bg-3{
+    background-color: #DCEDC8;
+}
+.bg-4{
+    background-color: #C5E1A5;
+}
+/*End of task list*/
+.bg-button{
+  background:  #7CB342;
+}
+.bd-bottom{
+    border-bottom: 6px solid #689F38;
+}
+input.form-control{
+    color: white;
+}
+/* FILTRAGE STATUT ET METHODE  */

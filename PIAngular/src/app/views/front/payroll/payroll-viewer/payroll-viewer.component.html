@@ -1,0 +1,27 @@
+<main id="main">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <!-- Header content goes here -->
+    </header><!-- End Header -->
+  
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h3>Payroll viewer</h3>
+          <button type="button" class="btn btn-outline-primary bi bi-envelope"
+            (click)="sendPayByEmail(selectedUserId || 0)" data-toggle="tooltip" data-placement="top" title="Send Email">
+            Share By Email
+          </button>
+          <div class="alert alert-success" role="alert" *ngIf="showMessage">
+            This email was sent with success—check it out!
+          </div>                          
+        </div>
+  
+        <div class="pdf-viewer">
+          <object [attr.data]="pdfDataUrl" type="application/pdf"></object>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+  

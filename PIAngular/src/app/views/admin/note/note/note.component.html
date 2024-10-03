@@ -1,0 +1,66 @@
+<p>note works!</p>
+
+
+<div class="col-xl-6 col-md-12" style="margin-top: 50px; margin-left: 300px;">
+    <div class="col-xl-12 col-md-12">
+        <div class="card" style="width: 100%; height: 800px;">
+            <div class="card-header">
+                <h5>Note Occurrences Report</h5>
+            </div>
+            <div class="card-body">
+                <div class="row pb-2">
+                    <div class="col-auto m-b-10">
+                        <h3 class="mb-1">{{ reussi }}</h3>
+                        <span>reussi</span>
+                    </div>
+                    <div class="col-auto m-b-10">
+                        <h3 class="mb-1">{{ echec }}</h3>
+                        <span>echec</span>
+                    </div>
+                </div>
+                <div id="note-occurrences-chart" style="width: 100%; height: 800px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <h2>Performances des utilisateurs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Utilisateur</th>
+          <th>Performance</th>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of performanceData">
+          <td>{{ entry.user }}</td>
+          <td>{{ entry.performance }}</td>
+          <td>{{ entry.count }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngFor="let entry of performanceData">
+    <p>User: {{ entry.user }}</p>
+    <p>Count: {{ entry.count }}</p>
+  </div>
+  <div class="container mt-5"style="margin-top: 50px; margin-left: 300px;">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Budget Variance Chart</h5>
+                    <div id="budget-variance-chart"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="marge-a-gauche">
+
+<div class="main-panel">
+<h1>Planification des meet</h1>
+    <full-calendar 
+    [options]="calendarOptions"  
+    [events]="calendarEvents"
+  ></full-calendar>
+  <div *ngIf="selectedMeetings.length > 0" class="meeting-info-bar">
+    <div *ngFor="let meeting of selectedMeetings" class="meeting-info">
+       <div class="status-circle" [style.backgroundColor]="getEventColor(meeting.statuss)"></div>&nbsp;
+       <span class="status-text">{{meeting.statuss}}</span>&nbsp;&nbsp;&nbsp;
+       <span class="status-text">Time :</span>&nbsp;<span class="status-text-">{{meeting.heure}}</span>
+       &nbsp;&nbsp;&nbsp;
+       <span class="status-text">During :</span>&nbsp;<span class="status-text-response">{{meeting.duree}}</span><span class="status-text-response">h</span>
+       &nbsp;&nbsp;&nbsp;
+       <span  *ngIf="meeting.first === 'oui'" class="status-text-response">First meeting</span>
+    </div>
+    <button class="button" (click)="toggleMeetingTable()">Gérer meet</button>
+   </div>
+   <div *ngIf="showMeetingTable" class="meeting-table-modal">
+    
+    <div class="meeting-table">
+    <table>
+       <thead>
+         <tr>       
+           <th>id</th>
+           <th>Status</th>
+           <th>Time</th>
+           <th>During</th>
+           <th>First Meeting</th>
+           <th>Action</th>
+
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let meeting of selectedMeetings">
+          <td>{{meeting.meetId}}</td>
+           <td>{{meeting.statuss}}</td>
+           <td>{{meeting.heure}}</td>
+           <td>{{meeting.duree}}h</td>
+           <td>{{meeting.first === 'oui' ? 'Yes' : 'No'}}</td>
+           <td>
+            <button class="button" *ngIf="meeting.statuss === 'PENDING'" (click)="validerMeeting(meeting.meetId)">Valider</button>
+            <button class="button" *ngIf="meeting.statuss === 'PENDING' || meeting.statuss === 'APPROVED' " (click)="annulerMeet(meeting.meetId)">Annuler</button>
+            <button class="button" *ngIf="meeting.statuss === 'PASSED' || meeting.statuss === 'PASSED' " (click)="affecter(meeting.meetId)">Affecter</button>
+
+          </td>
+         </tr>
+       </tbody>
+    </table>
+    <div *ngIf="validationSuccess" class="success-message">
+      La réunion a été validée avec succès.
+     </div>
+     <div *ngIf="annulationSuccess" class="success-message"> <!-- Utilisation de la variable correcte -->
+      La réunion a été annulée avec succès.
+     </div>
+     <div *ngIf="affectationSuccess" class="success-message"> <!-- Utilisation de la variable correcte -->
+      user a été affecté avec succès.
+     </div>
+    <br>
+    <button class="button" (click)="closeMeetingTable()">Fermer</button>
+    </div>
+   </div>
+  </div>
+ 
+  <div class="main-panel">
+    <h1>Mounthly meeting stats</h1>
+   <div style="width: 100%; height: 400px;">
+    <canvas #chart></canvas>
+  </div>
+  <br>&nbsp;
+  <!-- <button class="button" (click)="addMonth()">Ajouter un mois</button>;&nbsp;&nbsp; -->
+  <button class="button" (click)="removeMonth()">Supprimer un mois</button>
+</div>
+<div class="main-panel">
+
+<div>
+<canvas #chart2></canvas>
+</div>
+</div>
+  <div class="panel">
+    <canvas #chart3></canvas>
+  </div>
+  <div class="panel">
+    <canvas #chart4></canvas>
+  </div>
+  <div class="main-panel">
+    <div>
+      <canvas id="consultantChart" style="width: 100%; height: 200%;"></canvas>
+    </div>
+  </div>
+</div>

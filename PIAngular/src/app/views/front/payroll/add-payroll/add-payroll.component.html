@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xr7V8hPbAe6gV5FgbvVG66PTKKwIRLFqnvkgzHVLNNc7eu8YeFvzvXNPxdh7ey6MNMn4rEQDKHaBvWzY/SGZ3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="container prod py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow mb-4">
+        <div class="card-body">
+          <h1 style=" font-size: 20px; color: blue; font-weight: bold; text-align: center; margin-bottom: 30px ">Add a New Payroll</h1>
+          <!-- <h2 class="card-title text-center mb-4">Add a New Payroll</h2> -->
+          <form [formGroup]="payrollForm" (ngSubmit)="affectUser(selectedUserId!)">
+            <div class="mb-3">
+              <label for="user_name" class="form-label required">
+                <i class="fas fa-users fa-fw"></i> Eomployee Name:
+              </label>
+              <select (change)="ChangeValue($event)" class="form-control" id ="user_name" formControlName="user_name">
+                <option *ngFor="let option of dropdownOptions" [value]="option.id">{{ option.name }}</option>
+              </select>
+            </div>
+			<div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="seniority" class="form-label">
+                  <i class="fa fa-level-up"></i> Seniority:
+                </label>
+                <select formControlName="seniority" name="seniority" [(ngModel)]="payroll.seniority" class="form-control" id="seniority">
+                    <option *ngFor="let option of seniorityOptions" [value]="option">{{ option }}</option>
+                  </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="category" class="form-label">
+                  <i class="fas fa fa-list-ul fa-fw"></i> Category:
+                </label>
+                 <select formControlName="category" name="category" [(ngModel)]="payroll.category" class="form-control" id="category">
+                    <option *ngFor="let option of categoryOptions" [value]="option">{{ option }}</option>
+                 </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="year" class="form-label">
+                  <i class="fas fa-calendar fa-fw"></i> Year:
+                </label>
+                <select name="year" [(ngModel)]="payroll.year" class="form-control" id="year" formControlName="year">
+                    <option *ngFor="let option of years" [value]="option">{{ option }}</option>
+                </select>
+                <div *ngIf="payrollForm.get('year')?.hasError('required') && payrollForm.get('year')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="month" class="form-label">
+                  <i class="fas fa-calendar fa-fw"></i> Month:
+                </label>
+                <select name="month" [(ngModel)]="payroll.month" class="form-control" id="month" formControlName="month">
+                    <option *ngFor="let option of monthsList" [value]="option">{{ option }}</option>
+                </select>
+                <div *ngIf="payrollForm.get('month')?.hasError('required') && payrollForm.get('month')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+              </div>
+            </div>
+			
+			 <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="brut_salary" class="form-label">
+                  <i class="fa fa-money"></i> Brut Salary:
+                </label>
+                <input type="number" name="brut_salary" [(ngModel)]="payroll.brut_salary" class="form-control" id="brut_salary" formControlName="brut_salary" required>
+                <br>
+                <div *ngIf="payrollForm.get('brut_salary')?.hasError('required') && payrollForm.get('brut_salary')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="work_hours_number" class="form-label">
+                  <i class="fa fa-clock-o"></i> Working Days:
+                </label>
+                <input type="number" name="work_hours_number" [(ngModel)]="payroll.work_hours_number" class="form-control" id="work_hours_number" formControlName="work_hours_number" required>
+                <br>
+                <div *ngIf="payrollForm.get('work_hours_number')?.invalid && payrollForm.get('work_hours_number')?.touched"
+                class="alert alert-danger">
+              <div *ngIf="payrollForm.get('work_hours_number')?.hasError('required')">
+                    This Field is required.
+              </div>
+              <div *ngIf="payrollForm.get('work_hours_number')?.hasError('min') || payrollForm.get('work_hours_number')?.hasError('max')">
+                Value should be between 0 and 31.
+              </div>
+          </div>
+              </div>
+            </div>
+			
+			 <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="bank_name" class="form-label">
+                  <i class="fas fa-university fa-fw"></i> Bank Name:
+                </label>
+                <select name="bank_name" [(ngModel)]="payroll.bank_name" class="form-control" id="bank_name" formControlName="bank_name" required>
+                    <option *ngFor="let option of bankList" [value]="option">{{ option }}</option>
+                </select>
+                <br>
+                <div *ngIf="payrollForm.get('bank_name')?.hasError('required') && payrollForm.get('bank_name')?.touched" class="alert alert-danger">
+                    Ce champ est requis
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="account_number" class="form-label">
+                  <i class="fa fa-file-o"></i> Account Number:
+                </label>
+                <input type="number" name="account_number" [(ngModel)]="payroll.account_number" formControlName="account_number" class="form-control" id="account_number">
+                <br>
+                <div *ngIf="payrollForm.get('account_number')?.invalid && payrollForm.get('account_number')?.touched"
+                      class="alert alert-danger">
+                    <div *ngIf="payrollForm.get('account_number')?.hasError('required')">
+                          Account number is required.
+                    </div>
+                    <div *ngIf="payrollForm.get('account_number')?.hasError('pattern')">
+                          Account number must be numeric and exactly 10 digits long.
+                    </div>
+                </div>
+              </div>
+			   <div class="col-md-4 mb-3">
+                <label for="payment_method" class="form-label">
+                  <i class="fa fa-paypal"></i> Payment Method:
+                </label>
+                <select name="payment_method" [(ngModel)]="payroll.payment_method" class="form-control" id="payment_method" formControlName="payment_method" >
+                    <option *ngFor="let option of paymentOptions" [value]="option">{{ option }}</option>
+                </select>
+                <br>               
+              </div>
+            </div>
+
+            <div class="text-center">
+              <a href="/payroll" class="btn btn-secondary me-2"><i class="fas fa-arrow-left"></i> Back</a>
+              <button type="submit" class="btn btn-primary bi bi-save" [disabled]="!payrollForm.valid" > Save Payroll</button>
+              <p class="f-w-400">{{selectedUserId}}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

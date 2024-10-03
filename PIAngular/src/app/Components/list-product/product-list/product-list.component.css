@@ -1,0 +1,31 @@
+.dhouha{
+    padding-left: 20% !important;
+    padding-top: 5% !important;
+
+}
+.btn-spacing {
+    margin-right: 20px; /* Ajustez cette valeur selon vos besoins */
+}
+
+.thumbnail {
+    max-width: 100px; /* Ajustez la taille de l'image en miniature selon vos besoins */
+}
+
+.custom-search {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+  }
+  
+  .search-icon {
+    background-color: #fff;
+    border: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  .search-input {
+    border: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  

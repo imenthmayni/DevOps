@@ -1,0 +1,46 @@
+<p>updateressource works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <a routerLink="/admin/resources" class="btn btn-link" style="margin-bottom: 20px;">Retour à la liste des ressources</a>
+                    <h5 class="card-title">Mise à jour de la ressource</h5>
+                    <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                        {{ successMessage }}
+                    </div>
+                    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                        {{ errorMessage }}
+                    </div>
+                    <div *ngIf="formSubmitted && resourceForm.invalid" class="alert alert-danger" role="alert">
+                        Le formulaire est invalide. Veuillez remplir tous les champs correctement.
+                    </div>
+                    <!-- Formulaire de mise à jour de ressource -->
+                    <form (ngSubmit)="updateResource(resourceForm)" #resourceForm="ngForm">
+                        <div class="mb-3">
+                            <label for="resourceName" class="form-label">Nom de la ressource</label>
+                            <input type="text" class="form-control" id="resourceName" [(ngModel)]="updatedResource.resourceName" name="resourceName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="resourcesDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="resourcesDescription" [(ngModel)]="updatedResource.resourcesDescription" name="resourcesDescription" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="resourceType" class="form-label">Type de ressource</label>
+                            <select class="form-select" id="resourceType" [(ngModel)]="updatedResource.resourceType" name="resourceType" required>
+                                <option value="Type1">Type 1</option>
+                                <option value="Type2">Type 2</option>
+                                <!-- Ajoutez d'autres options de type de ressource si nécessaire -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="resourcesCost" class="form-label">Coût</label>
+                            <input type="number" class="form-control" id="resourcesCost" [(ngModel)]="updatedResource.resourcesCost" name="resourcesCost" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Mettre à jour la ressource</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

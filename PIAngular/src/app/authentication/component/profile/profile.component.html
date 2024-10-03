@@ -1,0 +1,40 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <h1>User Profile</h1>
+    <div class="profile-photo-container">
+      <img [src]="user.profilePhoto" class="profile-photo" alt="Profile Photo">
+    </div>
+  </div>
+  <div class="profile-info">
+    <div class="profile-field">
+      <label>First Name:</label>
+      <span>{{ user.firstName }}</span>
+    </div>
+    <div class="profile-field">
+      <label>Last Name:</label>
+      <span>{{ user.lastName }}</span>
+    </div>
+    <div class="profile-field">
+      <label>Email:</label>
+      <span>{{ user.email }}</span>
+    </div>
+    <div class="profile-field">
+      <label>Role:</label>
+      <span>{{ user.role }}</span>
+    </div>
+    <div class="completed-projects-stats">
+      <h2>Completed Projects Statistics</h2>
+      <div *ngIf="completedProjectsStats">
+        <p>Total Projects Completed: {{ completedProjectsStats.total }}</p>
+        <!-- Display other relevant statistics here -->
+      </div>
+    </div>
+  </div>
+  <div class="profile-actions">
+    <button class="btn btn-primary" (click)="navigateToUpdate()">Update Profile</button>
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
+    <button class="btn btn-secondary" (click)="goBack()">Go Back</button>
+  </div>
+  <button (click)="downloadProfilePdf()">Download Profile PDF</button>
+
+</div>

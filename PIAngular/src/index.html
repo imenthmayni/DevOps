@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pidevangular</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" href="images/favicon.svg" type="image/x-icon">
+
+    <!-- font css -->
+    <link rel="stylesheet" href="/assets/admin/css/feather.css">
+    <link rel="stylesheet" href="/assets/admin/css/material.css">
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="/assets/admin/css/style.css" id="main-style-link">
+
+<!--siwaaaaaaaaaaaaaaaaaaar-->
+    <!-- Vendor CSS Files -->
+  <link href="/assets/frontoffice/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/frontoffice/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/frontoffice/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/frontoffice/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/frontoffice/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/frontoffice/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/assets/frontoffice/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Scaffold
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <head>
+    <!-- Autres balises head -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <title>Angular Highcharts Demo</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Load Highcharts library -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <!-- Load Highcharts library-->
+   <script
+      async
+      defer
+      src="https://apis.google.com/js/api.js"
+      onload="gapiLoaded()"
+    ></script>
+    <script
+      async
+      defer
+      src="https://accounts.google.com/gsi/client"
+      onload="gisLoaded()"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./assets/scripts/googleEvent.js"
+    ></script>
+  
+  
+  
+  
+
+
+
+
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+   <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+   integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+ </script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+ </script>
+ <!-- Font Awesome -->
+ <script src="https://kit.fontawesome.com/6161add08b.js" crossorigin="anonymous"></script>
+
+  <script src="/assets/admin/js/vendor-all.min.js"></script>
+    <script src="/assets/admin/js/bootstrap.min.js"></script>
+    <script src="/assets/admin/js/feather.min.js"></script>
+    <script src="/assets/admin/js/pcoded.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+    <!-- <script src="assets/js/plugins/clipboard.min.js"></script> -->
+    <!-- <script src="assets/js/uikit.min.js"></script> -->
+
+<!-- Apex Chart -->
+<script src="/assets/admin/js/apexcharts.min.js"></script>
+
+
+<!-- custom-chart js -->
+<script src="/assets/admin/js/dashboard-sale.js"></script>
+<!--siwaaaaaaaaaaaar-->
+
+<!-- Vendor JS Files -->
+<script src="/assets/frontoffice/vendor/aos/aos.js"></script>
+<script src="/assets/frontoffice/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/frontoffice/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/frontoffice/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/frontoffice/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/frontoffice/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="/assets/frontoffice/js/main.js"></script>
+<!-- Add this script section before the closing </body> tag -->
+<script>
+  // Function to filter table rows based on leave type
+  function applyFilter(filterValue) {
+      // Get all table rows
+      const rows = document.querySelectorAll('.table tbody tr');
+      rows.forEach(row => {
+          // Get leave type from the fourth column
+          const leaveType = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+          // Check if leave type includes the filter value
+          if (leaveType.includes(filterValue.toLowerCase())) {
+              // Show row if leave type matches filter value
+              row.style.display = '';
+          } else {
+              // Hide row if leave type does not match filter value
+              row.style.display = 'none';
+          }
+      });
+  }
+</script>
+
+</body>
+</html>

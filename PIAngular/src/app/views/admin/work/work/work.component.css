@@ -1,0 +1,48 @@
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.col-xl-6 {
+    display: flex;
+    justify-content: center;
+}
+
+.card.table-card {
+    margin-top: 20px;
+    width: 100%; 
+}
+
+.table-responsive {
+    overflow-x: auto;
+    width: 100%; 
+}
+
+
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+.alert-success {
+    background-color: #d4edda; /* Couleur de fond */
+    color: #155724; /* Couleur du texte */
+    border-color: #c3e6cb; /* Couleur de la bordure */
+    padding: 1rem; /* Espace intérieur */
+    border-radius: 0.25rem; /* Bordure arrondie */
+    position: relative; /* Position relative pour le bouton de fermeture */
+  }
+  
+  /* Style pour le bouton de fermeture */
+  .alert-success .btn-close {
+    position: absolute; /* Position absolue pour aligner le bouton */
+    top: 0.5rem; /* Positionnement par rapport au haut */
+    right: 0.5rem; /* Positionnement par rapport à la droite */
+    color: #155724; /* Couleur du texte du bouton */
+    text-decoration: none; /* Suppression du soulignement */
+  }
+  

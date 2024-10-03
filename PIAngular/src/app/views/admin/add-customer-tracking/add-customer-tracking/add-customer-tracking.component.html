@@ -1,0 +1,258 @@
+<!-- 
+<div class="marge-a-gauche">
+
+    <div class="container">
+        <h2 class="mt-4 mb-4">Ajouter un customer Tracking</h2>
+        <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+            consultant ajouté avec succès!
+        </div>
+        
+        
+        <form [formGroup]="customerTrackingForm" (ngSubmit)="addCustomerTracking()" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="consultant_firstname" class="form-label">consultant_firstname</label>
+            <input type="text" id="consultant_firstname" formControlName="consultant_firstname" class="form-control" required>
+            <br>
+            <div *ngIf="customerTrackingForm.get('consultant_firstname')?.hasError('required') && customerTrackingForm.get('consultant_firstname')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+    
+          <div class="mb-3">
+            <label for="client_firstname" class="form-label">client_firstname</label>
+            <input type="text" id="client_firstname" formControlName="client_firstname" class="form-control" required>
+            <br>
+            <div *ngIf="customerTrackingForm.get('client_firstname')?.hasError('required') && customerTrackingForm.get('client_firstname')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+        </div>
+
+            <div class="mb-3">
+                <label for="client_lastname" class="form-label">client_lastname</label>
+                <input type="text" id="client_lastname" formControlName="client_lastname" class="form-control" required>
+                <br>
+                <div *ngIf="customerTrackingForm.get('client_lastname')?.hasError('required') && customerTrackingForm.get('client_lastname')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+                </div>
+    
+                <div class="mb-3">
+                    <label for="history_description" class="form-label">history_description</label>
+                    <input type="text" id="history_description" formControlName="history_description" class="form-control" required>
+                    <br>
+                    <div *ngIf="customerTrackingForm.get('history_description')?.hasError('required') && customerTrackingForm.get('history_description')?.touched" class="alert alert-danger">
+                      Ce champ est requis
+                    </div>
+                </div>
+
+                    <div class="mb-3">
+                        <label for="date_last_meet" class="form-label">date_last_meet</label>
+                        <input type="date" id="date_last_meet" formControlName="date_last_meet" class="form-control" required>
+                        <br>
+                        <div *ngIf="customerTrackingForm.get('date_last_meet')?.hasError('required') && customerTrackingForm.get('date_last_meet')?.touched" class="alert alert-danger">
+                          Ce champ est requis
+                        </div>
+                    </div>
+
+
+            <div class="mb-3">
+              <span>
+              <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;
+                <label for="date_last_meeet" class="form-label">date_last_meeet</label></span>
+                <input type="text" id="date_last_meeet" formControlName="date_last_meeet" class="form-control" required>
+                <br>
+                <div *ngIf="customerTrackingForm.get('date_last_meeet')?.hasError('required') && customerTrackingForm.get('date_last_meeet')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+                </div>
+              </div>
+    
+              <div class="mb-3">
+                <span>
+                <i class="fas fa-envelope"></i>&nbsp;&nbsp;
+                <label for="meet_duration" class="form-label">meet_duration</label></span>
+                <input type="text" id="meet_duration" formControlName="meet_duration" class="form-control" required>
+                <br>
+                <div *ngIf="customerTrackingForm.get('meet_duration')?.hasError('required') && customerTrackingForm.get('meet_duration')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+                </div>
+              </div>
+    
+              <div class="mb-3">
+                <span>
+                <i class="fas fa-envelope"></i>&nbsp;&nbsp;
+                <label for="meet_subject" class="form-label">meet_subject</label></span>
+                <input type="text" id="meet_subject" formControlName="meet_subject" class="form-control" required>
+                <br>
+                <div *ngIf="customerTrackingForm.get('meet_subject')?.hasError('required') && customerTrackingForm.get('meet_subject')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+                </div>
+              </div>
+            
+              <div class="mb-3">
+                <label for="meet_participant" class="form-label">meet_participant</label>
+                <input type="text" id="meet_participant" formControlName="meet_participant" class="form-control" required>
+                <br>
+                <div *ngIf="customerTrackingForm.get('meet_participant')?.hasError('required') && customerTrackingForm.get('meet_participant')?.touched" class="alert alert-danger">
+                  Ce champ est requis
+                </div>
+            </div>
+
+                <div class="mb-3">
+                    <label for="meet_objective" class="form-label">meet_objective</label>
+                    <input type="text" id="meet_objective" formControlName="meet_objective" class="form-control" required>
+                    <br>
+                    <div *ngIf="customerTrackingForm.get('meet_objective')?.hasError('required') && customerTrackingForm.get('meet_objective')?.touched" class="alert alert-danger">
+                      Ce champ est requis
+                    </div>
+                </div>
+
+                    <div class="mb-3">
+                        <label for="next_step" class="form-label">next_step</label>
+                        <input type="text" id="next_step" formControlName="next_step" class="form-control" required>
+                        <br>
+                        <div *ngIf="customerTrackingForm.get('next_step')?.hasError('required') && customerTrackingForm.get('next_step')?.touched" class="alert alert-danger">
+                          Ce champ est requis
+                        </div>
+                    </div>
+
+                        <div class="mb-3">
+                            <label for="nb_meeting" class="form-label">nb_meeting</label>
+                            <input type="number" id="nb_meeting" formControlName="nb_meeting" class="form-control" required>
+                            <br>
+                            <div *ngIf="customerTrackingForm.get('nb_meeting')?.hasError('required') && customerTrackingForm.get('nb_meeting')?.touched" class="alert alert-danger">
+                              Ce champ est requis
+                            </div>
+                        </div>
+
+          </div>
+         
+          <button type="submit" class="btn btn-primary" [disabled]="!customerTrackingForm.valid || isSubmitting">
+            Ajouter customerTracking
+        </button>        </form>
+      </div>
+    </div>
+    
+      
+     -->
+     <div class="marge-a-gauche">
+      <div class="container">
+        <h2 class="mt-4 mb-4">Ajouter un customer Tracking</h2>
+        <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+          Consultant ajouté avec succès!
+        </div>
+        
+        <form [formGroup]="customerTrackingForm" (ngSubmit)="addCustomerTracking()" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="consultant_firstname" class="form-label">
+              <i class="fas fa-user"></i> Prénom du consultant
+            </label>
+            <input type="text" id="consultant_firstname" formControlName="consultant_firstname" class="form-control" required>
+            <div *ngIf="customerTrackingForm.get('consultant_firstname')?.hasError('required') && customerTrackingForm.get('consultant_firstname')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+    
+          <div class="mb-3">
+            <label for="client_firstname" class="form-label">
+              <i class="fas fa-user"></i> Prénom du client
+            </label>
+            <input type="text" id="client_firstname" formControlName="client_firstname" class="form-control" required>
+            <div *ngIf="customerTrackingForm.get('client_firstname')?.hasError('required') && customerTrackingForm.get('client_firstname')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+    
+          <div class="mb-3">
+            <label for="client_lastname" class="form-label">
+              <i class="fas fa-user"></i> Nom du client
+            </label>
+            <input type="text" id="client_lastname" formControlName="client_lastname" class="form-control" required>
+            <div *ngIf="customerTrackingForm.get('client_lastname')?.hasError('required') && customerTrackingForm.get('client_lastname')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+    
+          <div class="mb-3">
+            <label for="history_description" class="form-label">
+              <i class="fas fa-info-circle"></i> Description de l'historique
+            </label>
+            <textarea id="history_description" formControlName="history_description" class="form-control" required></textarea>
+            <div *ngIf="customerTrackingForm.get('history_description')?.hasError('required') && customerTrackingForm.get('history_description')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+    
+          <div class="mb-3">
+            <label for="date_last_meet" class="form-label">
+              <i class="fas fa-calendar-alt"></i> Date de la dernière rencontre
+            </label>
+            <input type="date" id="date_last_meet" formControlName="date_last_meet" class="form-control" required>
+            <div *ngIf="customerTrackingForm.get('date_last_meet')?.hasError('required') && customerTrackingForm.get('date_last_meet')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+        
+          
+          <div class="mb-3">
+            <label for="meet_duration" class="form-label">
+              <i class="fas fa-clock"></i> Durée de la réunion (en minutes)
+            </label>
+            <input type="number" id="meet_duration" formControlName="meet_duration" class="form-control" required>
+            <div *ngIf="customerTrackingForm.get('meet_duration')?.hasError('required') && customerTrackingForm.get('meet_duration')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="meet_subject" class="form-label">
+              <i class="fas fa-sticky-note"></i> Sujet de la réunion
+            </label>
+            <input type="text" id="meet_subject" formControlName="meet_subject" class="form-control" required>
+            <div *ngIf="customerTrackingForm.get('meet_subject')?.hasError('required') && customerTrackingForm.get('meet_subject')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="meet_participant" class="form-label">
+              <i class="fas fa-users"></i> Participants à la réunion
+            </label>
+            <input type="text" id="meet_participant" formControlName="meet_participant" class="form-control" required>
+            <div *ngIf="customerTrackingForm.get('meet_participant')?.hasError('required') && customerTrackingForm.get('meet_participant')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="meet_objective" class="form-label">
+              <i class="fas fa-bullseye"></i> Objectif de la réunion
+            </label>
+            <input type="text" id="meet_objective" formControlName="meet_objective" class="form-control" required>
+            <div *ngIf="customerTrackingForm.get('meet_objective')?.hasError('required') && customerTrackingForm.get('meet_objective')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="next_step" class="form-label">
+              <i class="fas fa-arrow-right"></i> Prochaine étape
+            </label>
+            <input type="text" id="next_step" formControlName="next_step" class="form-control" required>
+            <div *ngIf="customerTrackingForm.get('next_step')?.hasError('required') && customerTrackingForm.get('next_step')?.touched" class="alert alert-danger">
+              Ce champ est requis
+            </div>
+          </div>
+          
+          
+          
+          <!-- Ajoutez les autres champs avec des icônes, des contrôles spécifiques et des validations similaires -->
+    
+          <button type="submit" class="btn btn-primary" [disabled]="!customerTrackingForm.valid || isSubmitting">
+            <span *ngIf="isSubmitting">
+              <i class="fas fa-spinner fa-spin"></i> Traitement en cours...
+            </span>
+            <span *ngIf="!isSubmitting">Ajouter Customer Tracking</span>
+          </button>
+        </form>
+      </div>
+    </div>
+    

@@ -1,0 +1,85 @@
+
+<div class="container22 ">
+  <div class="container my-5">
+    <div class="card">
+      <div class="card-header text-center">
+        <h2>Edit Product</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+  
+          <div class="row">
+            <!-- Title -->
+            <div class="col-md-6 mb-3">
+              <label for="title">Title</label>
+              <input type="text" id="title" class="form-control" formControlName="title">
+            </div>
+  
+            <!-- Price -->
+            <div class="col-md-6 mb-3">
+              <label for="price">Price</label>
+              <input type="number" id="price" class="form-control" formControlName="price">
+            </div>
+          </div>
+  
+          <!-- Description -->
+          <div class="mb-3">
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" formControlName="description" rows="3"></textarea>
+          </div>
+  
+          <div class="row">
+            <!-- TVA -->
+            <div class="col-md-6 mb-3">
+              <label for="tva">TVA (%)</label>
+              <input type="number" id="tva" class="form-control" formControlName="tva">
+            </div>
+  
+            <!-- Stock -->
+            <div class="col-md-6 mb-3">
+              <label for="stock">Stock</label>
+              <input type="number" id="stock" class="form-control" formControlName="stock">
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="reference">Reference</label>
+            <input type="text" id="reference" class="form-control" formControlName="reference">
+          </div>
+  
+          <div class="mb-3">
+            <label for="image">Image URL</label>
+            <input type="text" id="image" class="form-control" formControlName="image">
+          </div>
+  
+          <!-- Product Type -->
+          <div class="mb-3">
+            <label for="productType">Product Type</label>
+            <select id="productType" class="form-select" formControlName="productType">
+              <option *ngFor="let type of productTypes" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+  
+          <!-- Creation Date -->
+          <div class="mb-3">
+            <label for="createdAt">Creation Date</label>
+            <input type="date" id="createdAt" class="form-control" formControlName="createdAt" >
+          </div>
+  
+          <!-- Submit Button -->
+          <div class="text-center my-3">
+            <button type="submit" class="btn btn-primary me-2" [disabled]="!productForm.valid">
+              <i class="bi bi-pencil"></i> Update
+            </button>
+            <button class="btn btn-secondary" routerLink="/admin/product-list">
+              <i class="bi bi-list"></i> Back to List
+            </button>
+          </div>
+          
+          
+         
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>

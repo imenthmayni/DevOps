@@ -1,0 +1,91 @@
+<!-- [ Main Content ] start -->
+<app-front-header></app-front-header>
+ <div class="pc-container">
+<!--<div class="pcoded-content"> -->
+
+<h1 style=" font-size: 24px; color: blue; font-weight: bold; text-align: center; margin-bottom: 30px ">Payroll List</h1>   
+    <!-- [ Main Content ] start -->
+    <div class="row">
+        <div class="row">
+            <div class="form-group col-md-3">
+                <button routerLink = "/payroll/add-payroll" class="btn bi bi-database-add btn-primary">
+                    Add Payroll
+                </button>
+            </div>
+           
+            <div class="form-group col-md-6">
+                <label for="name">User</label>
+               
+                <input type="text" name="seniority_search" [(ngModel)]="filters.keyword" (input) = "loadPayroll()"  placeholder="Search items..."style="margin-top: 50px; margin-left:30px; margin-right:100px">
+                
+            </div>
+            <div class="form-group col-md-3">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#payrollModal">
+                    Payment Order
+                  </button>
+            </div>
+        </div>
+        <!-- support-section start -->
+        <!-- support-section end -->
+        <!-- customer-section start -->
+        <div class="col-xl-12 col-md-12">
+            <div class="card table-card">
+                <div class="card-header">
+                    <h5>Payrolls</h5>
+                </div>
+                <div class="pro-scroll" style="height:255px;position:relative;">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover m-b-0">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Month</th>
+                                        <th>Seniority</th>
+                                        <th>Category</th>
+                                        <th>Base Salary</th>
+                                        <th>Brut Salary</th>
+                                        <th>Net Salary</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let payroll of payrolls">
+                                        <td>{{payroll.user_name}}</td>
+                                        <td>{{payroll.month}}</td>
+                                        <td>{{payroll.seniority}}</td>
+                                        <td>{{payroll.category}}</td>
+                                        <td>{{payroll.base_salary}}</td>
+                                        <td>{{payroll.brut_salary}}</td>
+                                        <td>{{payroll.net_salary}}</td>
+                                       <td>
+                                            <button type="button" class="btn bi bi-pencil btn-warning" 
+                                                routerLink = "/payroll/edit-payroll/{{payroll.payroll_id}}" data-toggle="tooltip" data-placement="top" title="Edit">
+                                            </button>
+                                            
+                                            <button type="button" class="btn bi bi-trash btn-danger" [hidden]=" user.role == 'ROLE_HRE'" 
+                                                (click)="deletePayroll(payroll.payroll_id || 0)" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            </button>
+                                            <button type="button" class="btn bi bi-file-pdf btn-success" 
+                                                routerLink = "/payroll/view-pdf/{{payroll.payroll_id}}" target="_blank" data-toggle="tooltip" data-placement="top" title="View PDF">
+                                            </button>
+                                            <button type="button" class="btn bi bi-envelope btn-primary" 
+                                                (click)="sendPayByEmail(payroll.payroll_id || 0)" data-toggle="tooltip" data-placement="top" title="Send Email">
+                                            </button>                                                   
+                                        </td>
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- customer-section end -->
+    </div>
+    <!-- [ Main Content ] end -->
+<!-- </div>-->
+</div>
+<app-order-payment-modal></app-order-payment-modal>

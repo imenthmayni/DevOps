@@ -1,0 +1,31 @@
+
+<div *ngIf="trendData">
+    <h1>Post Title Trend Data</h1>
+    <ul>
+      <li *ngFor="let yearData of trendData | keyvalue">
+        <h2>{{ yearData.key }}</h2>
+        <ul>
+          <li *ngFor="let postTitleData of yearData.value | keyvalue">
+            {{ postTitleData.key }}: {{ postTitleData.value }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div>
+  <ngx-charts-line-chart
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="chartData"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-line-chart>
+</div>
+  <div *ngIf="!trendData">
+    <p>No data available</p>
+  </div>

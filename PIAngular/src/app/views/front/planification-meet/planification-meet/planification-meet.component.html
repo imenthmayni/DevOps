@@ -1,0 +1,56 @@
+<div class="marge-a-gauche">
+  <br><br><br>
+    <!-- Panel -->
+    <div class="main-panel">
+      &nbsp;&nbsp;&nbsp;  <h1>Reserver votre Meet</h1>
+        <!-- FullCalendar avec vos options -->
+        <full-calendar 
+          [options]="calendarOptions"
+          [events]="calendarEvents"
+          (dateClick)="handleDateClick($event)"
+        ></full-calendar>
+     
+  </div>
+  
+  <!-- Panel de planification de réunion -->
+  <div *ngIf="isPanelVisible" class="panel-overlay">
+    <div class="meeting-info-bar">
+       <div class="panel-header">
+         <div class="panel-title">Planification de réunion</div>
+         <button class="close-button" (click)="closePanel()">X</button>
+       </div>
+       <div class="panel-content">
+         <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="date">Date :</label>
+            <input type="text" class="form-control" id="date" [(ngModel)]="meeting.meettdate" name="date" disabled>
+          </div>
+          <div class="form-group">
+            <label for="heure">Heure :</label>
+            <input type="text" class="form-control" id="heure" [(ngModel)]="meeting.heure" name="heure">
+          </div>
+          <div class="form-group">
+            <label for="duree">Durée de la réunion (hh:mm) :</label>
+            <input type="number" class="form-control" id="duree" [(ngModel)]="meeting.dureeReunion" name="duree">
+          </div>
+  
+          <div class="form-group">
+            <label for="first">First :</label>
+            <div>
+              <label>
+                <input type="radio" [(ngModel)]="meeting.first" name="first" value="oui"> Oui
+              </label>
+              <label>
+                <input type="radio" [(ngModel)]="meeting.first" name="first" value="non"> Non
+              </label>
+            </div>
+          </div>
+          <button  class="button"  *ngIf="showMeetingButtons" type="submit" class="btn btn-primary">Planifier</button>
+          <div *ngIf="!showMeetingButtons">
+            <button class="button" (click)="annulerMeet(idMeet)">cancel</button>
+            <!--             <button (click)="mettreAJourReunion(idMeet, updatedMeeting)">update</button>
+ -->          </div>
+        </form>
+      </div>
+   </div>
+  </div>

@@ -1,0 +1,46 @@
+<div class="container custom-container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div *ngIf="loading; else candidateInfo" class="loader-container">
+        <div class="loader"></div>
+        <p class="loader-text">Chargement en cours...</p>
+      </div>
+      <ng-template #candidateInfo>
+        <div *ngIf="candidate" class="card">
+          <div class="card-header">
+            <h2 class="text-center">{{ candidate.firstNameCand }} {{ candidate.lastNameCand }}</h2>
+          </div>
+          <div class="card-body">
+            <div class="text-center">
+              <p>Poste: {{ candidate.postTitleC }}</p>
+            </div>
+            <div class="text-center">
+              <p>Expérience: {{ candidate.experienceCand }}</p>
+            </div>
+            <div class="text-center">
+              <p>Formation: {{ candidate.education }}</p>
+            </div>
+            <div class="text-center">
+              <p>Compétences: {{ candidate.skillsCand }}</p>
+            </div>
+            
+            <hr>
+            <div *ngIf="recruitment">
+              <h3 class="text-center">Informations sur le recrutement</h3>
+              <div class="text-center">
+                <p>Expérience requise: {{ recruitment.ExperienceRequired }}</p>
+                <p>Exigences: {{ recruitment.requirements }}</p>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <button class="btn btn-custom btn-lg" (click)="assignRecruitmentToCandidate(candidate.idCandidate)">Attribuer recrutement à candidat</button>
+              <br><br>
+              <button class="btn btn-custom btn-lg"(click)="goBack()">Retour à la liste des candidatures</button>
+
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

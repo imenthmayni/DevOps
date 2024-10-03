@@ -1,0 +1,55 @@
+.team-and-tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .team-section,
+  .tasks-section,
+  .no-tasks-section {
+    margin-bottom: 20px;
+  }
+  
+  .team-section,
+  .tasks-section {
+    width: 100%; /* Ajustez la largeur selon vos besoins */
+  }
+  .project-delayed {
+    background-color: red; /* Choisissez la couleur de fond que vous préférez */
+    color: white; /* Couleur du texte pour une meilleure lisibilité */
+  }
+  /* Bouton désactivé */
+.btn-disabled {
+  pointer-events: none; /* Désactive les événements de pointer */
+  opacity: 0.65; /* Réduit l'opacité pour indiquer le désactivé */
+}
+/* Styles pour réduire la taille de l'écriture dans le tableau */
+.table-sm td,
+.table-sm th {
+  font-size: 12px; /* Taille de police réduite */
+}
+
+/* Styles pour réduire la taille de la card */
+.card {
+  font-size: 14px; /* Taille de police réduite */
+  border-radius: 10px; /* Bords arrondis */
+}
+
+/* Styles pour réduire la marge interne de la card */
+.card-body {
+  padding: 8px; /* Marge interne réduite */
+}
+
+/* Styles pour réduire la hauteur des lignes dans le tableau */
+.table-sm td,
+.table-sm th {
+  padding: 0.5rem; /* Marge interne réduite */
+  vertical-align: middle; /* Alignement vertical au centre */
+}
+
+/* Styles pour réduire l'espace entre les cellules dans le tableau */
+.table-sm {
+  border-spacing: 0; /* Espacement entre les cellules réduit */
+}

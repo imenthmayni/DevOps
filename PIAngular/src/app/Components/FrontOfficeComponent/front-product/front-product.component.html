@@ -1,0 +1,152 @@
+
+<div class="container">
+  <div class="row text-center">
+  <!-- <a href="#" class="" data-toggle="modal" data-target="#largeModal">    <button class="fab-button fab-button-bottom" >
+        <i class="bi bi-gift-fill .fa-icon"></i>  
+      </button></a> -->
+  </div>
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Offre 1</h4>
+      </div>
+      <div class="wheel-container">
+        <svg id="wheel" width="300" height="300" viewBox="0 0 300 300">
+          <!-- Create multiple segments for the wheel -->
+          <path d="M150,150 L150,0 A150,150 0 0,1 300,150 Z" fill="#007bff"></path> <!-- Bleu Bootstrap -->
+          <path d="M150,150 L300,150 A150,150 0 0,1 150,300 Z" fill="#45a049"></path> <!-- vert -->
+          <path d="M150,150 L150,300 A150,150 0 0,1 0,150 Z" fill="#ff007b"></path> <!--  orangé-->
+          <path d="M150,150 L0,150 A150,150 0 0,1 150,0 Z" fill="#ff8400"></path> <!-- rose -->
+      
+          <text x="200" y="100" text-anchor="middle" fill="white">-5%</text> <!-- Bleu Bootstrap -->
+          <text x="200" y="200" text-anchor="middle" fill="white">-10%</text> <!-- VERT -->
+          <text x="100" y="100" text-anchor="middle" fill="white">Free shipping</text> <!-- orangé -->
+          <text x="100" y="200" text-anchor="middle" fill="white">Failed</text> <!-- rose -->
+      
+          <!-- Cercle extérieur -->
+          <!-- <circle cx="150" cy="150" r="155" stroke="black" stroke-width="5" fill="none"/> -->
+            <!-- More segments can be added -->
+            <circle cx="150" cy="150" r="20" fill="white" /> <!-- Center circle -->
+        </svg>
+        <div *ngIf="selectedSegment" class="selected-segment-info" [ngStyle]="{'background-color': selectedSegment.color}">
+          <h3>{{ selectedSegment.text }}</h3>
+         <span style="font-weight:bold">{{ selectedSegment.text2}}</span>
+          <p>{{ selectedSegment.additionalText }}</p>
+        </div>
+        
+      
+        <button (click)="spin()" class="spin-button">Spin</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">quit</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- CARDDSSSSSSSSSSSSSSS -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<div id="logo"><h1>Our Products</h1></div>
+		<div id="main-categories">
+			<ul>
+				<li class="selected">New</li>
+				<li>Best sellers</li>
+				<!-- <li>Kids</li> -->
+			</ul>
+		</div>
+		<div id="sub-categories">
+      <ul>
+        <li><a [routerLink]="['/whats-new']" class="sub-category-link">What's New</a></li>
+        <li><a [routerLink]="['/sole']" class="sub-category-link">Sole</a></li>
+        <li><a [routerLink]="['/explore']" class="sub-category-link">Explore</a></li>
+        <li><a [routerLink]="['/cart']" class="sub-category-link"><i class="bi bi-cart-fill .fa-icon"></i></a></li>
+        <li><a [routerLink]="['/wishlist']" class="sub-category-link"><i class="bi bi-heart-fill" aria-hidden="true"></i></a></li>
+        <li><a class="" data-toggle="modal" data-target="#largeModal"class="sub-category-link"> <i class="bi bi-gift-fill .fa-icon"></i></a></li>
+
+      </ul>
+    </div>
+    
+	</header>
+	<br>
+	<main>
+		<aside>
+			<ul>
+				<li>Category</li>
+				<li>Type</li>
+				<li>Pattern Type</li>
+				<li>Quantity</li>
+			</ul>
+		</aside>
+		<section id="item-catalog">
+			<header>
+        <div id="sort-order"><label for="sort-list">Sort by : </label><select id="sort-list"><option>Relevence</option>
+          </select></div> </header>
+              <div class="mb-3 input-group custom-search">
+                <span class="input-group-text search-icon"><i class="bi bi-search"></i></span>
+                <input type="text" [(ngModel)]="searchKey" placeholder="Search product by name" class="form-control rounded-pill search-input">
+              </div>           
+          <section id="items">
+   
+        <div class="row">
+          
+          <div class="col-md-4" *ngFor="let product of products">
+            <div class="card" [ngClass]="{'out-of-stock': product.stock === 0}">
+              <!-- <img class="card-img-top" [src]="product?.image" alt="Product Image" style="width: 350px; height: 200px;"> -->
+              <img [src]="product.image" alt="Product Image" class="card-img-top product-image" style="width: 252px; height: 200px;">
+        
+              <div class="card-body">
+                <h1 class="card-title">{{ product.title }}</h1>
+                <!-- <p class="card-text">{{ product.description }}</p> -->
+                <p class="card-text">Price: {{ product.price }} TDN</p>
+                <a [routerLink]="['/detail', product?.productId]" >
+              View Details
+                </a>
+                
+                <!-- You can add more details here as needed -->
+              <hr>
+              <div class="d-flex justify-content-center align-items-center gap-2 mt-3">
+                <button [disabled]="product.stock === 0" (click)="addOrUpdateProduct(cartId, product.productId, product.quantity)" class="btn btn-primary custom-button">
+                  <i class="bi bi-cart-fill .fa-icon"></i> Add
+                </button>
+<!--                 
+                <a [routerLink]="['/detail', product?.productId]" class="btn btn-secondary">
+                  <i class="bi bi-eye-fill"></i> View
+                </a> -->
+                
+                <button (click)="addToWishlist(product)" class="btn btn-secondary wishlist-button">
+                  <i class="bi bi-heart-fill" aria-hidden="true"></i> Wish
+                </button>
+              </div>
+              </div>
+        
+        
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <!-- <button class="fab-button fab-button-top" routerLink="/cart">
+              <i class="bi bi-cart-fill .fa-icon"></i>
+            </button>
+            <button class="fab-button fab-button-wishlist" routerLink="/wishlist">
+              <i class="bi bi-heart-fill"></i> 
+            </button> -->
+          </div>
+        </div>
+
+			</section>
+		</section>
+	</main>
+</body>
+</html>

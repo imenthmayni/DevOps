@@ -1,0 +1,82 @@
+
+<div class="container oo">
+    <!-- Simple div with some links -->
+  
+  
+  <div class="md-stepper-horizontal orange">
+      <div class="md-step active ">
+        <a routerLink="/cart">
+        <div class="md-step-circle"><span>1</span></div>
+        <div class="md-step-title">Cart</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a>
+      </div>
+      <div class="md-step active ">
+        <a routerLink="/checkout">
+        <div class="md-step-circle"><span>2</span></div>
+        <div class="md-step-title">Checkout</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a> </div>
+  
+      <div class="md-step active">
+        <a routerLink="/facture">
+        <div class="md-step-circle"><span>3</span></div>
+        <div class="md-step-title">Invoice</div>
+        <div class="md-step-optional">Optional</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a>
+      </div>
+  
+  
+      <div class="md-step">
+        <a routerLink="/confirmation">
+        <div class="md-step-circle"><span>4</span></div>
+        <div class="md-step-title">Confirmation</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </a>
+      </div>
+  
+  
+    </div>
+  
+    <hr>
+<div class="columns">
+	<div class="column main"><input name="form_key" type="hidden" value="PefvQbePmuX6e2ZN">
+		<div id="authenticationPopup" data-bind="scope:'authenticationPopup'">
+			<div class="success-extras">
+				<i class="far fa-check-circle"></i>
+				<p>Thanks for your order!</p>
+				<p class="success-lrg">
+          "Your order has been successfully placed. We appreciate your business and look forward to serving you again soon. Thank you for choosing our services!"				</p>
+				<hr class="divider">
+			</div>
+		</div>
+		<div class="checkout-success">
+			<p>Your order # is: <span>000166954</span>.</p>
+			<p>We'll email you an order confirmation with details and tracking info.</p>
+			<div class="actions-toolbar">
+				<div class="primary">
+					<a class="action primary continue" href="/front-product">Continue Shopping</a>
+				</div>
+			</div>
+		</div>
+		<div id="registration" data-bind="scope:'registration'">
+			<br>
+			<div data-role="checkout-messages" class="messages" data-bind="visible: isVisible(), click: removeAll"></div>
+			<div>
+				<p data-bind="i18n: 'You can track your order status by creating an account.'">You can track your order status by creating an account.</p>
+				<p><span data-bind="i18n: 'Email Address'">Email Address</span>: <span data-bind="text: getEmailAddress()">testt</span></p>
+				<form method="get" data-bind="attr: { action: getUrl() }" action="https://run4it-225.thesixbysix.co.uk/checkout/account/delegateCreate/">
+					<input type="submit" class="action primary" data-bind="value: $t('Create an Account')" value="Create an Account">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<br>
+<br>

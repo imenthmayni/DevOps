@@ -1,0 +1,104 @@
+
+<style>
+    .purple-icon {
+        color: #6922cd; /* Violet color */
+    }
+</style>
+<div class="container dhouha">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-uppercase" style="color: #6922cd;">
+            <i class="fas fa-cogs me-2" style="color: #6922cd;"></i> Add a Production
+        </h2>
+    </div>   
+    <form [formGroup]="productionForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Basic Information Card -->
+      <div class="card mb-4">
+        <div class="card-body">
+
+            <h3 class="card-title mb-4" style="color: #6922cd; font-size: 1.5rem; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #4524c8; padding-bottom: 10px;">Basic Information Details</h3>
+ 
+         <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <i class="fas fa-calendar-alt fa-fw purple-icon"></i><label for="startDate">Start Date:</label>
+                <input type="date" formControlName="startDate" id="startDate" class="form-control">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <i class="fas fa-calendar-alt fa-fw purple-icon"></i>  <label for="endDate">End Date:</label>
+                <input type="date" formControlName="endDate" id="endDate" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <i class="fas fa-stopwatch fa-fw purple-icon"></i>  <label for="productionStoppage">Production Stoppage:</label>
+                <input type="number" formControlName="productionStoppage" id="productionStoppage" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <i class="fas fa-cubes fa-fw purple-icon"></i>  <label for="totalProducts">Total Products:</label>
+                <input type="number" formControlName="totalProducts" id="totalProducts" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <i class="fas fa-bug fa-fw purple-icon"></i><label for="defectiveProducts">Defective Products:</label>
+                <input type="number" formControlName="defectiveProducts" id="defectiveProducts" class="form-control">
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Costs Card -->
+      <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="card-title mb-4" style="color: #6922cd; font-size: 1.5rem; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #4524c8; padding-bottom: 10px;">Costs</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <i class="fas fa-user-friends fa-fw purple-icon"></i><label for="laborCost">Labor Cost:</label>
+                <input type="number" formControlName="laborCost" id="laborCost" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <i class="fas fa-boxes fa-fw purple-icon"></i> <label for="rawMaterialCost">Raw Material Cost:</label>
+                <input type="number" formControlName="rawMaterialCost" id="rawMaterialCost" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <i class="fas fa-tools fa-fw purple-icon"></i><label for="machineMaintenanceCost">Machine Maintenance Cost:</label>
+                <input type="number" formControlName="machineMaintenanceCost" id="machineMaintenanceCost" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  
+      <!-- Production Status Card -->
+      <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="card-title mb-4" style="color: #6922cd; font-size: 1.5rem; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #4524c8; padding-bottom: 10px;">Production status</h3>
+          <div class="form-group">
+            <i class="fas fa-chart-line fa-fw purple-icon"></i><label for="productionStatus">Status:</label>
+            <select formControlName="productionStatus" id="productionStatus" class="form-control">
+              <option *ngFor="let status of productionStatusOptions" [value]="status">{{ status }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle fa-fw"></i> Add Production</button>
+      
+    </form>
+  </div>

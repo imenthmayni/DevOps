@@ -1,0 +1,153 @@
+<p>project works!</p>
+<div class="text-center">
+  <a routerLink="/admin/Project/addProject" class="btn btn-success">
+    <i class="bi bi-plus"></i> Ajouter un projet
+  </a>
+  <!-- Lien "Afficher les projets" stylisé -->
+  <a routerLink="/admin/afficheProject" class="btn btn-secondary">
+    <i class="bi bi-list"></i> Afficher les projets
+  </a>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <!-- Champ de recherche -->
+    <input type="text" class="form-control" placeholder="Search projects..." [(ngModel)]="searchQuery"
+      (input)="filterProjects()" style="margin-top: 50px; margin-left:300px;">
+  </div>
+</div>
+<!-- Card pour le tableau des projets -->
+<div class="card support-bar overflow-hidden mb-4" style="margin-top: 50px; margin-left:300px;">
+  <div class="card-body pb-0">
+    <p class="mb-4" style="font-size: 24px; font-weight: bold;">Les projets</p>
+    <div class="table-responsive">
+      <table class="table table-sm table-bordered mb-0">
+        <thead>
+          <tr>
+            <th class="align-middle">Project ID</th>
+            <th class="align-middle">Project Name</th>
+            <th class="align-middle">Start Date</th>
+            <th class="align-middle">End Date</th>
+            <th class="align-middle">Manager</th>
+            <th class="align-middle">Status</th>
+            <th class="align-middle">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let project of filteredProjects">
+            <td class="align-middle">{{ project.projectId }}</td>
+            <td class="align-middle">{{ project.project_name }}</td>
+            <td class="align-middle">{{ project.project_startdate }}</td>
+            <td class="align-middle">{{ project.projectEnddate }}</td>
+            <td class="align-middle">{{ project.project_manager }}</td>
+            <td class="align-middle">{{ project.projectStatus }}</td>
+            <td class="align-middle">
+              <a [routerLink]="['/admin/Project/updateProject', project.projectId]">Modifier</a>
+              <button class="btn btn-danger btn-sm" [disabled]="user.role == 'ROLE_PROJECT'"
+                (click)="deleteProject(project.projectId)">
+                <i class="bi bi-trash"></i> Supprimer
+              </button>
+              <a [routerLink]="['/admin/projects/detail', project.projectId]">Détails</a>
+              <a [routerLink]="['/admin/projects/projressource', project.projectId]">View Resources</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="delayedProjects$ | async as delayedProjects; else loadingDelayedProjects"
+  style="margin-top: 50px; margin-left:300px;">
+  <div class="card" style="width: 100%;">
+    <div class="card-header">
+      <h2 class="card-title">Projets en retard</h2>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Project ID</th>
+              <th>Project Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Manager</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let project of delayedProjects">
+              <td>{{ project.projectId }}</td>
+              <td>{{ project.project_name }}</td>
+              <td>{{ project.project_startdate }}</td>
+              <td>{{ project.projectEnddate }}</td>
+              <td>{{ project.project_manager }}</td>
+              <td>{{ project.projectStatus }}</td>
+              <td>
+                <a [routerLink]="['/admin/Project/updateProject', project.projectId]">Modifier</a>
+                <button class="btn btn-danger btn-sm" [disabled]="user.role == 'ROLE_PROJECT'"
+                  (click)="deleteProject(project.projectId)">
+                  <i class="bi bi-trash"></i> Supprimer
+                </button>
+                <a [routerLink]="['/admin/projects/detail', project.projectId]">Détails</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loadingDelayedProjects>
+  <p style="margin-top: 50px; margin-left:300px;">Chargement des projets en retard...</p>
+</ng-template>
+
+
+<div *ngIf="completedFutureProjects.length > 0" style="margin-top: 50px; margin-left:300px;">
+  <div class="card" style="width: 100%;">
+    <div class="card-header">
+      <h2 class="card-title">Projets complétés avant le temps</h2>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Project ID</th>
+              <th>Project Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Manager</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let project of completedFutureProjects">
+              <td>{{ project.projectId }}</td>
+              <td>{{ project.project_name }}</td>
+              <td>{{ project.project_startdate }}</td>
+              <td>{{ project.projectEnddate }}</td>
+              <td>{{ project.project_manager }}</td>
+              <td>{{ project.projectStatus }}</td>
+              <td>
+                <a [routerLink]="['/admin/Project/updateProject', project.projectId]">Modifier</a>
+                <button class="btn btn-danger btn-sm" [disabled]="user.role == 'ROLE_PROJECT'"
+                  (click)="deleteProject(project.projectId)">
+                  <i class="bi bi-trash"></i> Supprimer
+                </button>
+                <a [routerLink]="['/admin/projects/detail', project.projectId]">Détails</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingCompletedFutureProjects>
+  <p style="margin-top: 50px; margin-left:300px;">Chargement des projets complétés avant le temps...</p>
+</ng-template>
