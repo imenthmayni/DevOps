@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'M2_HOME'
+        maven 'M2_HOME'  
     }
     stages {
         stage('Checkout') {
@@ -11,21 +11,25 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                dir('TechOps') {
+                    sh 'mvn clean install'
+                }
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                dir('TechOps') { 
+                    sh 'mvn test'
+                }
             }
         }
     }
     post {
         success {
-            echo 'Build succeeded!'
+            echo 'Build and tests succeeded!'
         }
         failure {
-            echo 'Build failed!'
+            echo 'Build or tests failed!'
         }
     }
 }
